@@ -1,0 +1,7 @@
+﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/tests/CMakeLists.txt
+E:\Programms\VISUALSTUDIO\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(231,5): warning MSB8065: Custom build for item "E:\WORK\Petroleum\vsProj\glfw-3.3\tests\CMakeLists.txt" succeeded, but specified output "e:\work\petroleum\vsproj\glfw-3.3\build\tests\cmakefiles\generate.stamp" has not been created. This may cause incremental build to work incorrectly.
+  clipboard.c
+  getopt.c
+  glad_gl.c
+  Generating Code...
+  clipboard.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\tests\Debug\clipboard.exe

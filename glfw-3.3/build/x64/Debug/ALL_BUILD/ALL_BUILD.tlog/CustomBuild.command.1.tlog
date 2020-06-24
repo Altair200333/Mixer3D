@@ -1,0 +1,10 @@
+^E:\WORK\PETROLEUM\VSPROJ\GLFW-3.3\CMAKELISTS.TXT
+setlocal
+E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/Petroleum/vsProj/glfw-3.3 -BE:/WORK/Petroleum/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/Petroleum/vsProj/glfw-3.3/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

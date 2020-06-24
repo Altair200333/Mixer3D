@@ -1,0 +1,10 @@
+^E:\WORK\PETROLEUM\VSPROJ\GLFW-3.3\BUILD\CMAKEFILES\2F78CA857EE11EBD6496817F59C2EE78\GENERATE.STAMP.RULE
+setlocal
+E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/Petroleum/vsProj/glfw-3.3 -BE:/WORK/Petroleum/vsProj/glfw-3.3/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file E:/WORK/Petroleum/vsProj/glfw-3.3/build/GLFW.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

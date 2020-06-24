@@ -1,0 +1,6 @@
+﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/tests/CMakeLists.txt
+  inputlag.c
+  getopt.c
+  glad_gl.c
+  Generating Code...
+  inputlag.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\tests\Debug\inputlag.exe

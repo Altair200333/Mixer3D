@@ -1,0 +1,5 @@
+﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/examples/CMakeLists.txt
+  wave.c
+  glad_gl.c
+  Generating Code...
+  wave.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\examples\Debug\wave.exe

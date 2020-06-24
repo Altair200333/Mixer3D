@@ -1,0 +1,109 @@
+﻿E:\Programms\VISUALSTUDIO\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (xplane.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  main.cpp
+E:\WORK\CPP\vsProj\glfw-3.3\libbitmap\bmpWriter.h(847,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\libbitmap\bmpWriter.h(883,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\libbitmap\bmpWriter.h(887,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\libbitmap\bmpWriter.h(888,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\libbitmap\bmpWriter.h(889,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\libbitmap\bmpWriter.h(890,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\shader.h(146,41): warning C4101: 'e': unreferenced local variable
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\window.h(144,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\MeshRenderer.h(44,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(56,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(74,32): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(74,28): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(109,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(109,1): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(111,41): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(112,41): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(113,37): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(132,72): warning C4244: 'argument': conversion from 'T' to 'genType', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              genType=int
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(132,36): warning C4244: '=': conversion from 'genType' to 'T', possible loss of data
+          with
+          [
+              genType=int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(133,72): warning C4244: 'argument': conversion from 'T' to 'genType', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              genType=int
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(133,36): warning C4244: '=': conversion from 'genType' to 'T', possible loss of data
+          with
+          [
+              genType=int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(134,72): warning C4244: 'argument': conversion from 'T' to 'genType', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              genType=int
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(134,36): warning C4244: '=': conversion from 'genType' to 'T', possible loss of data
+          with
+          [
+              genType=int
+          ]
+          and
+          [
+              T=float
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(169,66): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(169,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(169,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(179,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(124,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(124,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(137,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(138,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+glfw3.lib(context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(context.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(init.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(init.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(input.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(input.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(monitor.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(monitor.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(vulkan.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(vulkan.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(window.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(window.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_init.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_init.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_joystick.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_joystick.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_monitor.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_monitor.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_time.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_time.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_thread.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_thread.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_window.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_window.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(wgl_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(wgl_context.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(egl_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(egl_context.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(osmesa_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(osmesa_context.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\glfw.pdb'; linking object as if no debug info
+  xplane.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\mixer.exe

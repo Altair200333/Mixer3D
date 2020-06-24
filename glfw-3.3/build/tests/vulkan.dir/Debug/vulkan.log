@@ -1,0 +1,5 @@
+﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/tests/CMakeLists.txt
+  vulkan.c
+  glad_vulkan.c
+  Generating Code...
+  vulkan.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\tests\Debug\vulkan.exe
