@@ -6,7 +6,7 @@
 class PointLight: public Component
 {
 public:
-	const static uint64_t componentID = 4;
+	const static uint64_t componentID = 5;
 
 	glm::vec3 color;
 	float intensity;

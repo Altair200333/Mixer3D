@@ -12,7 +12,7 @@ struct Polygon
 class Mesh : public Component
 {
 public:
-
+	const static uint64_t componentID = 2;
 	std::shared_ptr<float[]> vertices;
 	size_t vertexCount;
 

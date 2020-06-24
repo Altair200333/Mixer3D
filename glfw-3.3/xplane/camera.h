@@ -30,7 +30,8 @@ const float ASPECTR = 1.0f;
 class Camera: public Component
 {
 public:
-   
+    const static uint64_t componentID = 4;
+	
     glm::vec3 Front;
     glm::vec3 Up;
     glm::vec3 Right;

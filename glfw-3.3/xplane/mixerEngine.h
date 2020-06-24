@@ -16,7 +16,7 @@ class ObjectBuilder final
 public:
 	ObjectBuilder() { obj = new Object(); }
 	
-	ObjectBuilder& loadMesh(std::string name)
+	ObjectBuilder& addMesh(std::string name)
 	{
 		obj->addComponent<Mesh>(new Mesh(name, obj));
 		return *this;
@@ -30,6 +30,12 @@ public:
 	ObjectBuilder& addMaterial()
 	{
 		obj->addComponent<Material>(new Material(obj));
+
+		return *this;
+	}
+	ObjectBuilder& addMaterial(glm::vec3 color, float _rough)
+	{
+		obj->addComponent<Material>(new Material(obj, color, _rough));
 
 		return *this;
 	}
@@ -59,10 +65,7 @@ public:
 	
 	MixerEngine(int width, int height):scene(width, height), window(width, height, "Mixer"), viewportRenderer(&window)
 	{
-		//scene.AddObject(ObjectBuilder().loadMesh("uv.stl").addRenderer(&window).addMaterial());
-		//scene.AddObject(ObjectBuilder().loadMesh("pl.stl").addRenderer(&window).addMaterial().addTransform());
-		scene.AddObject(ObjectBuilder().loadMesh("tst.stl").addRenderer(&window).addMaterial().addTransform({1,0.2f,1}));
-		//scene.AddObject(ObjectBuilder().loadMesh("suz.stl").addRenderer(&window).addMaterial().addTransform({1,0.2f,1}));
+		
 	}
 
 	void mainLoop()
@@ -125,36 +128,38 @@ public:
 
 	}
 
-	Scene fromJson(std::string name)
+	void loadSceneFromJson(std::string name)
 	{
-		Scene settings(0,0);
 		using json = nlohmann::json;
 
 		std::ifstream i(name);
 		json j;
 		i >> j;
 
-		for (auto& [key, value] : j.items()) {
-			if (key == "width")
-				settings.width = std::stoi(value.dump());
-			else if (key == "height")
-				settings.height = std::stoi(value.dump());
-			else if (key == "maxBounces")
-				settings.maxBounces = std::stoi(value.dump());
-			else if (key == "objects")
-			{
-				for (auto& [key2, value2] : value.items())
-				{
-					for (auto& [key3, value3] : value2.items())
-					{
-						std::cout << key3 << " : " << value3 << "\n";
-					}
-					std::cout << value2.at("r")<<" red\n";
-				}
-			}
-			//std::cout << key << " : " << value << "\n";
+		
+		scene.maxBounces = j.at("maxBounces");
+		for (auto& [key, value] : j.at("objects").items())
+		{
+			auto obj = new Object();
+			glm::vec3 color = { value.at("color")[0],value.at("color")[1] ,value.at("color")[2] };
+			glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2] };
+			scene.AddObject(ObjectBuilder().addMesh(value.at("name")).addRenderer(&window).addMaterial(color, value.at("roughness")).addTransform(position));
 		}
-		return settings;
+		for (auto& [key, value] : j.at("lights").items())
+		{
+			auto obj = new Object();
+			glm::vec3 color = { value.at("color")[0],value.at("color")[1] ,value.at("color")[2] };
+			glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2]};
+			obj->addComponent(new Transform(obj, position))->addComponent(new PointLight(obj, color, value.at("intensity")));
+			scene.lights.push_back(obj);
+		}
+		for (auto& [key, value] : j.at("cameras").items())
+		{
+			auto obj = new Object();
+			glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2] };
+			obj->addComponent(new Transform(obj, position))->addComponent(new Camera(static_cast<float>(scene.width) / scene.height, obj));
+			scene.cameras.push_back(obj);
+		}
 	}
 protected:
 	// timing

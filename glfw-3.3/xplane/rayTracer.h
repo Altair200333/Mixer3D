@@ -89,7 +89,7 @@ protected:
                 glm::vec3 ray = cam->Front + cam->Right * float(i - scene.width / 2) * scale +
                     cam->Up * float(j - scene.height / 2) * scale;
             	
-                glm::vec3 c = castRay(scene.objects, ray, position,scene.lights, 1);
+                glm::vec3 c = castRay(scene.objects, ray, position,scene.lights, scene.maxBounces);
 
                 const int id = img.getPixelId(i, scene.height - j - 1, 0);
 
@@ -130,7 +130,7 @@ protected:
         }
         return diffuse;
     }
-    glm::vec2 getMapAngles(glm::vec3 ray)
+    glm::vec2 getMapAngles(glm::vec3 ray) const
     {
         float theta = atan2(ray.z, ray.x) * 180 / M_PI + 180;
         float alpha = atan2(ray.y, sqrt(ray.x * ray.x + ray.z * ray.z)) * 180 / M_PI + 90;

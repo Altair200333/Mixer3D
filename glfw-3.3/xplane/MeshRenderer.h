@@ -14,10 +14,10 @@ public:
     glm::mat4 model;
     unsigned int VBO, VAO;
 
-    const static uint64_t componentID = 1;
+    const static uint64_t componentID = 6;
 	MeshRenderer(Window* _window, Object* _owner):Component(_owner), window(_window)
 	{
-		initMesh();
+		initMeshRenderer();
 	}
     void render(Camera* camera) const
     {
@@ -41,7 +41,7 @@ public:
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, owner->getComponent<Mesh>()->vertexCount);
     }
-	void initMesh()
+	void initMeshRenderer()
 	{
 		Mesh* mesh = owner->getComponent<Mesh>();
 		model = glm::mat4(1.0f);
