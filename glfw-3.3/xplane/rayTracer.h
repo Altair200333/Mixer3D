@@ -89,7 +89,7 @@ protected:
                 glm::vec3 ray = cam->Front + cam->Right * float(i - scene.width / 2) * scale +
                     cam->Up * float(j - scene.height / 2) * scale;
             	
-                glm::vec3 c = castRay(scene.objects, ray, position, { 13, 13, 13 }, 1);
+                glm::vec3 c = castRay(scene.objects, ray, position,scene.lights, 1);
 
                 const int id = img.getPixelId(i, scene.height - j - 1, 0);
 
@@ -104,7 +104,10 @@ protected:
     {
         return I - N * (glm::dot(I, N) * 2.0f);
     }
-
+    static int clampColor(float color)
+    {
+        return glm::clamp<int>(color, 10, 255);
+    }
     glm::vec3 getDiffuse(const std::vector<Object*>& meshes, glm::vec3 lp, Hit hit)
     {
         glm::vec3 diffuse = { 10, 10, 10 };
@@ -114,9 +117,9 @@ protected:
     	
         float slope = abs(glm::dot(hit.normal, glm::normalize(hit.pos - lp)));
 
-        diffuse.r = glm::clamp<int>(hit.material->diffuseColor.r * 255 * slope, 10, 255);
-        diffuse.g = glm::clamp<int>(hit.material->diffuseColor.g * 255 * slope, 10, 255);
-        diffuse.b = glm::clamp<int>(hit.material->diffuseColor.b * 255 * slope, 10, 255);
+        diffuse.r = clampColor(hit.material->diffuseColor.r * 255 * slope);
+        diffuse.g = clampColor(hit.material->diffuseColor.g * 255 * slope);
+        diffuse.b = clampColor(hit.material->diffuseColor.b * 255 * slope);
 
         if ((int(hit.pos.x * 10) + int(hit.pos.z * 10)) % 2 == 0)
             diffuse *= 0.1f;
@@ -133,17 +136,17 @@ protected:
         float alpha = atan2(ray.y, sqrt(ray.x * ray.x + ray.z * ray.z)) * 180 / M_PI + 90;
         return { theta, alpha };
     }
-    glm::vec3 castRay(const std::vector<Object*>& objs, glm::vec3 ray, glm::vec3 src, glm::vec3 lp = { 13, 7, 13 }, int reflects = 0)
+    glm::vec3 castRay(const std::vector<Object*>& objs, glm::vec3 ray, glm::vec3 src, std::vector<Object*>& lights, int reflects = 0)
     {
         glm::vec3 diffuse = { 10, 10, 10 };
         Hit hit = getHit(objs, ray, src);
         if (hit.hit)
         {
-            diffuse = getDiffuse(objs, lp, hit);
+            diffuse = getDiffuse(objs, lights[0]->getComponent<Transform>()->position, hit);
             if (reflects > 0 && hit.material->roughness < 1)
             {
                 glm::vec3 reflection = reflect(glm::normalize(ray), hit.normal);
-                glm::vec3 reflectedColor = castRay(objs, reflection, hit.pos + hit.normal * 0.1f, lp, --reflects);
+                glm::vec3 reflectedColor = castRay(objs, reflection, hit.pos + hit.normal * 0.1f, lights, --reflects);
                 return diffuse * (hit.material->roughness) + reflectedColor * (1 - hit.material->roughness);
             }
         }

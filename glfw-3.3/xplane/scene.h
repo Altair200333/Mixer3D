@@ -22,6 +22,7 @@ public:
 		cameras.push_back(camera);
 		auto light = new Object();
 		light->addComponent(new Transform(light, { 13,13,13 }))->addComponent(new PointLight(light, { 1,1,1 }, 1));
+		lights.push_back(light);
 	}
 
 	void AddObject(Object* object)
