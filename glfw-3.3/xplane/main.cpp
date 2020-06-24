@@ -8,6 +8,7 @@ const unsigned int SCR_HEIGHT = 900;
 int main()
 {	
 	MixerEngine engine(SCR_WIDTH, SCR_HEIGHT);
+	engine.fromJson("conf.json");
 	engine.mainLoop();
 	
 	return 0;

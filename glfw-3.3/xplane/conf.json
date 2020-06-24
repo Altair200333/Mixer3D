@@ -1,0 +1,22 @@
+{
+  "width": 1300,
+  "height": 900,
+  "sampling": 1,
+  "maxBounces": 3,
+  "objects": [
+    {
+      "name": "suz.stl",
+      "r": 200,
+      "g": 200,
+      "b": 200,
+      "roughness": 0.9
+    },
+    {
+      "name": "pl1.stl",
+      "r": 200,
+      "g": 200,
+      "b": 200,
+      "roughness": 0.9
+    }
+  ]
+}

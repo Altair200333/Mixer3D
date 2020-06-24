@@ -5,6 +5,7 @@
 #include "bmpWriter.h"
 #include "SceneRenderer.h"
 #include "transform.h"
+#include "nlohmann/json.hpp"
 
 //This is supposed to be the Core of program, this is where it starts and ends
 //On start is setups window and load scene with specific parameters
@@ -124,7 +125,37 @@ public:
 
 	}
 
+	Scene fromJson(std::string name)
+	{
+		Scene settings(0,0);
+		using json = nlohmann::json;
 
+		std::ifstream i(name);
+		json j;
+		i >> j;
+
+		for (auto& [key, value] : j.items()) {
+			if (key == "width")
+				settings.width = std::stoi(value.dump());
+			else if (key == "height")
+				settings.height = std::stoi(value.dump());
+			else if (key == "maxBounces")
+				settings.maxBounces = std::stoi(value.dump());
+			else if (key == "objects")
+			{
+				for (auto& [key2, value2] : value.items())
+				{
+					for (auto& [key3, value3] : value2.items())
+					{
+						std::cout << key3 << " : " << value3 << "\n";
+					}
+					std::cout << value2.at("r")<<" red\n";
+				}
+			}
+			//std::cout << key << " : " << value << "\n";
+		}
+		return settings;
+	}
 protected:
 	// timing
 	float deltaTime = 0.0f;

@@ -10,6 +10,7 @@ class Scene
 {
 public:
 	int width, height;
+	int maxBounces;
 	std::vector<Object*> objects;
 	std::vector<Object*> lights;
 	std::vector<Object*> cameras;
