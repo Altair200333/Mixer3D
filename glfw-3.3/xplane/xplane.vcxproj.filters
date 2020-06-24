@@ -42,9 +42,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="directionalight.h">
-      <Filter>Header Files\lighting</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shader.h">
@@ -57,9 +54,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LightSource.h">
-      <Filter>Header Files\lighting</Filter>
-    </ClInclude>
-    <ClInclude Include="pointlight.h">
       <Filter>Header Files\lighting</Filter>
     </ClInclude>
     <ClInclude Include="renderEngine.h">

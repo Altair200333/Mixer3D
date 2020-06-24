@@ -1,7 +1,6 @@
 #pragma once
 
 #include "component.h"
-#include "LightSource.h"
 #include "mesh.h"
 #include "transform.h"
 #include "window.h"
@@ -20,12 +19,11 @@ public:
 	{
 		initMesh();
 	}
-    void render(Camera* camera, std::vector<LightSource>& ls) const
+    void render(Camera* camera) const
     {
         shader.use();
         shader.setVec3("viewPos", camera->owner->getComponent<Transform>()->position);
-        for (auto& l : ls)
-            l.loadToShader(shader);
+        
         // material properties
         owner->getComponent<Material>()->loadToShader(shader);
 

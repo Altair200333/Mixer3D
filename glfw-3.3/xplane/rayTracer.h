@@ -22,25 +22,7 @@ public:
     {
     }
 };
-class Color
-{
-public:
-    unsigned char r, g, b;
 
-    Color(const unsigned char r_c, const unsigned char g_c, const unsigned char b_c) : r(r_c), g(g_c), b(b_c)
-    {
-    }
-    Color() : r(20), g(20), b(20)
-    {}
-    friend Color operator+(const Color& c1, const Color& c2)
-    {
-        return { unsigned char((c1.r + c2.r) / 2),unsigned char((c1.g + c2.g) / 2),unsigned char((c1.b + c2.b) / 2) };
-    }
-    friend Color operator*(const Color& v1, const float f)
-    {
-        return { unsigned char(v1.r * f), unsigned char(v1.g * f), unsigned char(v1.b * f) };
-    }
-};
 class RayTracerEngine : public RenderEngine
 {
 public:
@@ -61,7 +43,7 @@ public:
 			img.m_buffer[i] = 10;
 		}
         BMPWriter bw;
-        Bitmap envir = bw.loadJPG("env.jpg");
+        Bitmap envir = bw.loadJPG("env3.jpg");
         env = &envir;
 		
         renderTracing(scene, img);
@@ -160,9 +142,9 @@ protected:
             diffuse = getDiffuse(objs, lp, hit);
             if (reflects > 0 && hit.material->roughness < 1)
             {
-                glm::vec3 r = reflect(glm::normalize(ray), hit.normal);
-                glm::vec3 reflected = castRay(objs, r, hit.pos + hit.normal * 0.1f, lp, --reflects);
-                return diffuse * (hit.material->roughness) + reflected * (1 - hit.material->roughness);
+                glm::vec3 reflection = reflect(glm::normalize(ray), hit.normal);
+                glm::vec3 reflectedColor = castRay(objs, reflection, hit.pos + hit.normal * 0.1f, lp, --reflects);
+                return diffuse * (hit.material->roughness) + reflectedColor * (1 - hit.material->roughness);
             }
         }
         else
@@ -185,7 +167,10 @@ protected:
 
         return rayPoint - rayVector * ratio;
     }
-
+    float dist2(glm::vec3 v1, glm::vec3 v2) const
+    {
+        return glm::length2(v1 - v2);
+    }
     Hit getHit(const std::vector<Object*>& meshes, glm::vec3 ray, glm::vec3 src) const
     {
         Hit closestHit = { {100000, 100000, 100000}, {0, 0, 1}, {}, false };
@@ -201,9 +186,10 @@ protected:
                     mesh->getVertex(i * 3)+pos);
                 if (glm::length2(hit - mesh->getVertex(i * 3)-pos) > 8)
                     continue;
+            	
                 if (Mesh::pointInPolygon(hit, mesh->getVertex(i * 3)+pos,
                     mesh->getVertex(i * 3 + 1)+pos,
-                    mesh->getVertex(i * 3 + 2)+pos) && glm::length2(closestHit.pos - src) > glm::length2(hit - src) && glm::dot(hit - src, ray) > 0)
+                    mesh->getVertex(i * 3 + 2)+pos) && dist2(closestHit.pos, src) > dist2(hit, src) && glm::dot(hit - src, ray) > 0)
                 {
                     closestHit = { hit, mesh->getNormal(i * 3), m->getComponent<Material>(), true };
                 }

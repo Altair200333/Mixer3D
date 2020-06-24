@@ -155,7 +155,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="directionalight.h" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -174,7 +173,6 @@
     <ClInclude Include="LightSource.h" />
     <ClInclude Include="material.h" />
     <ClInclude Include="mesh.h" />
-    <ClInclude Include="pointlight.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="transform.h" />

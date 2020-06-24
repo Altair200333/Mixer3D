@@ -1,8 +1,4 @@
 #pragma once
-#include <GLFW/glfw3.h>
-
-#include "camera.h"
-#include "LightSource.h"
 #include "mesh.h"
 #include "scene.h"
 #include "window.h"
@@ -21,7 +17,7 @@ public:
 
         for (auto obj : scene.objects)
         {
-            obj->getComponent<MeshRenderer>()->render(scene.getActiveCamera(), scene.lights);
+            obj->getComponent<MeshRenderer>()->render(scene.getActiveCamera());
         }
 
         glfwSwapBuffers(window->window);
