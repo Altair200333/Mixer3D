@@ -157,7 +157,7 @@ public:
 		{
 			auto obj = new Object();
 			glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2] };
-			obj->addComponent(new Transform(obj, position))->addComponent(new Camera(static_cast<float>(scene.width) / scene.height, obj));
+			obj->addComponent(new Transform(obj, position))->addComponent(new Camera(obj, static_cast<float>(scene.width) / scene.height, value.at("fov")));
 			scene.cameras.push_back(obj);
 		}
 	}

@@ -45,10 +45,10 @@ public:
     float Zoom;
     float aspectRatio;// = w/h
     // Constructor with vectors
-    Camera(float aspect, Object* _owner):Camera(_owner)
+    Camera(Object* _owner, float aspect, float _zoom = ZOOM):Camera(_owner)
     {
-        //Position = position;
         aspectRatio = aspect;
+		Zoom = _zoom;
     }
     Camera(Object* _owner, glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW,
         float pitch = PITCH, float aspect = ASPECTR)
