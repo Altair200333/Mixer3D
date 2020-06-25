@@ -65,10 +65,15 @@ public:
 				if (ImGui::MenuItem("Load"))
 				{
 					auto path = getPathDialog();
-					std::cout << path << "\n";
+					std::cout << path << "l\n";
 					scene->loadSceneFromJson(path);
 				}
-				if (ImGui::MenuItem("Import")) {}
+				if (ImGui::MenuItem("Import"))
+				{
+					auto path = getPathDialog();
+					std::cout << path << "i\n";
+					scene->AddObject(ObjectBuilder().addMesh(path).addRenderer(scene->window).addMaterial().addTransform());
+				}
 				ImGui::EndMenu();
 			}
 			
