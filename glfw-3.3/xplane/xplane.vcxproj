@@ -177,7 +177,10 @@
     <ClInclude Include="component.h" />
     <ClInclude Include="componentManager.h" />
     <ClInclude Include="cube.h" />
+    <ClInclude Include="gui.h" />
     <ClInclude Include="MeshRenderer.h" />
+    <ClInclude Include="mixerGUI.h" />
+    <ClInclude Include="objectBuilder.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SceneRenderer.h" />
     <ClInclude Include="mixerEngine.h" />

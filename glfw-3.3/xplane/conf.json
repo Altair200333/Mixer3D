@@ -1,18 +1,18 @@
 {
   "maxBounces": 3,
-  "env": "env3.jpg",
+  "env": "env/env5.jpg",
   "objects": [
     {
       "name": "pl.stl",
       "color": [1.0, 0.5, 0.31],
-      "position": [1.0, -0.7, 0],
+      "position": [1.0, -0.3, 0],
       "roughness": 0.3
     },
     {
-      "name": "suz.stl",
+      "name": "cryst.stl",
       "color": [0.9, 0.9, 0.9],
-      "position": [1.0, 0.5, 0],
-      "roughness": 0.92
+      "position": [1.0, 0, 0],
+      "roughness": 0.3
     }
   ],
   "lights": [

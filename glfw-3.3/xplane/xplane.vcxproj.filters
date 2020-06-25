@@ -40,6 +40,9 @@
     <Filter Include="Source Files\imgui">
       <UniqueIdentifier>{0e3ea640-efe5-4f15-bbf1-1f741edf5c0f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GUI">
+      <UniqueIdentifier>{a4ed6b07-23c8-477a-82d9-8a463f0fae37}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
@@ -145,6 +148,15 @@
     </ClInclude>
     <ClInclude Include="..\imgui\imstb_truetype.h">
       <Filter>Header Files\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="gui.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="mixerGUI.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="objectBuilder.h">
+      <Filter>Header Files\Object&amp;Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

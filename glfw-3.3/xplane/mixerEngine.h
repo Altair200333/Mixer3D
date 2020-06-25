@@ -6,55 +6,12 @@
 #include "SceneRenderer.h"
 #include "transform.h"
 #include "nlohmann/json.hpp"
-
+#include "mixerGUI.h"
+#include "objectBuilder.h"
 //This is supposed to be the Core of program, this is where it starts and ends
 //On start is setups window and load scene with specific parameters
 //after that user calls mainloop in which all input is handled
-class ObjectBuilder final
-{
-	Object* obj;
-public:
-	ObjectBuilder() { obj = new Object(); }
-	
-	ObjectBuilder& addMesh(std::string name)
-	{
-		obj->addComponent<Mesh>(new Mesh(name, obj));
-		return *this;
-	}
-	ObjectBuilder& addRenderer(Window* window)
-	{
-		obj->addComponent<MeshRenderer>(new MeshRenderer(window, obj));
 
-		return *this;
-	}
-	ObjectBuilder& addMaterial()
-	{
-		obj->addComponent<Material>(new Material(obj));
-
-		return *this;
-	}
-	ObjectBuilder& addMaterial(glm::vec3 color, float _rough)
-	{
-		obj->addComponent<Material>(new Material(obj, color, _rough));
-
-		return *this;
-	}
-	ObjectBuilder& addTransform()
-	{
-		addTransform({0,0,0});
-		return *this;
-	}
-	ObjectBuilder& addTransform(glm::vec3 position)
-	{
-		obj->addComponent<Transform>(new Transform(obj, position));
-
-		return *this;
-	}
-	operator Object*() const
-	{
-		return obj;
-	}
-};
 class MixerEngine
 {
 public:
@@ -62,10 +19,11 @@ public:
 
 	Scene scene;
 	SceneRenderer viewportRenderer;
-	
-	MixerEngine(int width, int height):scene(width, height), window(width, height, "Mixer"), viewportRenderer(&window)
+	MixerGUI gui;
+
+	MixerEngine(int width, int height):scene(width, height), window(width, height, "Mixer"), viewportRenderer(&window, &scene), gui(&scene)
 	{
-		
+		gui.onStart(&window);
 	}
 
 	void mainLoop()
@@ -73,7 +31,10 @@ public:
 		while (!glfwWindowShouldClose(window.window))
 		{
 			calcDeltaTime(window.getTime());
-			viewportRenderer.drawScene(scene);
+			viewportRenderer.clearBuffer();
+			viewportRenderer.drawScene();
+			gui.draw();
+			viewportRenderer.swapBuffers();
 			window.pollEvents();
 			onUpdate();
 		}
@@ -167,6 +128,7 @@ public:
 			obj->addComponent(new Transform(obj, position))->addComponent(new Camera(obj, static_cast<float>(scene.width) / scene.height, value.at("fov")));
 			scene.cameras.push_back(obj);
 		}
+
 	}
 protected:
 	// timing
