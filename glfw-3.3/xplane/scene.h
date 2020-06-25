@@ -10,11 +10,11 @@ class Scene
 {
 public:
 	int width, height;
-	int maxBounces;
+	int maxBounces = 2;
 	std::vector<Object*> objects;
 	std::vector<Object*> lights;
 	std::vector<Object*> cameras;
-	Bitmap environment;
+	Bitmap* environment = nullptr;
 	Scene(int w, int h):width(w), height(h)
 	{
 	}
@@ -30,7 +30,8 @@ public:
 	}
 	virtual ~Scene()
 	{
-		environment.clear();
+		environment->clear();
+		environment = nullptr;
 	}
 };
 

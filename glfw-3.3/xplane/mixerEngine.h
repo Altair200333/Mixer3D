@@ -102,7 +102,7 @@ public:
 			BMPWriter bmpw;
 			bmpw.save(img, "render.bmp");
 			std::cout << "finished render\n";
-			
+			img.clear();
 			
 		}
 		if (window.input.getKeyUp(KeyCode::ESC))
@@ -137,23 +137,29 @@ public:
 		i >> j;
 
 		BMPWriter bmpw;
-		scene.maxBounces = j.at("maxBounces");
-		scene.environment = bmpw.loadJPG(j.at("env"));
-		for (auto& [key, value] : j.at("objects").items())
-		{
-			auto obj = new Object();
-			glm::vec3 color = { value.at("color")[0],value.at("color")[1] ,value.at("color")[2] };
-			glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2] };
-			scene.AddObject(ObjectBuilder().addMesh(value.at("name")).addRenderer(&window).addMaterial(color, value.at("roughness")).addTransform(position));
-		}
-		for (auto& [key, value] : j.at("lights").items())
-		{
-			auto obj = new Object();
-			glm::vec3 color = { value.at("color")[0],value.at("color")[1] ,value.at("color")[2] };
-			glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2]};
-			obj->addComponent(new Transform(obj, position))->addComponent(new PointLight(obj, color, value.at("intensity")));
-			scene.lights.push_back(obj);
-		}
+		if(j.find("maxBounces") != j.end())
+			scene.maxBounces = j.at("maxBounces");
+		if (j.find("env") != j.end())
+			scene.environment = bmpw.loadJPG(j.at("env"));
+		if (j.find("objects") != j.end())
+			for (auto& [key, value] : j.at("objects").items())
+			{
+				auto obj = new Object();
+				glm::vec3 color = { value.at("color")[0],value.at("color")[1] ,value.at("color")[2] };
+				glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2] };
+				scene.AddObject(ObjectBuilder().addMesh(value.at("name")).addRenderer(&window).addMaterial(color, value.at("roughness")).addTransform(position));
+			}
+		if (j.find("lights") != j.end())
+			for (auto& [key, value] : j.at("lights").items())
+			{
+				auto obj = new Object();
+				glm::vec3 color = { value.at("color")[0],value.at("color")[1] ,value.at("color")[2] };
+				glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2]};
+				
+				obj = ObjectBuilder().addMesh("icosphere.stl").addRenderer(&window).addMaterial(color, 1);
+				obj->addComponent(new Transform(obj, position))->addComponent(new PointLight(obj, color, value.at("intensity")));
+				scene.lights.push_back(obj);
+			}
 		for (auto& [key, value] : j.at("cameras").items())
 		{
 			auto obj = new Object();

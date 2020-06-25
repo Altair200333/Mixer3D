@@ -26,7 +26,7 @@ public:
 class RayTracerEngine : public RenderEngine
 {
 public:
-    Bitmap env;
+    Bitmap* env;
 	~RayTracerEngine() = default;
 	Bitmap render(Scene& scene) override
 	{
@@ -149,10 +149,10 @@ protected:
     {
         glm::vec2 c = getMapAngles(ray);
 
-        float x = env.m_width * c.x / 360;
-        float y = env.m_height * c.y / 180;
-        int id = env.getPixelId(env.m_width - x - 1, env.m_height - 1 - y, 0);
-        return { env.m_buffer[id + 2],  env.m_buffer[id + 1], env.m_buffer[id] };
+        float x = env->m_width * c.x / 360;
+        float y = env->m_height * c.y / 180;
+        int id = env->getPixelId(env->m_width - x - 1, env->m_height - 1 - y, 0);
+        return { env->m_buffer[id + 2],  env->m_buffer[id + 1], env->m_buffer[id] };
     }
     glm::vec3 castRay(const std::vector<Object*>& objs, glm::vec3 ray, glm::vec3 src, std::vector<Object*>& lights, int reflects = 0)
     {

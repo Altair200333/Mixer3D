@@ -764,7 +764,7 @@ namespace detail
 class BMPWriter: public BitmapWriter
 {
 public:
-	Bitmap loadJPG(const std::string& path) override
+	Bitmap* loadJPG(const std::string& path) override
 	{
 		int width, height, bpp;
 		uint8_t* rgb_image = stbi_load(path.c_str(), &width, &height, &bpp, 3);
@@ -772,14 +772,14 @@ public:
 		for (int i = 0; i < width * height;i++)
 			std::swap(rgb_image[i * 3], rgb_image[i * 3 + 2]);
 		
-		Bitmap bmp;
-		bmp.m_width = width;
-		bmp.m_height = height;
-		bmp.m_buffer = rgb_image;
+		Bitmap* bmp = new Bitmap();
+		bmp->m_width = width;
+		bmp->m_height = height;
+		bmp->m_buffer = rgb_image;
 		
 		return  bmp;
 	}
-	Bitmap loadBMP(const std::string& path) override
+	Bitmap* loadBMP(const std::string& path) override
 	{
 		using namespace detail;
 
@@ -836,19 +836,20 @@ public:
 				}
 
 				uint8_t* data = buffer.release();
-				Bitmap image;
-				image.m_buffer = new uint8_t[width * height * 3];
-				image.m_width = width;
-				image.m_height = height;
+				Bitmap* image = new Bitmap();
+				image->m_buffer = new uint8_t[width * height * 3];
+				image->m_width = width;
+				image->m_height = height;
 				
 				for(size_t i=0;i<width;++i)
 					for(size_t j=0;j<height;++j)
 					{
 						size_t id = getPixelId(width, i, j ,0);
-						image.m_buffer[width * j * 3 + i * 3] = data[id];
-						image.m_buffer[width * j * 3 + i * 3+1] = data[id+1];
-						image.m_buffer[width * j * 3 + i * 3+2] = data[id+2];
+						image->m_buffer[width * j * 3 + i * 3] = data[id];
+						image->m_buffer[width * j * 3 + i * 3+1] = data[id+1];
+						image->m_buffer[width * j * 3 + i * 3+2] = data[id+2];
 					}
+				return image;
 			}
 
 		}
