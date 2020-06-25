@@ -8,8 +8,9 @@ class Object
 public:
 
 	Object() = default;
-
-
+	std::string name = "Object";
+	Object(std::string _name) :name(_name){}
+	
 	template<typename T>
 	Object* addComponent(T* comp)
 	{

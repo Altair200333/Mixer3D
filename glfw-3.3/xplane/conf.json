@@ -5,20 +5,20 @@
     {
       "name": "pl.stl",
       "color": [1.0, 0.5, 0.31],
-      "position": [1.0, -0.3, 0],
+      "position": [1.0, -0.6, 0],
       "roughness": 0.3
     },
     {
-      "name": "cryst.stl",
-      "color": [0.9, 0.9, 0.9],
-      "position": [1.0, 0, 0],
-      "roughness": 0.3
+      "name": "clock.stl",
+      "color": [0.7, 0.4, 0.5],
+      "position": [1.0, 0.3, 0],
+      "roughness": 0.7
     }
   ],
   "lights": [
     {
       "position": [13, 13, 13],
-      "color": [1.0, 0.1, 0],
+      "color": [1.0, 1, 1],
       "intensity": 2
     },
     {

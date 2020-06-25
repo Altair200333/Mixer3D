@@ -15,6 +15,7 @@ public:
 
 	ObjectBuilder& addMesh(std::string name)
 	{
+		obj->name = name;
 		obj->addComponent<Mesh>(new Mesh(name, obj));
 		return *this;
 	}

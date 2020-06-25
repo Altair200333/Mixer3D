@@ -25,8 +25,30 @@ public:
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 		
-		ImGui::Begin("OpenGL Texture Text");
-		ImGui::Text("pointer = %p", 1);
+		ImGui::Begin("Objects");
+
+		for(auto obj: scene->objects)
+		{
+			auto mat = obj->getComponent<Material>();
+			
+			if(mat!=nullptr)
+			{
+				ImGui::PushID(mat);
+				ImGui::Text("Object: %s", obj->name);
+				ImGui::ColorEdit3("color", (float*)&(mat->diffuseColor));
+				ImGui::DragFloat("roughness", (float*)&mat->roughness, 0.01, 0, 1);
+				ImGui::PopID();
+				
+			}
+			auto transform = obj->getComponent<Transform>();
+			if (transform != nullptr)
+			{
+				ImGui::PushID(transform);
+				ImGui::DragFloat3("position", (float*)&transform->position, 0.01f);
+				ImGui::PopID();
+			}
+			ImGui::NewLine();
+		}
 		ImGui::End();
 		
 		ImGui::Render();

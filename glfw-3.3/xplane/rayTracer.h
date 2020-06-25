@@ -164,7 +164,7 @@ protected:
             if (reflects > 0 && hit.material->roughness < 1)
             {
                 glm::vec3 reflection = reflect(glm::normalize(ray), hit.normal);
-                glm::vec3 reflectedColor = castRay(objs, reflection, hit.pos + hit.normal * 0.1f, lights, --reflects);
+                glm::vec3 reflectedColor = castRay(objs, reflection, hit.pos + hit.normal * 0.0001f, lights, --reflects);
                 return color * (hit.material->roughness) + reflectedColor * (1 - hit.material->roughness);
             }
         }
