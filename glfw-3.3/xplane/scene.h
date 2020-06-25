@@ -14,7 +14,7 @@ public:
 	std::vector<Object*> objects;
 	std::vector<Object*> lights;
 	std::vector<Object*> cameras;
-
+	Bitmap environment;
 	Scene(int w, int h):width(w), height(h)
 	{
 	}
@@ -27,6 +27,10 @@ public:
 	Camera* getActiveCamera()
 	{
 		return cameras[0]->getComponent<Camera>();
+	}
+	virtual ~Scene()
+	{
+		environment.clear();
 	}
 };
 

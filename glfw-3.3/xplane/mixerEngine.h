@@ -136,8 +136,9 @@ public:
 		json j;
 		i >> j;
 
-		
+		BMPWriter bmpw;
 		scene.maxBounces = j.at("maxBounces");
+		scene.environment = bmpw.loadJPG(j.at("env"));
 		for (auto& [key, value] : j.at("objects").items())
 		{
 			auto obj = new Object();

@@ -12,10 +12,6 @@ public:
 
 	Bitmap() : m_buffer(nullptr), m_width(0), m_height(0)
 	{}
-	virtual ~Bitmap()
-	{
-		clear();
-	}
 
 	uint8_t getPixelChannel(int x, int y, int channel) const;
 	size_t getPixelId(int x, int y, int channel) const;
@@ -27,8 +23,6 @@ public:
 		m_buffer = nullptr;
 	}
 
-private:
-	Bitmap & operator = (const Bitmap &) = delete;
 };
 
 #endif // ___LIB_BITMAP_H___

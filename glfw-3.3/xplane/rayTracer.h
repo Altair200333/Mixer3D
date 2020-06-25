@@ -26,7 +26,7 @@ public:
 class RayTracerEngine : public RenderEngine
 {
 public:
-    Bitmap* env;
+    Bitmap env;
 	~RayTracerEngine() = default;
 	Bitmap render(Scene& scene) override
 	{
@@ -42,9 +42,8 @@ public:
 		{
 			img.m_buffer[i] = 10;
 		}
-        BMPWriter bw;
-        Bitmap envir = bw.loadJPG("env3.jpg");
-        env = &envir;
+ 
+        env = scene.environment;
 		
         renderTracing(scene, img);
         return img;
@@ -118,22 +117,21 @@ protected:
         for (auto l : lights)
         {
             glm::vec3 diffuse;
-            glm::vec3 lp = l->getComponent<Transform>()->position;
-            glm::vec3 color2 = l->getComponent<PointLight>()->color;
+            glm::vec3 lightPosition = l->getComponent<Transform>()->position;
+            glm::vec3 lightColor = l->getComponent<PointLight>()->color;
         	
-            glm::vec3 rr = lp - hit.pos;
+            glm::vec3 dirToLight = lightPosition - hit.pos;
 
-            Hit lhits = getHit(meshes, rr, hit.pos + rr * 0.0001f);
+            Hit lhits = getHit(meshes, dirToLight, hit.pos + dirToLight * 0.0001f);
 
-            float slope = abs(glm::dot(hit.normal, glm::normalize(hit.pos - lp)));
+            if (!lhits.hit)
+            {
+                float slope = abs(glm::dot(hit.normal, glm::normalize(hit.pos - lightPosition)));
 
-            diffuse = clampColor(getLight(hit.material->diffuseColor, color2)  * 255.0f * slope);
-            
+                diffuse = clampColor(getLight(hit.material->diffuseColor, lightColor) * 255.0f * slope);
 
-            if ((int(hit.pos.x * 10) + int(hit.pos.z * 10)) % 2 == 0)
-                diffuse *= 0.1f;
-
-            if (lhits.hit)
+            }
+            else
             {
                 diffuse = diffuse * 0.1f;
             }
@@ -151,10 +149,10 @@ protected:
     {
         glm::vec2 c = getMapAngles(ray);
 
-        float x = env->m_width * c.x / 360;
-        float y = env->m_height * c.y / 180;
-        int id = env->getPixelId(env->m_width - x - 1, env->m_height - 1 - y, 0);
-        return { env->m_buffer[id + 2],  env->m_buffer[id + 1], env->m_buffer[id] };
+        float x = env.m_width * c.x / 360;
+        float y = env.m_height * c.y / 180;
+        int id = env.getPixelId(env.m_width - x - 1, env.m_height - 1 - y, 0);
+        return { env.m_buffer[id + 2],  env.m_buffer[id + 1], env.m_buffer[id] };
     }
     glm::vec3 castRay(const std::vector<Object*>& objs, glm::vec3 ray, glm::vec3 src, std::vector<Object*>& lights, int reflects = 0)
     {
