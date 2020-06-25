@@ -17,6 +17,20 @@ public:
 		ImGui_ImplGlfw_InitForOpenGL(window->window, true);
 		ImGui_ImplOpenGL3_Init((char*)glGetString(3));
 	}
+
+	void drawTransform(Object* obj)
+	{
+		auto transform = obj->getComponent<Transform>();
+		if (transform != nullptr)
+		{
+			ImGui::PushID(transform);
+			ImGui::Text("position");
+			ImGui::SameLine();
+			ImGui::DragFloat3("  ", (float*)&transform->position, 0.01f);
+			ImGui::PopID();
+		}
+	}
+
 	void draw() override
 	{
 		
@@ -25,33 +39,60 @@ public:
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 		
-		ImGui::Begin("Objects");
-
-		for(auto obj: scene->objects)
+		ImGui::Begin("Scene");
+		if (ImGui::CollapsingHeader("Objects"))
 		{
-			auto mat = obj->getComponent<Material>();
-			
-			if(mat!=nullptr)
+			ImGui::BeginGroupPanel("list");
+			for (auto obj : scene->objects)
 			{
-				ImGui::PushID(mat);
-				ImGui::Text("Object: %s", obj->name);
-				ImGui::ColorEdit3("color", (float*)&(mat->diffuseColor));
-				ImGui::DragFloat("roughness", (float*)&mat->roughness, 0.01, 0, 1);
-				ImGui::PopID();
 				
+				if (ImGui::CollapsingHeader(std::string("Object: " + obj->name).c_str()))
+				{
+					auto mat = obj->getComponent<Material>();
+					if (mat != nullptr)
+					{
+						ImGui::PushID(mat);
+						ImGui::Text("color");
+						ImGui::SameLine();
+						ImGui::ColorEdit3("  ", (float*)&(mat->diffuseColor));
+						ImGui::Text("roughness");
+						ImGui::SameLine();
+						ImGui::DragFloat("  ", (float*)&mat->roughness, 0.01, 0, 1);
+						ImGui::PopID();
+					}
+					drawTransform(obj);					
+				}
 			}
-			auto transform = obj->getComponent<Transform>();
-			if (transform != nullptr)
+			ImGui::EndGroupPanel();
+		}
+		if (ImGui::CollapsingHeader("Lights"))
+		{
+			ImGui::BeginGroupPanel("list");
+			for (auto obj : scene->lights)
 			{
-				ImGui::PushID(transform);
-				ImGui::DragFloat3("position", (float*)&transform->position, 0.01f);
-				ImGui::PopID();
+				ImGui::PushID(obj);
+				if (ImGui::CollapsingHeader("Light"))
+				{
+					ImGui::PopID();
+					drawTransform(obj);
+					auto light = obj->getComponent<PointLight>();
+					if (light != nullptr)
+					{
+						ImGui::PushID(light);
+						ImGui::Text("color");
+						ImGui::SameLine();
+						ImGui::ColorEdit3("  ", (float*)&(light->color));
+						ImGui::PopID();
+					}
+				}
 			}
-			ImGui::NewLine();
+			ImGui::EndGroupPanel();
 		}
 		ImGui::End();
 		
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}
+protected:
+	
 };

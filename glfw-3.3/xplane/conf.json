@@ -20,11 +20,6 @@
       "position": [13, 13, 13],
       "color": [1.0, 1, 1],
       "intensity": 2
-    },
-    {
-      "position": [-13, 13, -13],
-      "color": [0, 0.1, 1],
-      "intensity": 2
     }
   ],
   "cameras": [

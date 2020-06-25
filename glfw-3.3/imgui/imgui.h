@@ -237,6 +237,9 @@ struct ImVec4
 
 namespace ImGui
 {
+
+    void BeginGroupPanel(const char* name, const ImVec2& size = ImVec2(-1.0f, -1.0f));
+    void EndGroupPanel();
     // Context creation and access
     // Each context create its own ImFontAtlas by default. You may instance one yourself and pass it to CreateContext() to share a font atlas between imgui contexts.
     // None of those functions is reliant on the current context.
