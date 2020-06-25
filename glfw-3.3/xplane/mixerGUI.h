@@ -1,13 +1,19 @@
 #pragma once
+
+#include <windows.h>
+#include <shobjidl.h> 
+
 #include "gui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
+#include "LightSource.h"
 
 class MixerGUI: public GUI
 {
 	Scene* scene;
+
 public:
-	MixerGUI(Scene* _scene):scene(_scene){}
+	MixerGUI(Scene* _scene ):scene(_scene){}
 	void onStart(Window* window) override
 	{
 		IMGUI_CHECKVERSION();
@@ -18,7 +24,7 @@ public:
 		ImGui_ImplOpenGL3_Init((char*)glGetString(3));
 	}
 
-	void drawTransform(Object* obj)
+	void findAndDrawTransform(Object* obj)
 	{
 		auto transform = obj->getComponent<Transform>();
 		if (transform != nullptr)
@@ -31,6 +37,13 @@ public:
 		}
 	}
 
+	void drawColor(void* color)
+	{
+		ImGui::Text("color");
+		ImGui::SameLine();
+		ImGui::ColorEdit3("  ", (float*)(color));
+	}
+	
 	void draw() override
 	{
 		
@@ -39,7 +52,30 @@ public:
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 		
-		ImGui::Begin("Scene");
+		ImGui::Begin("Scene", nullptr, ImGuiWindowFlags_MenuBar);
+		
+		if (ImGui::BeginMenuBar())
+		{
+			if (ImGui::BeginMenu("File"))
+			{
+				if(ImGui::MenuItem("Save"))
+				{
+					
+				}
+				if (ImGui::MenuItem("Load"))
+				{
+					auto path = getPathDialog();
+					std::cout << path << "\n";
+					scene->loadSceneFromJson(path);
+				}
+				if (ImGui::MenuItem("Import")) {}
+				ImGui::EndMenu();
+			}
+			
+			
+			ImGui::EndMenuBar();
+		}
+		
 		if (ImGui::CollapsingHeader("Objects"))
 		{
 			ImGui::BeginGroupPanel("list");
@@ -52,15 +88,13 @@ public:
 					if (mat != nullptr)
 					{
 						ImGui::PushID(mat);
-						ImGui::Text("color");
-						ImGui::SameLine();
-						ImGui::ColorEdit3("  ", (float*)&(mat->diffuseColor));
+						drawColor(&(mat->diffuseColor));
 						ImGui::Text("roughness");
 						ImGui::SameLine();
 						ImGui::DragFloat("  ", (float*)&mat->roughness, 0.01, 0, 1);
 						ImGui::PopID();
 					}
-					drawTransform(obj);					
+					findAndDrawTransform(obj);					
 				}
 			}
 			ImGui::EndGroupPanel();
@@ -74,14 +108,12 @@ public:
 				if (ImGui::CollapsingHeader("Light"))
 				{
 					ImGui::PopID();
-					drawTransform(obj);
+					findAndDrawTransform(obj);
 					auto light = obj->getComponent<PointLight>();
 					if (light != nullptr)
 					{
 						ImGui::PushID(light);
-						ImGui::Text("color");
-						ImGui::SameLine();
-						ImGui::ColorEdit3("  ", (float*)&(light->color));
+						drawColor(&light->color);
 						ImGui::PopID();
 					}
 				}
@@ -93,6 +125,51 @@ public:
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}
-protected:
 	
+protected:
+	void (*loadCallback)(std::string);
+	std::string getPathDialog()
+	{
+		HRESULT hr = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED |
+			COINIT_DISABLE_OLE1DDE);
+		if (SUCCEEDED(hr))
+		{
+			IFileOpenDialog* pFileOpen;
+
+			// Create the FileOpenDialog object.
+			hr = CoCreateInstance(CLSID_FileOpenDialog, NULL, CLSCTX_ALL,
+				IID_IFileOpenDialog, reinterpret_cast<void**>(&pFileOpen));
+
+			if (SUCCEEDED(hr))
+			{
+				// Show the Open dialog box.
+				hr = pFileOpen->Show(NULL);
+
+				// Get the file name from the dialog box.
+				if (SUCCEEDED(hr))
+				{
+					IShellItem* pItem;
+					hr = pFileOpen->GetResult(&pItem);
+					if (SUCCEEDED(hr))
+					{
+						PWSTR pszFilePath;
+						hr = pItem->GetDisplayName(SIGDN_FILESYSPATH, &pszFilePath);
+
+						// Display the file name to the user.
+						if (SUCCEEDED(hr))
+						{
+							std::wstring ws(pszFilePath);
+							std::string str(ws.begin(), ws.end());
+							CoTaskMemFree(pszFilePath);
+							return  str;
+						}
+						pItem->Release();
+					}
+				}
+				pFileOpen->Release();
+			}
+			CoUninitialize();
+		}
+		return "";
+	}
 };

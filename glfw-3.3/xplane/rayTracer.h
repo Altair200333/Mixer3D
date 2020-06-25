@@ -5,6 +5,7 @@
 
 
 #include "bmpWriter.h"
+#include "LightSource.h"
 #include "MeshRenderer.h"
 #include "renderEngine.h"
 

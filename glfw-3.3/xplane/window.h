@@ -1,9 +1,7 @@
 #pragma once
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-
-#include "scene.h"
-
+#include <iostream>
 
 #include <map>
 #include <vector>

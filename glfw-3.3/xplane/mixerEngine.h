@@ -1,7 +1,6 @@
 #pragma once
 #include "rayTracer.h"
 #include "scene.h"
-#include "window.h"
 #include "bmpWriter.h"
 #include "SceneRenderer.h"
 #include "transform.h"
@@ -21,7 +20,7 @@ public:
 	SceneRenderer viewportRenderer;
 	MixerGUI gui;
 
-	MixerEngine(int width, int height):scene(width, height), window(width, height, "Mixer"), viewportRenderer(&window, &scene), gui(&scene)
+	MixerEngine(int width, int height):scene(width, height, &window), window(width, height, "Mixer"), viewportRenderer(&window, &scene), gui(&scene)
 	{
 		gui.onStart(&window);
 	}
@@ -89,46 +88,7 @@ public:
 
 	}
 
-	void loadSceneFromJson(std::string name)
-	{
-		using json = nlohmann::json;
-
-		std::ifstream i(name);
-		json j;
-		i >> j;
-
-		BMPWriter bmpw;
-		if(j.find("maxBounces") != j.end())
-			scene.maxBounces = j.at("maxBounces");
-		if (j.find("env") != j.end())
-			scene.environment = bmpw.loadJPG(j.at("env"));
-		if (j.find("objects") != j.end())
-			for (auto& [key, value] : j.at("objects").items())
-			{
-				glm::vec3 color = { value.at("color")[0],value.at("color")[1] ,value.at("color")[2] };
-				glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2] };
-				scene.AddObject(ObjectBuilder().addMesh(value.at("name")).addRenderer(&window).addMaterial(color, value.at("roughness")).addTransform(position));
-			}
-		if (j.find("lights") != j.end())
-			for (auto& [key, value] : j.at("lights").items())
-			{
-				auto obj = new Object();
-				glm::vec3 color = { value.at("color")[0],value.at("color")[1] ,value.at("color")[2] };
-				glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2]};
-				
-				obj = ObjectBuilder().addMesh("icosphere.stl").addRenderer(&window).addMaterial(color, 1);
-				obj->addComponent(new Transform(obj, position))->addComponent(new PointLight(obj, color, value.at("intensity")));
-				scene.lights.push_back(obj);
-			}
-		for (auto& [key, value] : j.at("cameras").items())
-		{
-			auto obj = new Object();
-			glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2] };
-			obj->addComponent(new Transform(obj, position))->addComponent(new Camera(obj, static_cast<float>(scene.width) / scene.height, value.at("fov")));
-			scene.cameras.push_back(obj);
-		}
-
-	}
+	
 protected:
 	// timing
 	float deltaTime = 0.0f;

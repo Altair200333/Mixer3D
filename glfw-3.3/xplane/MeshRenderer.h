@@ -1,10 +1,14 @@
 #pragma once
 
+#include <glm/glm/glm.hpp>
+
 #include "component.h"
+#include "material.h"
 #include "mesh.h"
+#include "shader.h"
 #include "transform.h"
 #include "window.h"
-
+#include "camera.h"
 class MeshRenderer : public Component
 {
 	const Window* window;
