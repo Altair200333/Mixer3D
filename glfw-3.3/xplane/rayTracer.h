@@ -104,31 +104,42 @@ protected:
     {
         return I - N * (glm::dot(I, N) * 2.0f);
     }
-    static int clampColor(float color)
+    static glm::vec3 clampColor(glm::vec3 color)
     {
-        return glm::clamp<int>(color, 10, 255);
+        return { glm::clamp<int>(color.x, 10, 255),glm::clamp<int>(color.y, 10, 255),glm::clamp<int>(color.z, 10, 255) };
     }
-    glm::vec3 getDiffuse(const std::vector<Object*>& meshes, glm::vec3 lp, Hit hit)
+	glm::vec3 getLight(glm::vec3 color, glm::vec3 light)
     {
-        glm::vec3 diffuse = { 10, 10, 10 };
-        glm::vec3 rr = lp - hit.pos;
-
-        Hit lhits = getHit(meshes, rr, hit.pos + rr * 0.0001f);
-    	
-        float slope = abs(glm::dot(hit.normal, glm::normalize(hit.pos - lp)));
-
-        diffuse.r = clampColor(hit.material->diffuseColor.r * 255 * slope);
-        diffuse.g = clampColor(hit.material->diffuseColor.g * 255 * slope);
-        diffuse.b = clampColor(hit.material->diffuseColor.b * 255 * slope);
-
-        if ((int(hit.pos.x * 10) + int(hit.pos.z * 10)) % 2 == 0)
-            diffuse *= 0.1f;
-    	
-        if(lhits.hit)
+        return { color.x * light.x, color.y * light.y ,color.z * light.z };
+    }
+    glm::vec3 getDiffuse(const std::vector<Object*>& meshes, std::vector<Object*>& lights, Hit hit)
+    {
+        glm::vec3 color = { 0, 0, 0 };
+        for (auto l : lights)
         {
-            diffuse = diffuse*0.1f;
+            glm::vec3 diffuse;
+            glm::vec3 lp = l->getComponent<Transform>()->position;
+            glm::vec3 color2 = l->getComponent<PointLight>()->color;
+        	
+            glm::vec3 rr = lp - hit.pos;
+
+            Hit lhits = getHit(meshes, rr, hit.pos + rr * 0.0001f);
+
+            float slope = abs(glm::dot(hit.normal, glm::normalize(hit.pos - lp)));
+
+            diffuse = clampColor(getLight(hit.material->diffuseColor, color2)  * 255.0f * slope);
+            
+
+            if ((int(hit.pos.x * 10) + int(hit.pos.z * 10)) % 2 == 0)
+                diffuse *= 0.1f;
+
+            if (lhits.hit)
+            {
+                diffuse = diffuse * 0.1f;
+            }
+            color += diffuse;
         }
-        return diffuse;
+        return color;
     }
     glm::vec2 getMapAngles(glm::vec3 ray) const
     {
@@ -136,30 +147,34 @@ protected:
         float alpha = atan2(ray.y, sqrt(ray.x * ray.x + ray.z * ray.z)) * 180 / M_PI + 90;
         return { theta, alpha };
     }
+	glm::vec3 getBackgroundColor(glm::vec3 ray)
+    {
+        glm::vec2 c = getMapAngles(ray);
+
+        float x = env->m_width * c.x / 360;
+        float y = env->m_height * c.y / 180;
+        int id = env->getPixelId(env->m_width - x - 1, env->m_height - 1 - y, 0);
+        return { env->m_buffer[id + 2],  env->m_buffer[id + 1], env->m_buffer[id] };
+    }
     glm::vec3 castRay(const std::vector<Object*>& objs, glm::vec3 ray, glm::vec3 src, std::vector<Object*>& lights, int reflects = 0)
     {
-        glm::vec3 diffuse = { 10, 10, 10 };
+        glm::vec3 color = { 10, 10, 10 };
         Hit hit = getHit(objs, ray, src);
         if (hit.hit)
         {
-            diffuse = getDiffuse(objs, lights[0]->getComponent<Transform>()->position, hit);
+            color = getDiffuse(objs, lights, hit);
             if (reflects > 0 && hit.material->roughness < 1)
             {
                 glm::vec3 reflection = reflect(glm::normalize(ray), hit.normal);
                 glm::vec3 reflectedColor = castRay(objs, reflection, hit.pos + hit.normal * 0.1f, lights, --reflects);
-                return diffuse * (hit.material->roughness) + reflectedColor * (1 - hit.material->roughness);
+                return color * (hit.material->roughness) + reflectedColor * (1 - hit.material->roughness);
             }
         }
         else
         {
-            glm::vec2 c = getMapAngles(ray);
-            
-            float x = env->m_width * c.x / 360;
-            float y = env->m_height * c.y / 180;
-            int id = env->getPixelId(env->m_width- x-1, env->m_height-1- y, 0);
-            diffuse = { env->m_buffer[id+2],  env->m_buffer[id+1], env->m_buffer[id]};
+            color = getBackgroundColor(ray);
         }
-        return diffuse;
+        return color;
     }
     glm::vec3 intersectPoint(glm::vec3 rayVector, glm::vec3 rayPoint, glm::vec3 planeNormal, glm::vec3 planePoint) const
     {
