@@ -43,7 +43,7 @@ public:
 	{	
 		if (window.input.getKeyUp(KeyCode::Z))
 		{
-			std::cout << "Z\n";
+			Logger::log("Toggle wireframe mode");
 
 			GLint polygonMode;
 			glGetIntegerv(GL_POLYGON_MODE, &polygonMode);
@@ -56,12 +56,11 @@ public:
 		if (window.input.getKeyUp(KeyCode::R))
 		{
 			
-			std::cout << "render\n";
 			RayTracerEngine rt;
 			Bitmap img = rt.render(scene, window.width, window.height);
 			BMPWriter bmpw;
 			bmpw.save(img, "render.bmp");
-			std::cout << "finished render\n";
+			Logger::log("Render finished");
 			img.clear();
 			
 		}

@@ -2,6 +2,7 @@
 #include <list>
 #include <string>
 
+#define LoggerCapacity 20
 class Logger final
 {
 public:
@@ -9,7 +10,7 @@ public:
 
 	static void log(std::string message)
 	{
-		if(logs.size()>10)
+		if(logs.size()> LoggerCapacity)
 		{
 			logs.erase(logs.begin());
 		}

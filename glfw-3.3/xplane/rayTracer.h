@@ -59,7 +59,8 @@ protected:
         const float scale = closeH / height;
 
         const auto processor_count = std::thread::hardware_concurrency();
-        std::cout << processor_count << "\n";
+
+        Logger::log("Render started with " + std::to_string(processor_count)+" threads");
     	
         std::vector<std::thread> threads;
         const int divisions = processor_count;
