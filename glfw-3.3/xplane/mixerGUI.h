@@ -129,10 +129,9 @@ public:
 			ImGui::PushID(obj);
 			if (ImGui::Button("Delete"))
 			{
-				auto it = std::find(scene->objects.begin(), scene->objects.end(), obj);
-				scene->objects.erase(it);
-				std::cout << "ss\n";
+				scene->deleteObject(obj);
 				ImGui::PopID();
+				Logger::log("Delete object");
 			}
 			
 			ImGui::PopID();

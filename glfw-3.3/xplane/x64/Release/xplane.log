@@ -66,8 +66,8 @@ E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(164,51): warning C4244: 'argument
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(164,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(198,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(102,1): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(148,1): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(179,1): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(147,1): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(178,1): warning C4305: 'argument': truncation from 'double' to 'float'
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(85,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(85,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(101,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
@@ -116,9 +116,9 @@ E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\chrono(178): message
 E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\chrono(610): message : see reference to class template instantiation 'std::chrono::time_point<std::chrono::steady_clock,std::chrono::nanoseconds>' being compiled
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  2 of 3573 functions (<0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    36 functions had inline decision re-evaluated but remain unchanged
+  37 of 3574 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    48 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 glfw3.lib(context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(context.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Release\glfw.pdb'; linking object as if no debug info
 glfw3.lib(init.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(init.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Release\glfw.pdb'; linking object as if no debug info

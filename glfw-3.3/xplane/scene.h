@@ -48,7 +48,12 @@ public:
 		else
 			Logger::log("Failed to insert null object");
 	}
-
+	void deleteObject(Object* obj)
+	{
+		auto it = std::find(objects.begin(), objects.end(), obj);
+		delete obj;
+		objects.erase(it);
+	}
 	Camera* getActiveCamera()
 	{
 		return cameras[0]->getComponent<Camera>();
