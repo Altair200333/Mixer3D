@@ -60,7 +60,7 @@ public:
 			{
 				if(ImGui::MenuItem("Save"))
 				{
-					
+					scene->saveScene();
 				}
 				if (ImGui::MenuItem("Load"))
 				{

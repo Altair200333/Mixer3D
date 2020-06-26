@@ -7,42 +7,30 @@ E:\WORK\CPP\vsProj\glfw-3.3\libbitmap\bmpWriter.h(889,1): warning C4267: 'argume
 E:\WORK\CPP\vsProj\glfw-3.3\libbitmap\bmpWriter.h(890,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\libbitmap\bmpWriter.h(891,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\shader.h(146,41): warning C4101: 'e': unreferenced local variable
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\window.h(108,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\window.h(138,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\MeshRenderer.h(46,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(39,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(56,32): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(56,28): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(67,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(68,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(72,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(94,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(94,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(94,1): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(96,41): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(41,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(58,32): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(58,28): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(96,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(96,1): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(98,41): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
           with
           [
               T=float
           ]
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(97,41): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(99,41): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
           with
           [
               T=float
           ]
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(98,37): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(100,37): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
           with
           [
               T=float
           ]
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(109,39): warning C4244: 'argument': conversion from 'T' to 'genType', possible loss of data
-          with
-          [
-              T=float
-          ]
-          and
-          [
-              genType=int
-          ]
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(109,73): warning C4244: 'argument': conversion from 'T' to 'genType', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(111,39): warning C4244: 'argument': conversion from 'T' to 'genType', possible loss of data
           with
           [
               T=float
@@ -51,7 +39,7 @@ E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(109,73): warning C4244: 'argument
           [
               genType=int
           ]
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(109,107): warning C4244: 'argument': conversion from 'T' to 'genType', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(111,73): warning C4244: 'argument': conversion from 'T' to 'genType', possible loss of data
           with
           [
               T=float
@@ -60,12 +48,21 @@ E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(109,107): warning C4244: 'argumen
           [
               genType=int
           ]
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(145,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(146,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(155,74): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(155,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(155,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(183,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(111,107): warning C4244: 'argument': conversion from 'T' to 'genType', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              genType=int
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(147,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(148,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(157,74): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(157,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(157,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(185,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
 E:\WORK\CPP\vsProj\Include\glad\glad.h(32): message : see previous definition of 'APIENTRY'
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(99,1): warning C4305: 'argument': truncation from 'double' to 'float'
@@ -117,9 +114,9 @@ E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\chrono(178): message
 E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\chrono(610): message : see reference to class template instantiation 'std::chrono::time_point<std::chrono::steady_clock,std::chrono::nanoseconds>' being compiled
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  81 of 3268 functions ( 2.5%) were compiled, the rest were copied from previous compilation.
-    30 functions were new in current compilation
-    98 functions had inline decision re-evaluated but remain unchanged
+  38 of 3485 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
+    28 functions were new in current compilation
+    35 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 glfw3.lib(context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(context.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Release\glfw.pdb'; linking object as if no debug info
 glfw3.lib(init.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(init.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Release\glfw.pdb'; linking object as if no debug info

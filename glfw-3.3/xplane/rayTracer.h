@@ -26,6 +26,7 @@ public:
 
 class RayTracerEngine : public RenderEngine
 {
+    int width, height;
 public:
     Bitmap* env;
 	~RayTracerEngine() = default;
@@ -33,7 +34,8 @@ public:
 	{
        
 		Bitmap img;
-		
+        this->width = width;
+        this->height = height;
 		img.m_width = width;
 		img.m_height = height;
 		int l = img.m_width * img.m_height * 3;
@@ -54,7 +56,7 @@ protected:
     void renderTracing(Scene& scene, Bitmap& img)
     {
         const float closeH = 2 * tan(scene.getActiveCamera()->Zoom / 2 * M_PI / 180);
-        const float scale = closeH / img.m_height;
+        const float scale = closeH / height;
 
         const auto processor_count = std::thread::hardware_concurrency();
         std::cout << processor_count << "\n";
@@ -64,12 +66,12 @@ protected:
     	
         for (int i = 0; i < divisions; ++i) {
 	       
-           int endX = img.m_width / divisions * (i + 1);
-           int startX = img.m_width / divisions * i;
+           int endX = width / divisions * (i + 1);
+           int startX = width / divisions * i;
            
            threads.emplace_back([=, &scene, &img] {renderRegion(scene, img, scale, startX,
                 endX,
-                0, img.m_height); });
+                0, height); });
         }
     	
         for (auto& t : threads) {
@@ -86,12 +88,12 @@ protected:
             for (int j = startY; j < endY; j += 1)
             {
                 Camera* cam = scene.getActiveCamera();
-                glm::vec3 ray = cam->Front + cam->Right * float(i - img.m_width / 2) * scale +
-                    cam->Up * float(j - img.m_height / 2) * scale;
+                glm::vec3 ray = cam->Front + cam->Right * float(i - width / 2) * scale +
+                    cam->Up * float(j - height / 2) * scale;
             	
                 glm::vec3 c = castRay(scene.objects, ray, position,scene.lights, scene.maxBounces);
 
-                const int id = img.getPixelId(i, img.m_height - j - 1, 0);
+                const int id = img.getPixelId(i, height - j - 1, 0);
 
                 img.m_buffer[id + 2] = c.r;
                 img.m_buffer[id + 1] = c.g;
