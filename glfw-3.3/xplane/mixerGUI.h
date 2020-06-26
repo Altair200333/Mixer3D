@@ -66,21 +66,27 @@ public:
 				{
 					auto path = getPathDialog();
 					std::cout << path << "l\n";
-					scene->clear();
-					scene->sceneName = path;
-					using json = nlohmann::json;
+					if (!path.empty() && path.find(".mxr") != path.npos)
+					{
+						scene->clear();
+						scene->sceneName = path;
+						using json = nlohmann::json;
 
-					std::ifstream i(path);
-					json j;
-					i >> j;
+						std::ifstream i(path);
+						json j;
+						i >> j;
 
-					SceneSaveLoader::fromJson(*scene, j);
+						SceneSaveLoader::fromJson(*scene, j);
+					}
 				}
 				if (ImGui::MenuItem("Import"))
 				{
 					auto path = getPathDialog();
 					std::cout << path << "i\n";
-					scene->AddObject(ObjectBuilder().addMesh(path).addRenderer(scene->window).addMaterial().addTransform());
+					if (!path.empty() && path.find(".stl")!=path.npos)
+					{
+						scene->AddObject(ObjectBuilder().addMesh(path).addRenderer(scene->window).addMaterial().addTransform());
+					}
 				}
 				ImGui::EndMenu();
 			}
