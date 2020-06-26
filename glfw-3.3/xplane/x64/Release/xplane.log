@@ -66,12 +66,12 @@ E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(164,51): warning C4244: 'argument
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(164,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(198,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(102,1): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(149,1): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(180,1): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(84,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(84,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(100,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(101,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(148,1): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(179,1): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(85,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(85,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(101,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(102,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\xstring(2388,23): warning C4244: 'argument': conversion from 'wchar_t' to 'const _Elem', possible loss of data
           with
           [

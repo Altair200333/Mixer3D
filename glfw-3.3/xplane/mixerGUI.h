@@ -119,8 +119,8 @@ public:
 					ImGui::PopID();
 					
 					drawDragFloat("roughness", &mat->roughness, 0, 1);
-					drawDragFloat("transparent", &mat->transparency, 0, 1);
-					drawDragFloat("ior", &mat->ior, 1, 3);
+					drawDragFloat("transparency", &mat->transparency, 0, 1);
+					drawDragFloat("ior",&mat->ior, 1, 3);
 
 					ImGui::PopID();
 				}

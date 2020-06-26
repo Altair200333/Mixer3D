@@ -74,6 +74,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -172,9 +175,6 @@
     </ClInclude>
     <ClInclude Include="fileManager.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="shader.h">
-      <Filter>Header Files\PreviewRenderer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

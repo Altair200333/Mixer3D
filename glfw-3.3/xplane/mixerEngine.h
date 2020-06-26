@@ -3,9 +3,10 @@
 #include "scene.h"
 #include "bmpWriter.h"
 #include "SceneRenderer.h"
-
+#include "transform.h"
+#include "nlohmann/json.hpp"
 #include "mixerGUI.h"
-
+#include "objectBuilder.h"
 //This is supposed to be the Core of program, this is where it starts and ends
 //On start is setups window and load scene with specific parameters
 //after that user calls mainloop in which all input is handled
