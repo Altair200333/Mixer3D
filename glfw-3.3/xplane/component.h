@@ -1,7 +1,6 @@
 #pragma once
 #include <cstdint>
 #include "Object.h"
-
 class Component
 {
 public:
@@ -9,7 +8,7 @@ public:
 	Object* owner;
 	
 	Component(Object* _owner):owner(_owner){}
-		
+	
 };
 template <typename T>
 int getCompId()

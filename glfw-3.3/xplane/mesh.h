@@ -3,12 +3,9 @@
 #include <fstream>
 #include "component.h"
 #include "glm/glm/glm.hpp"
-struct Polygon
-{
-	glm::vec3 vec1;
-	glm::vec3 vec2;
-	glm::vec3 vec3;
-};
+#include "polygon.h"
+
+
 class Mesh : public Component
 {
 public:
@@ -28,7 +25,7 @@ public:
 	{
 		STLImport(fname);
 	}
-
+	
 	void STLImport(const std::string& fileName)
 	{
 		vertexCount = 0;
@@ -134,6 +131,7 @@ public:
 		float tresh = 1.0f + 0.0001f;
 		return a <= tresh && a >= 0 && b <= tresh && b >= 0 && c <= tresh && c >= 0 && (a + b + c) <= tresh;
 	}
+
 protected:
 	
 	glm::vec3 fromBuf(char* bufptr)
@@ -153,4 +151,5 @@ protected:
 
 		vertexCount += 3;
 	}
+
 };

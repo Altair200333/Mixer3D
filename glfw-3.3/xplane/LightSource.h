@@ -10,7 +10,7 @@ public:
 
 	glm::vec3 color;
 	float intensity;
+	PointLight(Object* _owner):Component(_owner){}
 	PointLight(Object* _owner, glm::vec3 _color, float _intens):Component(_owner), color(_color), intensity(_intens){}
-	
-	virtual ~PointLight() = default;
+		
 };

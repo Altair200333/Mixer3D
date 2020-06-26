@@ -88,7 +88,10 @@ public:
 
 	}
 
-	
+	~MixerEngine()
+	{
+		scene.clear();
+	}
 protected:
 	// timing
 	float deltaTime = 0.0f;

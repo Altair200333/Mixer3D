@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <utility>
 #include "componentManager.h"
 
@@ -21,5 +22,7 @@ public:
 	T* getComponent()
 	{
 		return componentManager.getComponent<T>();
-	}	
+	}
+
+	
 };

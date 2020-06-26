@@ -1,8 +1,6 @@
 #pragma once
 
 #include <glm/glm/glm.hpp>
-#include <glm/glm/gtx/norm.hpp>
-#include <glm/glm/vec3.hpp>
 #include <glm/glm/gtc/matrix_transform.hpp>
 
 #define _USE_MATH_DEFINES
@@ -128,5 +126,6 @@ private:
         Right = glm::normalize(glm::cross(Front, WorldUp));  // Normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
         Up = glm::normalize(glm::cross(Right, Front));
     }
-	
+
+
 };

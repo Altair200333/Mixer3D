@@ -7,7 +7,7 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 #include "LightSource.h"
-
+#include "SceneSaveLoader.h"
 class MixerGUI: public GUI
 {
 	Scene* scene;
@@ -52,7 +52,7 @@ public:
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 		
-		ImGui::Begin("Scene", nullptr, ImGuiWindowFlags_MenuBar);
+		ImGui::Begin(std::string("Scene ["+scene->sceneName+"]").c_str(), nullptr, ImGuiWindowFlags_MenuBar);
 		
 		if (ImGui::BeginMenuBar())
 		{
@@ -60,13 +60,21 @@ public:
 			{
 				if(ImGui::MenuItem("Save"))
 				{
-					scene->saveScene();
+					SceneSaveLoader::saveScene(*scene);
 				}
-				if (ImGui::MenuItem("Load"))
+				if (ImGui::MenuItem("Open"))
 				{
 					auto path = getPathDialog();
 					std::cout << path << "l\n";
-					scene->loadSceneFromJson(path);
+					scene->clear();
+					scene->sceneName = path;
+					using json = nlohmann::json;
+
+					std::ifstream i(path);
+					json j;
+					i >> j;
+
+					SceneSaveLoader::fromJson(*scene, j);
 				}
 				if (ImGui::MenuItem("Import"))
 				{
@@ -89,6 +97,7 @@ public:
 				
 				if (ImGui::CollapsingHeader(std::string("Object: " + obj->name).c_str()))
 				{
+					
 					auto mat = obj->getComponent<Material>();
 					if (mat != nullptr)
 					{
@@ -99,7 +108,16 @@ public:
 						ImGui::DragFloat("  ", (float*)&mat->roughness, 0.01, 0, 1);
 						ImGui::PopID();
 					}
-					findAndDrawTransform(obj);					
+					findAndDrawTransform(obj);
+					ImGui::PushID(obj);
+					if (ImGui::Button("Delete"))
+					{
+						auto it = std::find(scene->objects.begin(), scene->objects.end(), obj);
+						scene->objects.erase(it);
+						std::cout << "ss\n";
+					}
+					ImGui::PopID();
+
 				}
 			}
 			ImGui::EndGroupPanel();
@@ -109,11 +127,11 @@ public:
 			ImGui::BeginGroupPanel("list");
 			for (auto obj : scene->lights)
 			{
-				ImGui::PushID(obj);
 				if (ImGui::CollapsingHeader("Light"))
 				{
-					ImGui::PopID();
+					ImGui::PushID(obj);
 					findAndDrawTransform(obj);
+					ImGui::PopID();
 					auto light = obj->getComponent<PointLight>();
 					if (light != nullptr)
 					{

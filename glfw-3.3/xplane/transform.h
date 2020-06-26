@@ -1,6 +1,5 @@
 #pragma once
 #include <glm/glm/glm.hpp>
-
 #include "component.h"
 
 class Transform: public Component
@@ -14,5 +13,7 @@ public:
 	{
 		position += shift;
 	}
+
 	glm::vec3 position;
+	
 };

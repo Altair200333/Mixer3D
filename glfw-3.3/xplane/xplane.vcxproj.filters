@@ -43,6 +43,9 @@
     <Filter Include="Header Files\GUI">
       <UniqueIdentifier>{a4ed6b07-23c8-477a-82d9-8a463f0fae37}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Builders">
+      <UniqueIdentifier>{14ad9c10-ec32-4415-a408-8ddb5f98d97f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
@@ -75,9 +78,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cube.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LightSource.h">
@@ -155,8 +155,17 @@
     <ClInclude Include="mixerGUI.h">
       <Filter>Header Files\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="objectBuilder.h">
+    <ClInclude Include="polygon.h">
       <Filter>Header Files\Object&amp;Components</Filter>
+    </ClInclude>
+    <ClInclude Include="objectBuilder.h">
+      <Filter>Header Files\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="lightBuilder.h">
+      <Filter>Header Files\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneSaveLoader.h">
+      <Filter>Header Files\Builders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

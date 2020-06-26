@@ -35,4 +35,5 @@ public:
 	{
         glfwSwapBuffers(window->window);
     }
+    virtual ~SceneRenderer() = default;
 };

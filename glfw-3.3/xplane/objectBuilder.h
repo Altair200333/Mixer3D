@@ -1,5 +1,5 @@
 #pragma once
-#include <glm/glm/vec3.hpp>
+//#include <glm/glm/glm.hpp>
 
 
 #include "material.h"
@@ -50,6 +50,15 @@ public:
 	}
 	operator Object* () const
 	{
+		return obj;
+	}
+	static Object* fromJson(nlohmann::json& value, Window* window)
+	{
+		
+		glm::vec3 color = { value.at("color")[0],value.at("color")[1] ,value.at("color")[2] };
+		glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2] };
+		Object* obj = ObjectBuilder().addMesh(value.at("name")).addRenderer(window).addMaterial(color, value.at("roughness")).addTransform(position);
+
 		return obj;
 	}
 };

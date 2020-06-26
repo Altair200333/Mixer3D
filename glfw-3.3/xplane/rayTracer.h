@@ -1,7 +1,7 @@
 #pragma once
 #include <corecrt_math_defines.h>
 #include <thread>
-
+#include <glm/glm/gtx/norm.hpp>
 
 
 #include "bmpWriter.h"
@@ -13,7 +13,7 @@
 class Hit
 {
 public:
-    glm::vec3 pos;
+	glm::vec3 pos;
     glm::vec3 normal;
     Material* material;
     bool hit;
