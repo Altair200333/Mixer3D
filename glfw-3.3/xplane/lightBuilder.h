@@ -35,7 +35,7 @@ public:
 		glm::vec3 color = { value.at("color")[0],value.at("color")[1] ,value.at("color")[2] };
 		glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2] };
 
-		Object* obj = ObjectBuilder().addMesh("icosphere.stl").addRenderer(window).addMaterial(color, 1);
+		Object* obj = ObjectBuilder().addMesh("icosphere.stl").addRenderer(window).addMaterial(color, 1, 0);
 		obj->addComponent(new Transform(obj, position))->addComponent(new PointLight(obj, color, value.at("intensity")));
 
 		return obj;

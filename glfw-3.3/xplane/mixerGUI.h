@@ -94,20 +94,36 @@ public:
 		}
 	}
 
-	void drawObjectPanel(std::vector<Object*>::value_type obj)
+	void drawDragFloat(std::string label, float* val, float min, float max)
 	{
+		ImGui::PushID(val);
+		ImGui::Text(label.c_str());
+		ImGui::SameLine();
+		ImGui::DragFloat("", val, 0.01, min, max);
+		ImGui::PopID();
+	}
+
+	void drawObjectPanel(Object* obj)
+	{
+		ImGui::PushID(obj->name.c_str());
 		if (ImGui::CollapsingHeader(std::string("Object: " + obj->name).c_str()))
-		{
-					
+		{			
 			auto mat = obj->getComponent<Material>();
 			if (mat != nullptr)
 			{
-				ImGui::PushID(mat);
-				drawColor(&(mat->diffuseColor));
-				ImGui::Text("roughness");
-				ImGui::SameLine();
-				ImGui::DragFloat("  ", (float*)&mat->roughness, 0.01, 0, 1);
-				ImGui::PopID();
+				ImGui::PushID(&mat->owner);
+				if (ImGui::CollapsingHeader(std::string("material").c_str()))
+				{
+					ImGui::PushID(mat);
+					drawColor(&(mat->diffuseColor));
+					ImGui::PopID();
+					
+					drawDragFloat("roughness", &mat->roughness, 0, 1);
+					drawDragFloat("transparent", &mat->transparency, 0, 1);
+					drawDragFloat("ior", &mat->ior, 1, 3);
+
+					ImGui::PopID();
+				}
 			}
 			findAndDrawTransform(obj);
 			ImGui::PushID(obj);
@@ -116,10 +132,12 @@ public:
 				auto it = std::find(scene->objects.begin(), scene->objects.end(), obj);
 				scene->objects.erase(it);
 				std::cout << "ss\n";
+				ImGui::PopID();
 			}
+			
 			ImGui::PopID();
-
 		}
+		
 	}
 
 	void drawScenePanel()

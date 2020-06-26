@@ -3,6 +3,7 @@
 #include <string>
 
 #define LoggerCapacity 20
+
 class Logger final
 {
 public:

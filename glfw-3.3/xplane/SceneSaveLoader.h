@@ -71,6 +71,8 @@ public:
 			auto mat = object->getComponent<Material>();
 			jObj["color"] = { mat->diffuseColor.r, mat->diffuseColor.g, mat->diffuseColor.b };
 			jObj["roughness"] = mat->roughness;
+			jObj["transparency"] = mat->transparency;
+			jObj["ior"] = mat->ior;
 			auto trasform = object->getComponent<Transform>();
 			jObj["position"] = { trasform->position.x, trasform->position.y, trasform->position.z };
 
