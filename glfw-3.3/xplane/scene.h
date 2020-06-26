@@ -4,6 +4,8 @@
 #include <nlohmann/json.hpp>
 
 #include "camera.h"
+#include "fileManager.h"
+#include "Loger.h"
 #include "Object.h"
 #include "window.h"
 //Scene class is more of a container that has information about objects, materials, lighting, cameras etc
@@ -15,6 +17,7 @@ public:
 	std::vector<Object*> lights;
 	std::vector<Object*> cameras;
 	std::string sceneName = "Untitled.mxr";
+	
 	std::string envPath;
 	Bitmap* environment = nullptr;
 	Window* window;
@@ -22,9 +25,28 @@ public:
 	{
 	}
 
+	void loadEnvironment(std::string path)
+	{
+		BMPWriter bmpw;
+		if (FileManager::fileExists(path) && path.find(".jpg") != path.npos)
+		{
+			if (environment != nullptr)
+				environment->clear();
+			environment = bmpw.loadJPG(path);
+			envPath = path;
+			Logger::log("Environment texture loaded");
+		}
+		else
+		{
+			Logger::log("Failed to load image");
+		}
+	}
 	void AddObject(Object* object)
 	{
-		objects.push_back(object);
+		if (object != nullptr)
+			objects.push_back(object);
+		else
+			Logger::log("Failed to insert null object");
 	}
 
 	Camera* getActiveCamera()

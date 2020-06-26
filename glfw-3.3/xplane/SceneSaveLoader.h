@@ -6,19 +6,38 @@
 #include "lightBuilder.h"
 class SceneSaveLoader
 {
+	
 public:
+	static void loadScene(Scene& scene, std::string path)
+	{
+		if (!path.empty() && FileManager::fileExists(path) && path.find(".mxr") != path.npos)
+		{
+			scene.clear();
+			scene.sceneName = path;
+		
+			std::ifstream i(path);
+			using json = nlohmann::json;
+			json j;
+			i >> j;
+
+			fromJson(scene, j);
+			Logger::log("Scene from file");
+		}
+		else
+		{
+			Logger::log("Wrong extension of file does not exist");
+		}
+	}
 	static void fromJson(Scene& scene, nlohmann::json& j)
 	{
 		scene.clear();
 		using json = nlohmann::json;
 
-		BMPWriter bmpw;
 		if (j.find("maxBounces") != j.end())
 			scene.maxBounces = j.at("maxBounces");
 		if (j.find("env") != j.end())
 		{
-			scene.environment = bmpw.loadJPG(j.at("env"));
-			scene.envPath = j.at("env");
+			scene.loadEnvironment(j.at("env"));
 		}
 		if (j.find("objects") != j.end())
 			for (auto& [key, value] : j.at("objects").items())

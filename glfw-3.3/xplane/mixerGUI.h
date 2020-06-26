@@ -3,10 +3,14 @@
 #include <windows.h>
 #include <shobjidl.h> 
 
+
+#include "fileManager.h"
 #include "gui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 #include "LightSource.h"
+#include "Loger.h"
+#include "ObjectLoader.h"
 #include "SceneSaveLoader.h"
 class MixerGUI: public GUI
 {
@@ -43,17 +47,9 @@ public:
 		ImGui::SameLine();
 		ImGui::ColorEdit3("  ", (float*)(color));
 	}
-	
-	void draw() override
-	{
-		
-		ImGui_ImplOpenGL3_NewFrame();
 
-		ImGui_ImplGlfw_NewFrame();
-		ImGui::NewFrame();
-		
-		ImGui::Begin(std::string("Scene ["+scene->sceneName+"]").c_str(), nullptr, ImGuiWindowFlags_MenuBar);
-		
+	void drawMenuPanel()
+	{
 		if (ImGui::BeginMenuBar())
 		{
 			if (ImGui::BeginMenu("File"))
@@ -61,32 +57,17 @@ public:
 				if(ImGui::MenuItem("Save"))
 				{
 					SceneSaveLoader::saveScene(*scene);
+					Logger::log("Scene saved");
 				}
 				if (ImGui::MenuItem("Open"))
 				{
-					auto path = getPathDialog();
-					std::cout << path << "l\n";
-					if (!path.empty() && path.find(".mxr") != path.npos)
-					{
-						scene->clear();
-						scene->sceneName = path;
-						using json = nlohmann::json;
-
-						std::ifstream i(path);
-						json j;
-						i >> j;
-
-						SceneSaveLoader::fromJson(*scene, j);
-					}
+					auto path = FileManager::getPathDialog();
+					SceneSaveLoader::loadScene(*scene, path);
 				}
 				if (ImGui::MenuItem("Import"))
 				{
-					auto path = getPathDialog();
-					std::cout << path << "i\n";
-					if (!path.empty() && path.find(".stl")!=path.npos)
-					{
-						scene->AddObject(ObjectBuilder().addMesh(path).addRenderer(scene->window).addMaterial().addTransform());
-					}
+					auto path = FileManager::getPathDialog();
+					scene->AddObject(ObjectLoader::loadObject(path, scene->window));
 				}
 				ImGui::EndMenu();
 			}
@@ -94,37 +75,71 @@ public:
 			
 			ImGui::EndMenuBar();
 		}
+	}
+
+	void drawLightPanel(std::vector<Object*>::value_type obj)
+	{
+		if (ImGui::CollapsingHeader("Light"))
+		{
+			ImGui::PushID(obj);
+			findAndDrawTransform(obj);
+			ImGui::PopID();
+			auto light = obj->getComponent<PointLight>();
+			if (light != nullptr)
+			{
+				ImGui::PushID(light);
+				drawColor(&light->color);
+				ImGui::PopID();
+			}
+		}
+	}
+
+	void drawObjectPanel(std::vector<Object*>::value_type obj)
+	{
+		if (ImGui::CollapsingHeader(std::string("Object: " + obj->name).c_str()))
+		{
+					
+			auto mat = obj->getComponent<Material>();
+			if (mat != nullptr)
+			{
+				ImGui::PushID(mat);
+				drawColor(&(mat->diffuseColor));
+				ImGui::Text("roughness");
+				ImGui::SameLine();
+				ImGui::DragFloat("  ", (float*)&mat->roughness, 0.01, 0, 1);
+				ImGui::PopID();
+			}
+			findAndDrawTransform(obj);
+			ImGui::PushID(obj);
+			if (ImGui::Button("Delete"))
+			{
+				auto it = std::find(scene->objects.begin(), scene->objects.end(), obj);
+				scene->objects.erase(it);
+				std::cout << "ss\n";
+			}
+			ImGui::PopID();
+
+		}
+	}
+
+	void drawScenePanel()
+	{
+		ImGui::Begin(std::string("Scene ["+scene->sceneName+"]").c_str(), nullptr, ImGuiWindowFlags_MenuBar);
 		
+		drawMenuPanel();
+		ImGui::DragInt("Max bounces", &scene->maxBounces, 0.1, 0, 10);
+		ImGui::Text(scene->envPath.empty()? "Not specified" : scene->envPath.c_str());
+		ImGui::SameLine();
+		if(ImGui::Button("load"))
+		{
+			scene->loadEnvironment(FileManager::getPathDialog());
+		}
 		if (ImGui::CollapsingHeader("Objects"))
 		{
 			ImGui::BeginGroupPanel("list");
 			for (auto obj : scene->objects)
 			{
-				
-				if (ImGui::CollapsingHeader(std::string("Object: " + obj->name).c_str()))
-				{
-					
-					auto mat = obj->getComponent<Material>();
-					if (mat != nullptr)
-					{
-						ImGui::PushID(mat);
-						drawColor(&(mat->diffuseColor));
-						ImGui::Text("roughness");
-						ImGui::SameLine();
-						ImGui::DragFloat("  ", (float*)&mat->roughness, 0.01, 0, 1);
-						ImGui::PopID();
-					}
-					findAndDrawTransform(obj);
-					ImGui::PushID(obj);
-					if (ImGui::Button("Delete"))
-					{
-						auto it = std::find(scene->objects.begin(), scene->objects.end(), obj);
-						scene->objects.erase(it);
-						std::cout << "ss\n";
-					}
-					ImGui::PopID();
-
-				}
+				drawObjectPanel(obj);
 			}
 			ImGui::EndGroupPanel();
 		}
@@ -133,72 +148,34 @@ public:
 			ImGui::BeginGroupPanel("list");
 			for (auto obj : scene->lights)
 			{
-				if (ImGui::CollapsingHeader("Light"))
-				{
-					ImGui::PushID(obj);
-					findAndDrawTransform(obj);
-					ImGui::PopID();
-					auto light = obj->getComponent<PointLight>();
-					if (light != nullptr)
-					{
-						ImGui::PushID(light);
-						drawColor(&light->color);
-						ImGui::PopID();
-					}
-				}
+				drawLightPanel(obj);
 			}
 			ImGui::EndGroupPanel();
 		}
 		ImGui::End();
+	}
+
+	void drawLogsPanel()
+	{
+		ImGui::Begin("Logs");
+		ImGui::TextColored(ImVec4(0.2, 1, 0.2, 1), Logger::getReport().c_str());
+		ImGui::End();
+	}
+
+	void draw() override
+	{
+		
+		ImGui_ImplOpenGL3_NewFrame();
+
+		ImGui_ImplGlfw_NewFrame();
+		ImGui::NewFrame();
+		
+		drawScenePanel();
+		drawLogsPanel();
 		
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}
-	
 protected:
-	void (*loadCallback)(std::string);
-	std::string getPathDialog()
-	{
-		HRESULT hr = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED |
-			COINIT_DISABLE_OLE1DDE);
-		if (SUCCEEDED(hr))
-		{
-			IFileOpenDialog* pFileOpen;
 
-			// Create the FileOpenDialog object.
-			hr = CoCreateInstance(CLSID_FileOpenDialog, NULL, CLSCTX_ALL,
-				IID_IFileOpenDialog, reinterpret_cast<void**>(&pFileOpen));
-
-			if (SUCCEEDED(hr))
-			{
-				// Show the Open dialog box.
-				hr = pFileOpen->Show(NULL);
-
-				// Get the file name from the dialog box.
-				if (SUCCEEDED(hr))
-				{
-					IShellItem* pItem;
-					hr = pFileOpen->GetResult(&pItem);
-					if (SUCCEEDED(hr))
-					{
-						PWSTR pszFilePath;
-						hr = pItem->GetDisplayName(SIGDN_FILESYSPATH, &pszFilePath);
-
-						// Display the file name to the user.
-						if (SUCCEEDED(hr))
-						{
-							std::wstring ws(pszFilePath);
-							std::string str(ws.begin(), ws.end());
-							CoTaskMemFree(pszFilePath);
-							return  str;
-						}
-						pItem->Release();
-					}
-				}
-				pFileOpen->Release();
-			}
-			CoUninitialize();
-		}
-		return "";
-	}
 };

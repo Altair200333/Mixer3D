@@ -167,6 +167,15 @@
     <ClInclude Include="SceneSaveLoader.h">
       <Filter>Header Files\Builders</Filter>
     </ClInclude>
+    <ClInclude Include="Loger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectLoader.h">
+      <Filter>Header Files\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="fileManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="mixer.rc">

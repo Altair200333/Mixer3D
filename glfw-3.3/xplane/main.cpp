@@ -7,12 +7,7 @@ const unsigned int SCR_HEIGHT = 900;
 int main()
 {
 	MixerEngine engine(SCR_WIDTH, SCR_HEIGHT);
-
-
-	std::ifstream i("conf.mxr");
-	nlohmann::json j;
-	i >> j;
-	SceneSaveLoader::fromJson(engine.scene, j);
+	SceneSaveLoader::loadScene(engine.scene, "conf.mxr");
 	engine.mainLoop();
 	
 	return 0;

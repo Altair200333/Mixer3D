@@ -162,11 +162,14 @@
     <ClInclude Include="camera.h" />
     <ClInclude Include="component.h" />
     <ClInclude Include="componentManager.h" />
+    <ClInclude Include="fileManager.h" />
     <ClInclude Include="gui.h" />
     <ClInclude Include="lightBuilder.h" />
+    <ClInclude Include="Loger.h" />
     <ClInclude Include="MeshRenderer.h" />
     <ClInclude Include="mixerGUI.h" />
     <ClInclude Include="objectBuilder.h" />
+    <ClInclude Include="ObjectLoader.h" />
     <ClInclude Include="polygon.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SceneSaveLoader.h" />
