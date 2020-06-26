@@ -20,7 +20,7 @@ public:
 	SceneRenderer viewportRenderer;
 	MixerGUI gui;
 
-	MixerEngine(int width, int height):scene(width, height, &window), window(width, height, "Mixer"), viewportRenderer(&window, &scene), gui(&scene)
+	MixerEngine(int width, int height):scene(&window), window(width, height, "Mixer"), viewportRenderer(&window, &scene), gui(&scene)
 	{
 		gui.onStart(&window);
 	}
@@ -58,7 +58,7 @@ public:
 			
 			std::cout << "render\n";
 			RayTracerEngine rt;
-			Bitmap img = rt.render(scene);
+			Bitmap img = rt.render(scene, window.width, window.height);
 			BMPWriter bmpw;
 			bmpw.save(img, "render.bmp");
 			std::cout << "finished render\n";

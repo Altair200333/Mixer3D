@@ -11,14 +11,13 @@
 class Scene
 {
 public:
-	int width, height;
 	int maxBounces = 2;
 	std::vector<Object*> objects;
 	std::vector<Object*> lights;
 	std::vector<Object*> cameras;
 	Bitmap* environment = nullptr;
 	Window* window;
-	Scene(int w, int h, Window* _window):width(w), height(h), window(_window)
+	Scene(Window* _window):window(_window)
 	{
 	}
 
@@ -76,7 +75,7 @@ public:
 		{
 			auto obj = new Object();
 			glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2] };
-			obj->addComponent(new Transform(obj, position))->addComponent(new Camera(obj, static_cast<float>(width) / height, value.at("fov")));
+			obj->addComponent(new Transform(obj, position))->addComponent(new Camera(obj, static_cast<float>(window->width) / window->height, value.at("fov")));
 			cameras.push_back(obj);
 		}
 

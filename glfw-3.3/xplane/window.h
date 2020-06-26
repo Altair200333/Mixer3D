@@ -30,19 +30,16 @@ public:
 	static const int Down = GLFW_REPEAT;
 	GLFWwindow* _window;
 	
-	Input(const std::vector<int>& watch)
-	{
-		for (auto key : watch)
-		{
-			keys.insert(std::pair<int, int>(key, -1));
-		}
-	}
-
+	Input() = default;
 	void callback(int key, int scancode, int action, int mods)
 	{	
 		if (keys.find(key) != keys.end())
 		{
 			keys[key] = action;
+		}
+		else
+		{
+			keys.insert(std::pair(key, action));
 		}
 	}
 	bool getKeyDown(int keyCode)
@@ -107,9 +104,7 @@ public:
 	{
 		return glfwGetTime();
 	}
-	Window(size_t width, size_t height, const std::string& name,
-		std::vector<int> keys = { KeyCode::W, KeyCode::A, KeyCode::S, KeyCode::D, KeyCode::E, KeyCode::Q, KeyCode::R, KeyCode::Z,
-			KeyCode::ESC, KeyCode::MMB }):input(keys)
+	Window(size_t _width, size_t _height, const std::string& name):width(_width), height(_height)
 	{
 		initGlfw();
 		window = createWindow(width, height, name);

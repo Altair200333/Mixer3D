@@ -7,47 +7,34 @@ E:\WORK\CPP\vsProj\glfw-3.3\libbitmap\bmpWriter.h(889,1): warning C4267: 'argume
 E:\WORK\CPP\vsProj\glfw-3.3\libbitmap\bmpWriter.h(890,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\libbitmap\bmpWriter.h(891,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\shader.h(146,41): warning C4101: 'e': unreferenced local variable
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\window.h(145,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\MeshRenderer.h(42,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(38,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(55,32): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(55,28): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(93,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(93,1): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(95,41): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
-          with
-          [
-              T=float
-          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\window.h(108,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\window.h(138,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\MeshRenderer.h(46,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(39,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(56,32): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(56,28): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(67,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(68,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(72,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(94,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(94,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(94,1): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(96,41): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
           with
           [
               T=float
           ]
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(97,37): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(97,41): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
           with
           [
               T=float
           ]
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(108,39): warning C4244: 'argument': conversion from 'T' to 'genType', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(98,37): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
           with
           [
               T=float
           ]
-          and
-          [
-              genType=int
-          ]
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(108,73): warning C4244: 'argument': conversion from 'T' to 'genType', possible loss of data
-          with
-          [
-              T=float
-          ]
-          and
-          [
-              genType=int
-          ]
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(108,107): warning C4244: 'argument': conversion from 'T' to 'genType', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(109,39): warning C4244: 'argument': conversion from 'T' to 'genType', possible loss of data
           with
           [
               T=float
@@ -56,14 +43,77 @@ E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(108,107): warning C4244: 'argumen
           [
               genType=int
           ]
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(144,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(109,73): warning C4244: 'argument': conversion from 'T' to 'genType', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              genType=int
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(109,107): warning C4244: 'argument': conversion from 'T' to 'genType', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              genType=int
+          ]
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(145,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(154,74): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(154,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(154,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(182,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(85,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(85,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(138,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(139,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(146,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(155,74): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(155,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(155,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.h(183,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+E:\WORK\CPP\vsProj\Include\glad\glad.h(32): message : see previous definition of 'APIENTRY'
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(99,1): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(86,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(86,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(99,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(100,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\xstring(2388,23): warning C4244: 'argument': conversion from 'wchar_t' to 'const _Elem', possible loss of data
+          with
+          [
+              _Elem=char
+          ]
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\xstring(2399): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(_Iter,const _Iter,std::input_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\xstring(2399): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(_Iter,const _Iter,std::input_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\xstring(2379): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(const _Iter,const _Iter,std::forward_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\xstring(2379): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(const _Iter,const _Iter,std::forward_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(167): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,void>(_Iter,_Iter,const _Alloc &)' being compiled
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(167): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,void>(_Iter,_Iter,const _Alloc &)' being compiled
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\chrono(632): message : see reference to class template instantiation 'std::chrono::duration<double,std::ratio<1,1>>' being compiled
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\chrono(178): message : see reference to class template instantiation 'std::chrono::duration<__int64,std::nano>' being compiled
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\chrono(610): message : see reference to class template instantiation 'std::chrono::time_point<std::chrono::steady_clock,std::chrono::nanoseconds>' being compiled
   xplane.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\mixer.exe
