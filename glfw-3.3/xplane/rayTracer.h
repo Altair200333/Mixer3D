@@ -174,10 +174,10 @@ protected:
             if (reflects > 0 && hit.material->roughness < 1)
             {
                 glm::vec3 reflection = reflect(glm::normalize(ray), hit.normal);
-                glm::vec3 reflectedColor = castRay(objs, reflection, glm::dot(reflection, hit.normal) < 0 ? hit.pos - hit.normal * 0.0001f: hit.pos + hit.normal * 0.0001f, lights, --reflects);
+                glm::vec3 reflectedColor = castRay(objs, reflection, glm::dot(reflection, hit.normal) < 0 ? hit.pos - hit.normal * 0.0001f: hit.pos + hit.normal * 0.0001f, lights, reflects-1);
             	
                 glm::vec3 refraction = refract(glm::normalize(ray), hit.normal, hit.material->ior);
-                glm::vec3 refractedColor = castRay(objs, refraction, glm::dot(refraction, hit.normal) < 0 ? hit.pos - hit.normal * 0.0001f : hit.pos + hit.normal * 0.0001f, lights, --reflects);
+                glm::vec3 refractedColor = castRay(objs, refraction, glm::dot(refraction, hit.normal) < 0 ? hit.pos - hit.normal * 0.0001f : hit.pos + hit.normal * 0.0001f, lights, reflects-1);
 
                 float nonTransparency = 1 - hit.material->transparency;
                 float transparency = hit.material->transparency;

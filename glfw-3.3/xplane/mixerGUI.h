@@ -87,9 +87,7 @@ public:
 			auto light = obj->getComponent<PointLight>();
 			if (light != nullptr)
 			{
-				ImGui::PushID(light);
 				drawColor(&light->color);
-				ImGui::PopID();
 			}
 		}
 	}
@@ -105,7 +103,7 @@ public:
 
 	void drawObjectPanel(Object* obj)
 	{
-		ImGui::PushID(&obj);
+		ImGui::PushID(obj);
 		if (ImGui::CollapsingHeader(std::string("Object: " + obj->name).c_str()))
 		{			
 			auto mat = obj->getComponent<Material>();
@@ -120,6 +118,7 @@ public:
 					drawDragFloat("transparency", &mat->transparency, 0, 1);
 					drawDragFloat("ior",&mat->ior, 1, 3);
 					
+
 				}
 				ImGui::PopID();
 			}
@@ -128,11 +127,12 @@ public:
 			if (ImGui::Button("Delete"))
 			{
 				scene->deleteObject(obj);
-				ImGui::PopID();
+				
 				Logger::log("Delete object");
-			}	
+			}
 			ImGui::PopID();
 		}
+		ImGui::PopID();
 	}
 
 	void drawSceneSettings()
@@ -142,10 +142,13 @@ public:
 		ImGui::Text(scene->envPath.empty()? "Not specified" : scene->envPath.c_str());
 		ImGui::SameLine();
 		ImGui::PopID();
+		ImGui::PushID(&FileManager::getPathDialog);
 		if (ImGui::Button("load"))
 		{
 			scene->loadEnvironment(FileManager::getPathDialog());
+			
 		}
+		ImGui::PopID();
 	}
 
 	void drawScenePanel()
