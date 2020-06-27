@@ -138,7 +138,6 @@ void MixerGUI::drawObjectPanel(Object* obj)
 				drawDragFloat("transparency", &mat->transparency, 0, 1);
 				drawDragFloat("ior         ", &mat->ior, 1, 3);
 
-
 			}
 			ImGui::PopID();
 		}

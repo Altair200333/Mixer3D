@@ -206,6 +206,7 @@
     <ClInclude Include="scene.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="transform.h" />
+    <ClInclude Include="vectorMath.h" />
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>

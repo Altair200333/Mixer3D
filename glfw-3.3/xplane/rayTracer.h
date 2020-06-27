@@ -8,6 +8,7 @@
 #include "LightSource.h"
 #include "mesh.h"
 #include "renderEngine.h"
+#include "vectorMath.h"
 
 
 class Hit
@@ -32,7 +33,6 @@ public:
 	~RayTracerEngine() = default;
 	Bitmap render(Scene& scene, int width, int height) override
 	{
-       
 		Bitmap img;
         this->width = width;
         this->height = height;
@@ -48,31 +48,30 @@ public:
  
         env = scene.environment;
 		
-        renderTracing(scene, img);
+        renderWithTracing(scene, img);
         return img;
 	}
 protected:
 
-    void renderTracing(Scene& scene, Bitmap& img)
+    void renderWithTracing(Scene& scene, Bitmap& img)
     {
-        const float closeH = 2 * tan(scene.getActiveCamera()->Zoom / 2 * M_PI / 180);
-        const float scale = closeH / height;
+        const float closeHeight = 2 * tan(scene.getActiveCamera()->Zoom / 2 * M_PI / 180);
+        const float scale = closeHeight / height;
 
         const auto processor_count = std::thread::hardware_concurrency();
 
         Logger::log("Render started with " + std::to_string(processor_count)+" threads");
     	
         std::vector<std::thread> threads;
-        const int divisions = processor_count;
+        const int subdivisions = processor_count;
     	
-        for (int i = 0; i < divisions; ++i) {
+        for (int i = 0; i < subdivisions; ++i) {
 	       
-           int endX = width / divisions * (i + 1);
-           int startX = width / divisions * i;
+           int endX = width / subdivisions * (i + 1);
+           int startX = width / subdivisions * i;
            
            threads.emplace_back([=, &scene, &img] {renderRegion(scene, img, scale, startX,
-                endX,
-                0, height); });
+                endX,0, height); });
         }
     	
         for (auto& t : threads) {
@@ -88,9 +87,8 @@ protected:
         {
             for (int j = startY; j < endY; j += 1)
             {
-                Camera* cam = scene.getActiveCamera();
-                glm::vec3 ray = cam->Front + cam->Right * float(i - width / 2) * scale +
-                    cam->Up * float(j - height / 2) * scale;
+                glm::vec3 ray = camera->Front + camera->Right * float(i - width / 2) * scale +
+                    camera->Up * float(j - height / 2) * scale;
             	
                 glm::vec3 c = castRay(scene.objects, ray, position,scene.lights, scene.maxBounces);
 
@@ -103,17 +101,6 @@ protected:
         }
     }
 
-    glm::vec3 reflect(const glm::vec3 I, const glm::vec3 N)
-    {
-        return I - N * (glm::dot(I, N) * 2.0f);
-    }
-    glm::vec3 refract(const glm::vec3& I, const glm::vec3& N, const float eta_t, const float eta_i = 1.f) { // Snell's law
-        float cosi = -std::max<float>(-1.f, std::min<float>(1.0f,glm::dot( I , N)));
-        if (cosi < 0) return refract(I, -N, eta_i, eta_t); // if the ray comes from the inside the object, swap the air and the media
-        float eta = eta_i / eta_t;
-        float k = 1 - eta * eta * (1 - cosi * cosi);
-        return k < 0 ? glm::vec3(1, 0, 0) : I * eta + N * (eta * cosi - sqrtf(k)); // k<0 = total reflection, no ray to refract. I refract it anyways, this has no physical meaning
-    }
     static glm::vec3 clampColor(glm::vec3 color)
     {
         return { glm::clamp<int>(color.x, 10, 255),glm::clamp<int>(color.y, 10, 255),glm::clamp<int>(color.z, 10, 255) };
@@ -125,11 +112,11 @@ protected:
     glm::vec3 getDiffuse(const std::vector<Object*>& meshes, std::vector<Object*>& lights, Hit hit)
     {
         glm::vec3 color = { 0, 0, 0 };
-        for (auto l : lights)
+        for (auto light : lights)
         {
             glm::vec3 diffuse;
-            glm::vec3 lightPosition = l->getComponent<Transform>()->position;
-            glm::vec3 lightColor = l->getComponent<PointLight>()->color;
+            glm::vec3 lightPosition = light->getComponent<Transform>()->position;
+            glm::vec3 lightColor = light->getComponent<PointLight>()->color;
         	
             glm::vec3 dirToLight = lightPosition - hit.pos;
 
@@ -164,24 +151,32 @@ protected:
         int id = env->getPixelId(env->m_width - x - 1, env->m_height - 1 - y, 0);
         return { env->m_buffer[id + 2],  env->m_buffer[id + 1], env->m_buffer[id] };
     }
+
+    glm::vec3 getOffset(Hit& surfaceHit, glm::vec3 direction)
+    {
+	    return glm::dot(direction, surfaceHit.normal) < 0
+		           ? surfaceHit.pos - surfaceHit.normal * 0.0001f
+		           : surfaceHit.pos + surfaceHit.normal * 0.0001f;
+    }
+
     glm::vec3 castRay(const std::vector<Object*>& objs, glm::vec3 ray, glm::vec3 src, std::vector<Object*>& lights, int reflects = 0)
     {
         glm::vec3 color = { 10, 10, 10 };
-        Hit hit = getHit(objs, ray, src);
-        if (hit.hit)
+        Hit surfaceHit = getHit(objs, ray, src);
+        if (surfaceHit.hit)
         {
-            color = getDiffuse(objs, lights, hit);
-            if (reflects > 0 && hit.material->roughness < 1)
+            color = getDiffuse(objs, lights, surfaceHit);
+            if (reflects > 0 && surfaceHit.material->roughness < 1)
             {
-                glm::vec3 reflection = reflect(glm::normalize(ray), hit.normal);
-                glm::vec3 reflectedColor = castRay(objs, reflection, glm::dot(reflection, hit.normal) < 0 ? hit.pos - hit.normal * 0.0001f: hit.pos + hit.normal * 0.0001f, lights, reflects-1);
+                glm::vec3 reflection = reflect(glm::normalize(ray), surfaceHit.normal);
+                glm::vec3 reflectedColor = castRay(objs, reflection, getOffset(surfaceHit, reflection), lights, reflects-1);
             	
-                glm::vec3 refraction = refract(glm::normalize(ray), hit.normal, hit.material->ior);
-                glm::vec3 refractedColor = castRay(objs, refraction, glm::dot(refraction, hit.normal) < 0 ? hit.pos - hit.normal * 0.0001f : hit.pos + hit.normal * 0.0001f, lights, reflects-1);
+                glm::vec3 refraction = refract(glm::normalize(ray), surfaceHit.normal, surfaceHit.material->ior);
+                glm::vec3 refractedColor = castRay(objs, refraction, getOffset(surfaceHit, refraction), lights, reflects-1);
 
-                float nonTransparency = 1 - hit.material->transparency;
-                float transparency = hit.material->transparency;
-                return (color * (hit.material->roughness) + reflectedColor * (1 - hit.material->roughness))* nonTransparency + transparency *refractedColor;
+                float nonTransparency = 1 - surfaceHit.material->transparency;
+                float transparency = surfaceHit.material->transparency;
+                return (color * (surfaceHit.material->roughness) + reflectedColor * (1 - surfaceHit.material->roughness))* nonTransparency + transparency *refractedColor;
             }
         }
         else
@@ -190,19 +185,7 @@ protected:
         }
         return color;
     }
-    glm::vec3 intersectPoint(glm::vec3 rayVector, glm::vec3 rayPoint, glm::vec3 planeNormal, glm::vec3 planePoint) const
-    {
-        glm::vec3 diff = rayPoint - planePoint;
-        double prod1 = glm::dot(diff, planeNormal);
-        double prod2 = glm::dot(rayVector, planeNormal);
-        float ratio = prod1 / prod2;
-
-        return rayPoint - rayVector * ratio;
-    }
-    float dist2(glm::vec3 v1, glm::vec3 v2) const
-    {
-        return glm::length2(v1 - v2);
-    }
+    
     Hit getHit(const std::vector<Object*>& meshes, glm::vec3 ray, glm::vec3 src) const
     {
         Hit closestHit = { {100000, 100000, 100000}, {0, 0, 1}, {}, false };
@@ -212,16 +195,12 @@ protected:
             glm::vec3 pos = m->getComponent<Transform>()->position;
             for (int i = 0; i < mesh->vertexCount / 3; i++)
             {
-
-                glm::vec3 hit = intersectPoint(ray, src,
-                    mesh->getNormal(i * 3),
-                    mesh->getVertex(i * 3)+pos);
+                glm::vec3 hit = VectorMath::intersectPoint(ray, src, mesh->getNormal(i * 3),mesh->getVertex(i * 3)+pos);
                 if (glm::length2(hit - mesh->getVertex(i * 3)-pos) > 8)
                     continue;
             	
-                if (Mesh::pointInPolygon(hit, mesh->getVertex(i * 3)+pos,
-                    mesh->getVertex(i * 3 + 1)+pos,
-                    mesh->getVertex(i * 3 + 2)+pos) && dist2(closestHit.pos, src) > dist2(hit, src) && glm::dot(hit - src, ray) > 0)
+                if (VectorMath::pointInPolygon(hit-pos, mesh->getPolygon(i )) 
+                    && VectorMath::dist2(closestHit.pos, src) > VectorMath::dist2(hit, src) && glm::dot(hit - src, ray) > 0)
                 {
                     closestHit = { hit, mesh->getNormal(i * 3), m->getComponent<Material>(), true };
                 }

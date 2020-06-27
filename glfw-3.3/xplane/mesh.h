@@ -24,7 +24,5 @@ public:
 	
 	glm::vec3 getNormal(size_t number) const;
 	
-	static bool pointInPolygon(glm::vec3 v, glm::vec3 v0, glm::vec3 v1, glm::vec3 v2);
-	static bool pointInPolygon(glm::vec3 v, PolygonMesh& p);
 	~Mesh();
 };

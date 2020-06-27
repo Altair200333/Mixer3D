@@ -260,6 +260,9 @@
     <ClInclude Include="meshLoader.h">
       <Filter>Header Files\Builders&amp;Loaders</Filter>
     </ClInclude>
+    <ClInclude Include="vectorMath.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="mixer.rc">
