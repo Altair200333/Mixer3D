@@ -1,6 +1,7 @@
 #pragma once
 
 #include "shader.h"
+#include "component.h"
 
 class Material : public Component
 {

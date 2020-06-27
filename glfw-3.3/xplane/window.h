@@ -121,11 +121,18 @@ public:
 
 		setCallbacks();
 	}
-
+	bool shouldClose() const
+	{
+		return glfwWindowShouldClose(window);
+	}
 	void pollEvents()
 	{
 		input.resetKeys();
 		glfwPollEvents();
+	}
+	void swapBuffers() const
+	{
+		glfwSwapBuffers(window);
 	}
 	virtual ~Window()
 	{

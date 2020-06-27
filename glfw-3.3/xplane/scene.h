@@ -8,6 +8,7 @@
 #include "Loger.h"
 #include "Object.h"
 #include "window.h"
+#include "bmpWriter.h"
 //Scene class is more of a container that has information about objects, materials, lighting, cameras etc
 class Scene
 {

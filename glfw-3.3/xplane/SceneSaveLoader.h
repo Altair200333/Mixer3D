@@ -32,14 +32,15 @@ public:
 			{
 				scene.lights.push_back(LightBuilder().fromJson(value, scene.window));
 			}
-		for (auto& [key, value] : j.at("cameras").items())
-		{
-			Object* obj = new Object();
-			
-			glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2] };
-			obj->addComponent(new Transform(obj, position))->addComponent(new Camera(obj, static_cast<float>(scene.window->width) / scene.window->height, (float)value.at("fov")));
-			scene.cameras.push_back(obj);
-		}
+		if (j.find("cameras") != j.end())
+			for (auto& [key, value] : j.at("cameras").items())
+			{
+				Object* obj = new Object();
+				
+				glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2] };
+				obj->addComponent(new Transform(obj, position))->addComponent(new Camera(obj, static_cast<float>(scene.window->width) / scene.window->height, (float)value.at("fov")));
+				scene.cameras.push_back(obj);
+			}
 	}
 	static void saveScene(Scene& scene)
 	{

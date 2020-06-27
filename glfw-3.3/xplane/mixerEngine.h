@@ -27,7 +27,7 @@ public:
 
 	void mainLoop()
 	{
-		while (!glfwWindowShouldClose(window.window))
+		while (!window.shouldClose())
 		{
 			calcDeltaTime(window.getTime());
 			viewportRenderer.clearBuffer();

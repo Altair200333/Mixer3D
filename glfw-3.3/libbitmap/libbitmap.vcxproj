@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bmpWriter.cpp" />
     <ClCompile Include="libbitmap.cpp" />
   </ItemGroup>
   <ItemGroup>

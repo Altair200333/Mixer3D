@@ -1,9 +1,10 @@
 #pragma once
-#include <vector>
-#include <fstream>
+
+
 #include "component.h"
 #include "glm/glm/glm.hpp"
 #include "polygon.h"
+
 
 class Mesh : public Component
 {
@@ -20,15 +21,15 @@ public:
 		vertices = std::shared_ptr<float[]>(_vertices, std::default_delete<float[]>());
 	}
 
-	Polygon getPolygon(size_t number) const
-	{
-		return { getVertex(number*3), getVertex(number * 3 +1), getVertex(number * 3+2) };
-	}
 	glm::vec3 getVertex(size_t number) const
 	{
 		return {vertices[number * 6], vertices[number * 6 + 1], vertices[number * 6 + 2]};
 	}
-
+	
+	PolygonMesh getPolygon(size_t number) const
+	{
+		return PolygonMesh(getVertex(number * 3), getVertex(number * 3 + 1), getVertex(number * 3 + 2));
+	}
 	glm::vec3 getNormal(size_t number) const
 	{
 		return {vertices[number * 6 + 3], vertices[number * 6 + 4], vertices[number * 6 + 5]};
@@ -45,7 +46,7 @@ public:
 		float tresh = 1.0f + 0.0001f;
 		return a <= tresh && a >= 0 && b <= tresh && b >= 0 && c <= tresh && c >= 0 && (a + b + c) <= tresh;
 	}
-	static bool pointInPolygon(glm::vec3 v, Polygon& p)
+	static bool pointInPolygon(glm::vec3 v, PolygonMesh p)
 	{
 		//bool t = (v - p.vertices[0]).magnitudeSq() < 10|| (v - p.vertices[1]).magnitudeSq() < 10|| (v - p.vertices[2]).magnitudeSq() < 10;
 		float area = glm::length(glm::cross((p.vec1 - p.vec2), (p.vec3 - p.vec2))) * 0.5f;

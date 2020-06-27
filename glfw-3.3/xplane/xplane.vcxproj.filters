@@ -46,6 +46,9 @@
     <Filter Include="Header Files\Builders&amp;Loaders">
       <UniqueIdentifier>{14ad9c10-ec32-4415-a408-8ddb5f98d97f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\PreviewRenderer">
+      <UniqueIdentifier>{52412369-4f9a-4285-801a-cd3a1439eac7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
@@ -71,6 +74,12 @@
     </ClCompile>
     <ClCompile Include="..\imgui\imgui_widgets.cpp">
       <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneRenderer.cpp">
+      <Filter>Source Files\PreviewRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="loger.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

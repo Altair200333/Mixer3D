@@ -1,16 +1,17 @@
 #pragma once
-#include <list>
 #include <string>
+#include <vector>
 
 #define LoggerCapacity 20
 class Logger final
 {
-public:
 	static std::vector<std::string> logs;
-
+public:
+	Logger() = delete;
+	
 	static void log(std::string message)
 	{
-		if(logs.size()> LoggerCapacity)
+		if (logs.size() > LoggerCapacity)
 		{
 			logs.erase(logs.begin());
 		}
@@ -19,11 +20,10 @@ public:
 	static std::string getReport()
 	{
 		std::string output;
-		for(const auto& str: logs)
+		for (const auto& str : logs)
 		{
 			output += str + "\n";
 		}
 		return output;
 	}
 };
-std::vector<std::string> Logger::logs;
