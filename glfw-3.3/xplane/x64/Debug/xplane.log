@@ -69,10 +69,10 @@ E:\WORK\CPP\vsProj\glfw-3.3\xplane\objectBuilder.h(68,1): warning C4305: 'argume
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(100,1): warning C4305: 'argument': truncation from 'double' to 'float'
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(141,1): warning C4305: 'argument': truncation from 'double' to 'float'
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.h(186,1): warning C4305: 'argument': truncation from 'double' to 'float'
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(85,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(85,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(101,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(102,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(90,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(90,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(106,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(107,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\xstring(2388,23): warning C4244: 'argument': conversion from 'wchar_t' to 'const _Elem', possible loss of data
           with
           [
@@ -98,20 +98,22 @@ E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\xstring(2379): messa
           [
               _Iter=wchar_t *
           ]
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\fileManager.h(45): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,void>(_Iter,_Iter,const _Alloc &)' being compiled
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\fileManager.h(46): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,void>(_Iter,_Iter,const _Alloc &)' being compiled
           with
           [
               _Elem=wchar_t,
               _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
               _Alloc=std::allocator<char>
           ]
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\fileManager.h(45): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,void>(_Iter,_Iter,const _Alloc &)' being compiled
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\fileManager.h(46): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,void>(_Iter,_Iter,const _Alloc &)' being compiled
           with
           [
               _Elem=wchar_t,
               _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
               _Alloc=std::allocator<char>
           ]
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\filesystem(2087): message : see reference to class template instantiation 'std::chrono::time_point<std::filesystem::_File_time_clock,std::chrono::duration<std::chrono::system_clock::rep,std::chrono::system_clock::period>>' being compiled
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\xstring(1743): message : see reference to class template instantiation 'std::basic_string_view<wchar_t,std::char_traits<wchar_t>>' being compiled
 E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\chrono(632): message : see reference to class template instantiation 'std::chrono::duration<double,std::ratio<1,1>>' being compiled
 E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\chrono(178): message : see reference to class template instantiation 'std::chrono::duration<__int64,std::nano>' being compiled
 E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\chrono(610): message : see reference to class template instantiation 'std::chrono::time_point<std::chrono::steady_clock,std::chrono::nanoseconds>' being compiled

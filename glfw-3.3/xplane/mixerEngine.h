@@ -53,9 +53,16 @@ public:
 				glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 			
 		}
+
+		if (window.input.getKeyUp(KeyCode::ESC))
+			glfwSetWindowShouldClose(window.window, true);
+		auto camera = scene.getActiveCamera();
+
+		if(camera == nullptr)
+			return;
+		
 		if (window.input.getKeyUp(KeyCode::R))
-		{
-			
+		{		
 			RayTracerEngine rt;
 			Bitmap img = rt.render(scene, window.width, window.height);
 			BMPWriter bmpw;
@@ -64,9 +71,7 @@ public:
 			img.clear();
 			
 		}
-		if (window.input.getKeyUp(KeyCode::ESC))
-			glfwSetWindowShouldClose(window.window, true);
-		auto camera = scene.getActiveCamera();
+		
 		if (window.input.getKey(KeyCode::W))
 			camera->ProcessKeyboard(FORWARD, deltaTime);
 		if (window.input.getKey(KeyCode::S))

@@ -10,26 +10,8 @@ class SceneSaveLoader
 {
 	
 public:
-	static void loadScene(Scene& scene, std::string path)
-	{
-		if (!path.empty() && FileManager::fileExists(path) && path.find(".mxr") != path.npos)
-		{
-			scene.clear();
-			scene.sceneName = path;
-		
-			std::ifstream i(path);
-			using json = nlohmann::json;
-			json j;
-			i >> j;
+	static void loadScene(Scene& scene, std::string path);
 
-			fromJson(scene, j);
-			Logger::log("Scene from file");
-		}
-		else
-		{
-			Logger::log("Wrong extension of file does not exist");
-		}
-	}
 	static void fromJson(Scene& scene, nlohmann::json& j)
 	{
 		scene.clear();
@@ -104,3 +86,24 @@ public:
 		s << std::setw(4)<< j<<std::endl;
 	}
 };
+
+inline void SceneSaveLoader::loadScene(Scene& scene, std::string path)
+{
+	if (!path.empty() && FileManager::fileExists(path) && path.find(".mxr") != path.npos)
+	{
+		scene.clear();
+		scene.sceneName = path;
+
+		std::ifstream i(path);
+		using json = nlohmann::json;
+		json j;
+		i >> j;
+
+		fromJson(scene, j);
+		Logger::log("Scene from file");
+	}
+	else
+	{
+		Logger::log("Wrong extension of file does not exist");
+	}
+}

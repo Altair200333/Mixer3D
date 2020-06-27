@@ -3,13 +3,14 @@
 #include <windows.h>
 #include <shobjidl.h> 
 #include <string>
+#include <filesystem>
 
 class FileManager
 {
 public:
 	static bool fileExists(const std::string& name) {
-		std::ifstream f(name.c_str());
-		return f.good();
+		std::error_code ec;
+		return std::filesystem::exists(name, ec);
 	}
 	static std::string getPathDialog()
 	{

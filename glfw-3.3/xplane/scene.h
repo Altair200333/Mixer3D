@@ -56,7 +56,7 @@ public:
 	}
 	Camera* getActiveCamera()
 	{
-		return cameras[0]->getComponent<Camera>();
+		return cameras.size()>0?cameras[0]->getComponent<Camera>():nullptr;
 	}
 	virtual ~Scene() = default;
 	void clear()
