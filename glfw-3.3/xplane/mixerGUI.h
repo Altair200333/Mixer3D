@@ -43,9 +43,11 @@ public:
 
 	void drawColor(void* color)
 	{
+		ImGui::PushID(color);
 		ImGui::Text("color");
 		ImGui::SameLine();
 		ImGui::ColorEdit3("  ", (float*)(color));
+		ImGui::PopID();
 	}
 
 	void drawMenuPanel()
@@ -71,8 +73,6 @@ public:
 				}
 				ImGui::EndMenu();
 			}
-			
-			
 			ImGui::EndMenuBar();
 		}
 	}
@@ -105,38 +105,47 @@ public:
 
 	void drawObjectPanel(Object* obj)
 	{
-		ImGui::PushID(obj->name.c_str());
+		ImGui::PushID(&obj);
 		if (ImGui::CollapsingHeader(std::string("Object: " + obj->name).c_str()))
 		{			
 			auto mat = obj->getComponent<Material>();
 			if (mat != nullptr)
 			{
-				ImGui::PushID(&mat->owner);
+				ImGui::PushID(mat);
 				if (ImGui::CollapsingHeader(std::string("material").c_str()))
 				{
-					ImGui::PushID(mat);
 					drawColor(&(mat->diffuseColor));
-					ImGui::PopID();
 					
 					drawDragFloat("roughness", &mat->roughness, 0, 1);
 					drawDragFloat("transparency", &mat->transparency, 0, 1);
 					drawDragFloat("ior",&mat->ior, 1, 3);
-
-					ImGui::PopID();
+					
 				}
+				ImGui::PopID();
 			}
 			findAndDrawTransform(obj);
-			ImGui::PushID(obj);
+			ImGui::PushID(int(obj)*rand());
 			if (ImGui::Button("Delete"))
 			{
 				scene->deleteObject(obj);
 				ImGui::PopID();
 				Logger::log("Delete object");
-			}
-			
+			}	
 			ImGui::PopID();
 		}
-		
+	}
+
+	void drawSceneSettings()
+	{
+		ImGui::PushID(&scene->maxBounces);
+		ImGui::DragInt("Max bounces", &scene->maxBounces, 0.1, 0, 10);
+		ImGui::Text(scene->envPath.empty()? "Not specified" : scene->envPath.c_str());
+		ImGui::SameLine();
+		ImGui::PopID();
+		if (ImGui::Button("load"))
+		{
+			scene->loadEnvironment(FileManager::getPathDialog());
+		}
 	}
 
 	void drawScenePanel()
@@ -144,13 +153,8 @@ public:
 		ImGui::Begin(std::string("Scene ["+scene->sceneName+"]").c_str(), nullptr, ImGuiWindowFlags_MenuBar);
 		
 		drawMenuPanel();
-		ImGui::DragInt("Max bounces", &scene->maxBounces, 0.1, 0, 10);
-		ImGui::Text(scene->envPath.empty()? "Not specified" : scene->envPath.c_str());
-		ImGui::SameLine();
-		if(ImGui::Button("load"))
-		{
-			scene->loadEnvironment(FileManager::getPathDialog());
-		}
+		drawSceneSettings();
+		
 		if (ImGui::CollapsingHeader("Objects"))
 		{
 			ImGui::BeginGroupPanel("list");
@@ -158,6 +162,7 @@ public:
 			{
 				drawObjectPanel(obj);
 			}
+
 			ImGui::EndGroupPanel();
 		}
 		if (ImGui::CollapsingHeader("Lights"))

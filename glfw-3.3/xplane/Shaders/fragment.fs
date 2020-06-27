@@ -6,7 +6,7 @@ in vec3 Normal;
   
 uniform vec3 viewPos;
 uniform vec3 diffuse;
-uniform bool checker = true;
+uniform bool checker = false;
 void main()
 {  	
     // diffuse 

@@ -1,4 +1,6 @@
 #pragma once
+#include <iomanip>
+
 #include "bmpWriter.h"
 #include "scene.h"
 #include "Object.h"
@@ -98,6 +100,6 @@ public:
 			j["cameras"].push_back(jObj);
 		}
 		std::ofstream s(scene.sceneName);
-		s << j;
+		s << std::setw(4)<< j<<std::endl;
 	}
 };
