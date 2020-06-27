@@ -52,6 +52,12 @@
     <Filter Include="Source Files\Object&amp;Components">
       <UniqueIdentifier>{4650f633-2309-4d75-941f-4c54abe5d7ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ECS">
+      <UniqueIdentifier>{50022ed8-7776-4dc9-9ae3-2180151f1470}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GUI">
+      <UniqueIdentifier>{47803c50-372d-407d-b6fc-c7baf4b18da5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
@@ -109,7 +115,10 @@
       <Filter>Source Files\Object&amp;Components</Filter>
     </ClCompile>
     <ClCompile Include="componentManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="mixerGUI.cpp">
+      <Filter>Source Files\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

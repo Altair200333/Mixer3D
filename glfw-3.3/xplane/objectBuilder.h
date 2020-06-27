@@ -7,7 +7,7 @@
 #include "MeshRenderer.h"
 #include "Object.h"
 #include "transform.h"
-
+#include "nlohmann/json.hpp"
 class ObjectBuilder final
 {
 	Object* obj;
