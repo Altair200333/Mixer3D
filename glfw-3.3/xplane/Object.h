@@ -23,6 +23,5 @@ public:
 	{
 		return componentManager.getComponent<T>();
 	}
-
-	
+	virtual ~Object() = default;
 };

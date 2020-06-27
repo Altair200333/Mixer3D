@@ -77,7 +77,7 @@ protected:
 
 		delete[] buffer;
 
-		mesh->vertices = std::shared_ptr<float[]>(new float[vertexCount * 6], std::default_delete<float[]>());		
+		mesh->vertices = new float[vertexCount * 6];		
 		memcpy(&mesh->vertices[0], &polygons[0], polygons.size() * sizeof(float));
 		
 		mesh->vertexCount = vertexCount;

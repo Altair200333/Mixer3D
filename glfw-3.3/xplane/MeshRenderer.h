@@ -6,6 +6,7 @@
 
 #include "window.h"
 #include "camera.h"
+
 class MeshRenderer : public Component
 {
 	const Window* window;

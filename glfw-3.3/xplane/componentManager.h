@@ -1,7 +1,6 @@
 #pragma once
 #include <map>
 
-#include "component.h"
 class Component;
 
 class ComponentManager final
@@ -21,11 +20,5 @@ public:
 		auto it = components.find(T::componentID);
 		return it == components.end() ? nullptr : static_cast<T*>(it->second);
 	}
-	~ComponentManager()
-	{
-		for(auto comp:components)
-		{
-			free(comp.second);
-		}
-	}
+	~ComponentManager();
 };

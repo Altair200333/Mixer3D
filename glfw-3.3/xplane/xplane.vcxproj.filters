@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\lighting">
-      <UniqueIdentifier>{12af3514-aa84-4cf0-948a-13312c38de9e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\RenderEngine">
       <UniqueIdentifier>{23e71d38-f001-427e-9539-25edd835aa97}</UniqueIdentifier>
     </Filter>
@@ -111,13 +108,13 @@
     <ClCompile Include="MeshRenderer.cpp">
       <Filter>Source Files\Object&amp;Components</Filter>
     </ClCompile>
+    <ClCompile Include="componentManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scene.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LightSource.h">
-      <Filter>Header Files\lighting</Filter>
     </ClInclude>
     <ClInclude Include="renderEngine.h">
       <Filter>Header Files\RenderEngine</Filter>
@@ -220,6 +217,9 @@
     </ClInclude>
     <ClInclude Include="input.h">
       <Filter>Header Files\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="LightSource.h">
+      <Filter>Header Files\Object&amp;Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

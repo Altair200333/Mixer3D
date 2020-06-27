@@ -148,6 +148,7 @@
     <ClCompile Include="..\imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="..\imgui\imgui_widgets.cpp" />
     <ClCompile Include="camera.cpp" />
+    <ClCompile Include="componentManager.cpp" />
     <ClCompile Include="fileManager.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="input.cpp" />

@@ -2,7 +2,7 @@
 
 Mesh::Mesh(float* _vertices, size_t vCount) :vertexCount(vCount), Component(nullptr)
 {
-	vertices = std::shared_ptr<float[]>(_vertices, std::default_delete<float[]>());
+	vertices = _vertices;
 }
 
 glm::vec3 Mesh::getVertex(size_t number) const
@@ -40,4 +40,9 @@ bool Mesh::pointInPolygon(glm::vec3 v, PolygonMesh& p)
 
 	float tresh = 1.0f + 0.0001f;
 	return a <= tresh && a >= 0 && b <= tresh && b >= 0 && c <= tresh && c >= 0 && (a + b + c) <= tresh;
+}
+
+Mesh::~Mesh()
+{
+	delete vertices;
 }
