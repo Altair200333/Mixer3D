@@ -1,7 +1,7 @@
 #include "mixerEngine.h"
 
 // settings
-const unsigned int SCR_WIDTH = 1500;
+const unsigned int SCR_WIDTH = 1820;
 const unsigned int SCR_HEIGHT = 900;
 
 int main()
