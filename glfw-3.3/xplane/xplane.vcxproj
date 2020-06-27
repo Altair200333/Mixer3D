@@ -147,10 +147,18 @@
     <ClCompile Include="..\imgui\imgui_impl_glfw.cpp" />
     <ClCompile Include="..\imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="..\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="camera.cpp" />
+    <ClCompile Include="fileManager.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="input.cpp" />
     <ClCompile Include="loger.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mesh.cpp" />
+    <ClCompile Include="MeshRenderer.cpp" />
+    <ClCompile Include="scene.cpp" />
     <ClCompile Include="SceneRenderer.cpp" />
+    <ClCompile Include="shader.cpp" />
+    <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\imgui\imconfig.h" />
@@ -166,6 +174,7 @@
     <ClInclude Include="componentManager.h" />
     <ClInclude Include="fileManager.h" />
     <ClInclude Include="gui.h" />
+    <ClInclude Include="input.h" />
     <ClInclude Include="lightBuilder.h" />
     <ClInclude Include="Loger.h" />
     <ClInclude Include="MeshLoader.h" />
@@ -198,7 +207,7 @@
     <ResourceCompile Include="mixer.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="mixerLogo.ico" />
+    <Image Include="GLFW_ICON.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

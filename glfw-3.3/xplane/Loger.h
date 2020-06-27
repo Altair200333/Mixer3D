@@ -9,21 +9,6 @@ class Logger final
 public:
 	Logger() = delete;
 	
-	static void log(std::string message)
-	{
-		if (logs.size() > LoggerCapacity)
-		{
-			logs.erase(logs.begin());
-		}
-		logs.push_back(message);
-	}
-	static std::string getReport()
-	{
-		std::string output;
-		for (const auto& str : logs)
-		{
-			output += str + "\n";
-		}
-		return output;
-	}
+	static void log(std::string message);
+	static std::string getReport();
 };

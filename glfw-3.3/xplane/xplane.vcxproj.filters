@@ -49,6 +49,12 @@
     <Filter Include="Source Files\PreviewRenderer">
       <UniqueIdentifier>{52412369-4f9a-4285-801a-cd3a1439eac7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Window">
+      <UniqueIdentifier>{79f63411-fd84-42ef-9027-226c6ba027ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Object&amp;Components">
+      <UniqueIdentifier>{4650f633-2309-4d75-941f-4c54abe5d7ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
@@ -80,6 +86,30 @@
     </ClCompile>
     <ClCompile Include="loger.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fileManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="window.cpp">
+      <Filter>Source Files\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="input.cpp">
+      <Filter>Source Files\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="shader.cpp">
+      <Filter>Source Files\PreviewRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>Source Files\Object&amp;Components</Filter>
+    </ClCompile>
+    <ClCompile Include="mesh.cpp">
+      <Filter>Source Files\Object&amp;Components</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshRenderer.cpp">
+      <Filter>Source Files\Object&amp;Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +218,9 @@
     <ClInclude Include="MeshLoader.h">
       <Filter>Header Files\Builders&amp;Loaders</Filter>
     </ClInclude>
+    <ClInclude Include="input.h">
+      <Filter>Header Files\Window</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="mixer.rc">
@@ -195,7 +228,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="mixerLogo.ico">
+    <Image Include="GLFW_ICON.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -2,11 +2,8 @@
 
 #include <glm/glm/glm.hpp>
 
-#include "component.h"
-#include "material.h"
-#include "mesh.h"
 #include "shader.h"
-#include "transform.h"
+
 #include "window.h"
 #include "camera.h"
 class MeshRenderer : public Component
@@ -19,57 +16,8 @@ public:
     unsigned int VBO, VAO;
 
     const static uint64_t componentID = 6;
-	MeshRenderer(Window* _window, Object* _owner):Component(_owner), window(_window)
-	{
-		initMeshRenderer();
-	}
-    void render(Camera* camera) const
-    {
-        shader.use();
-        shader.setVec3("viewPos", camera->owner->getComponent<Transform>()->position);
-        
-        // material properties
-        owner->getComponent<Material>()->loadToShader(shader);
-
-        // view/projection transformations
-        const glm::mat4 projection = glm::perspective(glm::radians(camera->Zoom), camera->aspectRatio, 0.1f, 1000.0f);
-        const glm::mat4 view = camera->GetViewMatrix();
-        shader.setMat4("projection", projection);
-        shader.setMat4("view", view);
-
-        // world transformation
-        const glm::mat4 worldModel = glm::translate(model, owner->getComponent<Transform>()->position);
-        shader.setMat4("model", worldModel);
-
-        // render the cube
-        glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, owner->getComponent<Mesh>()->vertexCount);
-    }
-	void initMeshRenderer()
-	{
-		Mesh* mesh = owner->getComponent<Mesh>();
-		model = glm::mat4(1.0f);
-		shader = Shader();
-
-		glGenVertexArrays(1, &VAO);
-		glGenBuffers(1, &VBO);
-
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * owner->getComponent<Mesh>()->vertexCount * 6, &mesh->vertices[0], GL_STATIC_DRAW);
-
-		glBindVertexArray(VAO);
-
-		// position attribute
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0);
-		// normal attribute
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-		glEnableVertexAttribArray(1);
-
-
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		// note that we update the lamp's position attribute's stride to reflect the updated buffer data
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0);
-	}
+	
+    MeshRenderer(Window* _window, Object* _owner);
+	void render(Camera* camera) const;
+    void initMeshRenderer();
 };

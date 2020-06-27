@@ -27,10 +27,4 @@ public:
 	{}
 	Material(Object* _owner, glm::vec3 color, float _rough, float _transp, float _ior) :Component(_owner), diffuseColor(color), roughness(_rough), transparency(_transp), ior(_ior)
 	{}
-	void loadToShader(const Shader& sh) const
-	{
-		sh.setVec3("diffuse", diffuseColor);
-		//sh.setFloat("material.shininess", roughness);
-	}
-
 };
