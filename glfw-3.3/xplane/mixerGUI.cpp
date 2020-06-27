@@ -1,10 +1,7 @@
 #include "mixerGUI.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
 
-
-namespace 
-{
-	
-}
 void MixerGUI::onStart(Window* window) 
 {
 	IMGUI_CHECKVERSION();
@@ -77,7 +74,7 @@ void MixerGUI::drawMenuPanel()
 	}
 }
 
-void MixerGUI::drawLightPanel(std::vector<Object*>::value_type obj)
+void MixerGUI::drawLightPanel(Object* obj)
 {
 	if (ImGui::CollapsingHeader("Light"))
 	{
@@ -138,7 +135,7 @@ void MixerGUI::drawObjectPanel(Object* obj)
 void MixerGUI::drawSceneSettings()
 {
 	ImGui::PushID(&scene->maxBounces);
-	ImGui::Text("Max bounces");
+	ImGui::Text("Max bounces  ");
 	ImGui::SameLine();
 	ImGui::SliderInt("", &scene->maxBounces, 0, 64);
 	ImGui::Text(scene->envPath.empty() ? "Not specified" : scene->envPath.c_str());

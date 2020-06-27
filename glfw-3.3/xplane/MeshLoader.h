@@ -1,5 +1,6 @@
 #pragma once
 #include "mesh.h"
+#include <vector>
 class MeshLoader
 {
 public:

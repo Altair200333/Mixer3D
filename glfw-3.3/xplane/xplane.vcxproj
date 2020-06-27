@@ -156,9 +156,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mesh.cpp" />
     <ClCompile Include="MeshRenderer.cpp" />
+    <ClCompile Include="mixerEngine.cpp" />
     <ClCompile Include="mixerGUI.cpp" />
+    <ClCompile Include="objectBuilder.cpp" />
+    <ClCompile Include="objectLoader.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="SceneRenderer.cpp" />
+    <ClCompile Include="sceneSaveLoader.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>
@@ -177,6 +181,7 @@
     <ClInclude Include="fileManager.h" />
     <ClInclude Include="gui.h" />
     <ClInclude Include="input.h" />
+    <ClInclude Include="itemBuilder.h" />
     <ClInclude Include="lightBuilder.h" />
     <ClInclude Include="Loger.h" />
     <ClInclude Include="MeshLoader.h" />

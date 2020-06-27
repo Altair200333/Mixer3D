@@ -58,6 +58,12 @@
     <Filter Include="Source Files\GUI">
       <UniqueIdentifier>{47803c50-372d-407d-b6fc-c7baf4b18da5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{637f12b3-14b8-4504-8f77-b1d5d62aabae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Builders&amp;Loaders">
+      <UniqueIdentifier>{d5b94bb7-4b10-447c-b140-1e46413bf8c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
@@ -119,6 +125,18 @@
     </ClCompile>
     <ClCompile Include="mixerGUI.cpp">
       <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="mixerEngine.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="sceneSaveLoader.cpp">
+      <Filter>Source Files\Builders&amp;Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="objectLoader.cpp">
+      <Filter>Source Files\Builders&amp;Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="objectBuilder.cpp">
+      <Filter>Source Files\Builders&amp;Loaders</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +247,9 @@
     </ClInclude>
     <ClInclude Include="LightSource.h">
       <Filter>Header Files\Object&amp;Components</Filter>
+    </ClInclude>
+    <ClInclude Include="itemBuilder.h">
+      <Filter>Header Files\Builders&amp;Loaders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

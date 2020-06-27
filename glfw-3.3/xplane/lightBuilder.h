@@ -3,13 +3,15 @@
 #include <nlohmann/json.hpp>
 
 
+
+#include "itemBuilder.h"
 #include "LightSource.h"
 #include "Object.h"
 #include "objectBuilder.h"
 #include "transform.h"
 #include "window.h"
 
-class LightBuilder final
+class LightBuilder final: public ItemBuilder
 {
 	Object* obj;
 public:
