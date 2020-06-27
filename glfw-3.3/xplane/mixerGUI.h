@@ -44,7 +44,7 @@ public:
 	void drawColor(void* color)
 	{
 		ImGui::PushID(color);
-		ImGui::Text("color");
+		ImGui::Text("color   ");
 		ImGui::SameLine();
 		ImGui::ColorEdit3("  ", (float*)(color));
 		ImGui::PopID();
@@ -97,7 +97,7 @@ public:
 		ImGui::PushID(val);
 		ImGui::Text(label.c_str());
 		ImGui::SameLine();
-		ImGui::DragFloat("", val, 0.01, min, max);
+		ImGui::SliderFloat("", val, min, max);
 		ImGui::PopID();
 	}
 
@@ -114,9 +114,9 @@ public:
 				{
 					drawColor(&(mat->diffuseColor));
 					
-					drawDragFloat("roughness", &mat->roughness, 0, 1);
+					drawDragFloat("roughness   ", &mat->roughness, 0, 1);
 					drawDragFloat("transparency", &mat->transparency, 0, 1);
-					drawDragFloat("ior",&mat->ior, 1, 3);
+					drawDragFloat("ior         ",&mat->ior, 1, 3);
 					
 
 				}
