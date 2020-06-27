@@ -11,8 +11,9 @@
 
 class Window;
 
-class ObjectBuilder final: public ItemBuilder
+class ObjectBuilder: public ItemBuilder
 {
+protected:
 	Object* obj;
 public:
 	ObjectBuilder() { obj = new Object(); }
@@ -29,5 +30,6 @@ public:
 	ObjectBuilder& addTransform(glm::vec3 position);
 	
 	static Object* fromJson(nlohmann::json& value, Window* window);
+	static void toJson(Object* obj, nlohmann::json& value);
 
 };

@@ -152,9 +152,11 @@
     <ClCompile Include="fileManager.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="input.cpp" />
+    <ClCompile Include="lightBuilder.cpp" />
     <ClCompile Include="loger.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mesh.cpp" />
+    <ClCompile Include="STLMeshLoader.cpp" />
     <ClCompile Include="MeshRenderer.cpp" />
     <ClCompile Include="mixerEngine.cpp" />
     <ClCompile Include="mixerGUI.cpp" />
@@ -184,7 +186,8 @@
     <ClInclude Include="itemBuilder.h" />
     <ClInclude Include="lightBuilder.h" />
     <ClInclude Include="Loger.h" />
-    <ClInclude Include="MeshLoader.h" />
+    <ClInclude Include="meshLoader.h" />
+    <ClInclude Include="STLMeshLoader.h" />
     <ClInclude Include="MeshRenderer.h" />
     <ClInclude Include="mixerGUI.h" />
     <ClInclude Include="objectBuilder.h" />

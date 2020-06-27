@@ -17,7 +17,7 @@ void Scene::loadEnvironment(std::string path)
 		Logger::log("Failed to load image");
 	}
 }
-void Scene::AddObject(Object* object)
+void Scene::addObject(Object* object)
 {
 	if (object != nullptr)
 		objects.push_back(object);
@@ -29,6 +29,19 @@ void Scene::deleteObject(Object* obj)
 	auto it = std::find(objects.begin(), objects.end(), obj);
 	delete obj;
 	objects.erase(it);
+}
+void Scene::deleteLight(Object* obj)
+{
+	auto it = std::find(lights.begin(), lights.end(), obj);
+	delete obj;
+	lights.erase(it);
+}
+void Scene::addLight(Object* object)
+{
+	if (object != nullptr)
+		lights.push_back(object);
+	else
+		Logger::log("Failed to insert null light");
 }
 Camera* Scene::getActiveCamera()
 {

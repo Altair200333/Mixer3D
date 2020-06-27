@@ -35,7 +35,7 @@ void SceneSaveLoader::fromJson(Scene& scene, nlohmann::json& j)
 	}
 	if (j.find("objects") != j.end())
 		for (auto& [key, value] : j.at("objects").items())
-			scene.AddObject(ObjectBuilder().fromJson(value, scene.window));
+			scene.addObject(ObjectBuilder().fromJson(value, scene.window));
 
 	if (j.find("lights") != j.end())
 		for (auto& [key, value] : j.at("lights").items())
@@ -46,7 +46,7 @@ void SceneSaveLoader::fromJson(Scene& scene, nlohmann::json& j)
 		for (auto& [key, value] : j.at("cameras").items())
 		{
 			auto obj = new Object();
-			glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2] };
+			glm::vec3 position = getVec3Or(value, "position", { 0,0,-1 });
 			obj->addComponent(new Transform(obj, position))->addComponent(new Camera(obj, static_cast<float>(scene.window->width) / scene.window->height, (float)value.at("fov")));
 			scene.cameras.push_back(obj);
 		}
@@ -86,23 +86,12 @@ void SceneSaveLoader::saveScene(Scene& scene)
 
 void SceneSaveLoader::saveObjectToJson(Object* object, nlohmann::json& jsonObject)
 {
-	jsonObject["name"] = object->name;
-	auto mat = object->getComponent<Material>();
-	jsonObject["color"] = { mat->diffuseColor.r, mat->diffuseColor.g, mat->diffuseColor.b };
-	jsonObject["roughness"] = mat->roughness;
-	jsonObject["transparency"] = mat->transparency;
-	jsonObject["ior"] = mat->ior;
-	auto trasform = object->getComponent<Transform>();
-	jsonObject["position"] = { trasform->position.x, trasform->position.y, trasform->position.z };
+	ObjectBuilder::toJson(object, jsonObject);
 }
 
-void SceneSaveLoader::SceneSaveLoader::savePointLightToJson(Object* object, nlohmann::json& jsonLight)
+void SceneSaveLoader::savePointLightToJson(Object* object, nlohmann::json& jsonLight)
 {
-	auto light = object->getComponent<PointLight>();
-	jsonLight["color"] = { light->color.r, light->color.g, light->color.b };
-	jsonLight["intensity"] = light->intensity;
-	auto trasform = object->getComponent<Transform>();
-	jsonLight["position"] = { trasform->position.x, trasform->position.y, trasform->position.z };
+	LightBuilder::toJson(object, jsonLight);
 }
 
 void SceneSaveLoader::saveCameraToJson(Object* object, nlohmann::json& jObj)

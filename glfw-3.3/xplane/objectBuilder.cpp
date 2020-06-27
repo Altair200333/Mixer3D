@@ -1,13 +1,13 @@
 #include "objectBuilder.h"
 #include "material.h"
-#include "MeshLoader.h"
+#include "STLMeshLoader.h"
 #include "MeshRenderer.h"
 #include "transform.h"
 
 ObjectBuilder& ObjectBuilder::addMesh(std::string name)
 {
 	obj->name = name;
-	obj->addComponent<Mesh>(MeshLoader::load(name));
+	obj->addComponent<Mesh>(STLMeshLoader().load(name));
 	return *this;
 }
 ObjectBuilder& ObjectBuilder::addRenderer(Window* window)
@@ -56,4 +56,15 @@ Object* ObjectBuilder::fromJson(nlohmann::json& value, Window* window)
 	.addTransform(position);
 
 	return obj;
+}
+void ObjectBuilder::toJson(Object* object, nlohmann::json& jsonObject)
+{
+	jsonObject["name"] = object->name;
+	auto mat = object->getComponent<Material>();
+	jsonObject["color"] = { mat->diffuseColor.r, mat->diffuseColor.g, mat->diffuseColor.b };
+	jsonObject["roughness"] = mat->roughness;
+	jsonObject["transparency"] = mat->transparency;
+	jsonObject["ior"] = mat->ior;
+	auto trasform = object->getComponent<Transform>();
+	jsonObject["position"] = { trasform->position.x, trasform->position.y, trasform->position.z };
 }

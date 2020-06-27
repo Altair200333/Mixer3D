@@ -5,6 +5,8 @@
 
 class ItemBuilder
 {
+public:
+	virtual ~ItemBuilder() = default;
 protected:
 
 	static float getFloatOr(nlohmann::json& j, std::string key, float def)

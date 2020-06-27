@@ -27,8 +27,10 @@ public:
 	}
 
 	void loadEnvironment(std::string path);
-	void AddObject(Object* object);
+	void addObject(Object* object);
+	void addLight(Object* object);
 	void deleteObject(Object* obj);
+	void deleteLight(Object* obj);
 	Camera* getActiveCamera();
 	virtual ~Scene() = default;
 	void clear();

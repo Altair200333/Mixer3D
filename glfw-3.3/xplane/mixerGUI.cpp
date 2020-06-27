@@ -66,7 +66,7 @@ void MixerGUI::drawMenuPanel()
 			if (ImGui::MenuItem("Import"))
 			{
 				auto path = FileManager::getPathDialog();
-				scene->AddObject(ObjectLoader::loadObject(path, scene->window));
+				scene->addObject(ObjectLoader::loadObject(path, scene->window));
 			}
 			ImGui::EndMenu();
 		}
@@ -76,19 +76,42 @@ void MixerGUI::drawMenuPanel()
 
 void MixerGUI::drawLightPanel(Object* obj)
 {
+	ImGui::PushID(obj);
 	if (ImGui::CollapsingHeader("Light"))
 	{
-		ImGui::PushID(obj);
 		findAndDrawTransform(obj);
-		ImGui::PopID();
 		auto light = obj->getComponent<PointLight>();
 		if (light != nullptr)
 		{
 			drawColor(&light->color);
 		}
-	}
-}
+		ImGui::PushID(&obj->name);
+		if (ImGui::Button("Delete"))
+		{
+			scene->deleteLight(obj);
 
+			Logger::log("Delete light");
+		}
+		ImGui::PopID();
+	}
+	ImGui::PopID();
+}
+void MixerGUI::drawCameraPanel(Object* obj)
+{
+	ImGui::PushID(obj);
+	if (ImGui::CollapsingHeader("Camera"))
+	{
+		ImGui::PushID(obj);
+		findAndDrawTransform(obj);
+		ImGui::PopID();
+		auto camera = obj->getComponent<Camera>();
+		if (camera != nullptr)
+		{
+			drawDragFloat("fov", &camera->Zoom, 5, 90);
+		}
+	}
+	ImGui::PopID();
+}
 void MixerGUI::drawDragFloat(std::string label, float* val, float min, float max)
 {
 	ImGui::PushID(val);
@@ -173,6 +196,23 @@ void MixerGUI::drawScenePanel()
 		for (auto obj : scene->lights)
 		{
 			drawLightPanel(obj);
+		}
+
+		ImGui::PushID(&scene->lights);
+		if (ImGui::Button("Add light"))
+		{
+			scene->addLight(LightBuilder().addLight({ 1,1,1 }, 1).addStandartSphere({1,1,1}, scene->window));
+			Logger::log("Add light");
+		}
+		ImGui::PopID();
+		ImGui::EndGroupPanel();
+	}
+	if (ImGui::CollapsingHeader("Cameras"))
+	{
+		ImGui::BeginGroupPanel("list");
+		for (auto obj : scene->cameras)
+		{
+			drawCameraPanel(obj);
 		}
 		ImGui::EndGroupPanel();
 	}

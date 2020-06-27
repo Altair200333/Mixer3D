@@ -138,6 +138,12 @@
     <ClCompile Include="objectBuilder.cpp">
       <Filter>Source Files\Builders&amp;Loaders</Filter>
     </ClCompile>
+    <ClCompile Include="lightBuilder.cpp">
+      <Filter>Source Files\Builders&amp;Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="STLMeshLoader.cpp">
+      <Filter>Source Files\Builders&amp;Loaders</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scene.h">
@@ -239,9 +245,6 @@
     <ClInclude Include="shader.h">
       <Filter>Header Files\PreviewRenderer</Filter>
     </ClInclude>
-    <ClInclude Include="MeshLoader.h">
-      <Filter>Header Files\Builders&amp;Loaders</Filter>
-    </ClInclude>
     <ClInclude Include="input.h">
       <Filter>Header Files\Window</Filter>
     </ClInclude>
@@ -249,6 +252,12 @@
       <Filter>Header Files\Object&amp;Components</Filter>
     </ClInclude>
     <ClInclude Include="itemBuilder.h">
+      <Filter>Header Files\Builders&amp;Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="STLMeshLoader.h">
+      <Filter>Header Files\Builders&amp;Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="meshLoader.h">
       <Filter>Header Files\Builders&amp;Loaders</Filter>
     </ClInclude>
   </ItemGroup>

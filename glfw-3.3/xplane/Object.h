@@ -15,6 +15,8 @@ public:
 	template<typename T>
 	Object* addComponent(T* comp)
 	{
+		if (comp == nullptr)
+			return this;
 		componentManager.addComponent<T>(comp);
 		return this;
 	}

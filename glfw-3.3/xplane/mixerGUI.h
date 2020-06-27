@@ -28,6 +28,7 @@ protected:
 	void drawLightPanel(Object* obj);
 	void drawDragFloat(std::string label, float* val, float min, float max);
 	void drawObjectPanel(Object* obj);
+	void drawCameraPanel(Object* obj);
 	void drawSceneSettings();
 	void drawScenePanel();
 	void drawLogsPanel();
