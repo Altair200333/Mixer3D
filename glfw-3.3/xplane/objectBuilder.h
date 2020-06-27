@@ -3,6 +3,7 @@
 
 
 #include "material.h"
+#include "MeshLoader.h"
 #include "MeshRenderer.h"
 #include "Object.h"
 #include "transform.h"
@@ -16,7 +17,7 @@ public:
 	ObjectBuilder& addMesh(std::string name)
 	{
 		obj->name = name;
-		obj->addComponent<Mesh>(new Mesh(name, obj));
+		obj->addComponent<Mesh>(MeshLoader::load(name));
 		return *this;
 	}
 	ObjectBuilder& addRenderer(Window* window)

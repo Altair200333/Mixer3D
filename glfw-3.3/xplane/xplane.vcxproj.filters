@@ -43,7 +43,7 @@
     <Filter Include="Header Files\GUI">
       <UniqueIdentifier>{a4ed6b07-23c8-477a-82d9-8a463f0fae37}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Builders">
+    <Filter Include="Header Files\Builders&amp;Loaders">
       <UniqueIdentifier>{14ad9c10-ec32-4415-a408-8ddb5f98d97f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -74,9 +74,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="shader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -159,22 +156,28 @@
       <Filter>Header Files\Object&amp;Components</Filter>
     </ClInclude>
     <ClInclude Include="objectBuilder.h">
-      <Filter>Header Files\Builders</Filter>
+      <Filter>Header Files\Builders&amp;Loaders</Filter>
     </ClInclude>
     <ClInclude Include="lightBuilder.h">
-      <Filter>Header Files\Builders</Filter>
+      <Filter>Header Files\Builders&amp;Loaders</Filter>
     </ClInclude>
     <ClInclude Include="SceneSaveLoader.h">
-      <Filter>Header Files\Builders</Filter>
+      <Filter>Header Files\Builders&amp;Loaders</Filter>
     </ClInclude>
     <ClInclude Include="Loger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ObjectLoader.h">
-      <Filter>Header Files\Builders</Filter>
+      <Filter>Header Files\Builders&amp;Loaders</Filter>
     </ClInclude>
     <ClInclude Include="fileManager.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shader.h">
+      <Filter>Header Files\PreviewRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLoader.h">
+      <Filter>Header Files\Builders&amp;Loaders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

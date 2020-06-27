@@ -124,7 +124,7 @@ public:
 				ImGui::PopID();
 			}
 			findAndDrawTransform(obj);
-			ImGui::PushID(int(obj)*rand());
+			ImGui::PushID(&obj->name);
 			if (ImGui::Button("Delete"))
 			{
 				scene->deleteObject(obj);

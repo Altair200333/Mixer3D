@@ -166,6 +166,7 @@
     <ClInclude Include="gui.h" />
     <ClInclude Include="lightBuilder.h" />
     <ClInclude Include="Loger.h" />
+    <ClInclude Include="MeshLoader.h" />
     <ClInclude Include="MeshRenderer.h" />
     <ClInclude Include="mixerGUI.h" />
     <ClInclude Include="objectBuilder.h" />

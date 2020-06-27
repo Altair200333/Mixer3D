@@ -19,7 +19,7 @@ public:
 	static std::string getReport()
 	{
 		std::string output;
-		for(auto str: logs)
+		for(const auto& str: logs)
 		{
 			output += str + "\n";
 		}
