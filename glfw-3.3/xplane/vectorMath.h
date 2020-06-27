@@ -35,9 +35,20 @@ public:
 
 		return rayPoint - rayVector * ratio;
 	}
-	static float dist2(glm::vec3 v1, glm::vec3 v2)
+	static float dist2(glm::vec3 v1, glm::vec3 v2) 
 	{
 		return glm::length2(v1 - v2);
 	}
 
+	static glm::vec3 reflect(const glm::vec3 I, const glm::vec3 N)
+	{
+		return I - N * (glm::dot(I, N) * 2.0f);
+	}
+	static glm::vec3 refract(const glm::vec3& I, const glm::vec3& N, const float eta_t, const float eta_i = 1.f) { // Snell's law
+		float cosi = -std::max<float>(-1.f, std::min<float>(1.0f, glm::dot(I, N)));
+		if (cosi < 0) return refract(I, -N, eta_i, eta_t); // if the ray comes from the inside the object, swap the air and the media
+		float eta = eta_i / eta_t;
+		float k = 1 - eta * eta * (1 - cosi * cosi);
+		return k < 0 ? glm::vec3(1, 0, 0) : I * eta + N * (eta * cosi - sqrtf(k)); // k<0 = total reflection, no ray to refract. I refract it anyways, this has no physical meaning
+	}
 };

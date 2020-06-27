@@ -34,10 +34,9 @@ public:
 	Bitmap render(Scene& scene, int width, int height) override
 	{
 		Bitmap img;
-        this->width = width;
-        this->height = height;
-		img.m_width = width;
-		img.m_height = height;
+        img.m_width = this->width = width;
+        img.m_height = this->height = height;
+
 		int l = img.m_width * img.m_height * 3;
 		
 		img.m_buffer = new uint8_t[l]();
@@ -142,7 +141,7 @@ protected:
         float alpha = atan2(ray.y, sqrt(ray.x * ray.x + ray.z * ray.z)) * 180 / M_PI + 90;
         return { theta, alpha };
     }
-	glm::vec3 getBackgroundColor(glm::vec3 ray)
+	glm::vec3 getBackgroundColor(glm::vec3& ray)
     {
         glm::vec2 c = getMapAngles(ray);
 
@@ -152,7 +151,7 @@ protected:
         return { env->m_buffer[id + 2],  env->m_buffer[id + 1], env->m_buffer[id] };
     }
 
-    glm::vec3 getOffset(Hit& surfaceHit, glm::vec3 direction)
+    glm::vec3 getOffset(Hit& surfaceHit, glm::vec3& direction)
     {
 	    return glm::dot(direction, surfaceHit.normal) < 0
 		           ? surfaceHit.pos - surfaceHit.normal * 0.0001f
@@ -168,10 +167,10 @@ protected:
             color = getDiffuse(objs, lights, surfaceHit);
             if (reflects > 0 && surfaceHit.material->roughness < 1)
             {
-                glm::vec3 reflection = reflect(glm::normalize(ray), surfaceHit.normal);
+                glm::vec3 reflection = VectorMath::reflect(glm::normalize(ray), surfaceHit.normal);
                 glm::vec3 reflectedColor = castRay(objs, reflection, getOffset(surfaceHit, reflection), lights, reflects-1);
             	
-                glm::vec3 refraction = refract(glm::normalize(ray), surfaceHit.normal, surfaceHit.material->ior);
+                glm::vec3 refraction = VectorMath::refract(glm::normalize(ray), surfaceHit.normal, surfaceHit.material->ior);
                 glm::vec3 refractedColor = castRay(objs, refraction, getOffset(surfaceHit, refraction), lights, reflects-1);
 
                 float nonTransparency = 1 - surfaceHit.material->transparency;
@@ -199,7 +198,7 @@ protected:
                 if (glm::length2(hit - mesh->getVertex(i * 3)-pos) > 8)
                     continue;
             	
-                if (VectorMath::pointInPolygon(hit-pos, mesh->getPolygon(i )) 
+                if (VectorMath::pointInPolygon(hit-pos, mesh->getPolygon(i ))
                     && VectorMath::dist2(closestHit.pos, src) > VectorMath::dist2(hit, src) && glm::dot(hit - src, ray) > 0)
                 {
                     closestHit = { hit, mesh->getNormal(i * 3), m->getComponent<Material>(), true };
