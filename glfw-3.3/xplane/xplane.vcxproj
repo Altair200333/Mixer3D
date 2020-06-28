@@ -156,6 +156,7 @@
     <ClCompile Include="loger.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mesh.cpp" />
+    <ClCompile Include="rayTracer.cpp" />
     <ClCompile Include="STLMeshLoader.cpp" />
     <ClCompile Include="MeshRenderer.cpp" />
     <ClCompile Include="mixerEngine.cpp" />

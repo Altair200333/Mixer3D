@@ -1,3 +1,4 @@
+#include "cameraBuilder.h"
 #include "SceneSaveLoader.h"
 
 void SceneSaveLoader::loadScene(Scene& scene, std::string path)
@@ -45,10 +46,7 @@ void SceneSaveLoader::fromJson(Scene& scene, nlohmann::json& j)
 	if (j.find("cameras") != j.end())
 		for (auto& [key, value] : j.at("cameras").items())
 		{
-			auto obj = new Object();
-			glm::vec3 position = getVec3Or(value, "position", { 0,0,-1 });
-			obj->addComponent(new Transform(obj, position))->addComponent(new Camera(obj, static_cast<float>(scene.window->width) / scene.window->height, (float)value.at("fov")));
-			scene.cameras.push_back(obj);
+			scene.cameras.push_back(CameraBuilder().fromJson(value, scene));
 		}
 }
 
@@ -96,7 +94,5 @@ void SceneSaveLoader::savePointLightToJson(Object* object, nlohmann::json& jsonL
 
 void SceneSaveLoader::saveCameraToJson(Object* object, nlohmann::json& jObj)
 {
-	auto trasform = object->getComponent<Transform>();
-	jObj["position"] = { trasform->position.x, trasform->position.y, trasform->position.z };
-	jObj["fov"] = object->getComponent<Camera>()->Zoom;
+	CameraBuilder().toJson(object, jObj);
 }

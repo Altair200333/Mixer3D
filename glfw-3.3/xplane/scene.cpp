@@ -1,6 +1,23 @@
 #include "scene.h"
 
-
+namespace 
+{
+	bool addObjectToVector(Object* object, std::vector<Object*>& list)
+	{
+		if(object == nullptr)
+		{
+			return false;
+		}
+		list.push_back(object);
+		return true;
+	}
+	void deleteObjectFromContainer(Object* object, std::vector<Object*>& list)
+	{
+		const auto it = std::find(list.begin(), list.end(), object);
+		delete object;
+		list.erase(it);
+	}
+}
 void Scene::loadEnvironment(std::string path)
 {
 	BMPWriter bmpw;
@@ -19,41 +36,29 @@ void Scene::loadEnvironment(std::string path)
 }
 void Scene::addObject(Object* object)
 {
-	if (object != nullptr)
-		objects.push_back(object);
-	else
+	if(!addObjectToVector(object, objects))
 		Logger::log("Failed to insert null object");
 }
 void Scene::deleteObject(Object* obj)
 {
-	auto it = std::find(objects.begin(), objects.end(), obj);
-	delete obj;
-	objects.erase(it);
+	deleteObjectFromContainer(obj, objects);
 }
 void Scene::deleteLight(Object* obj)
 {
-	auto it = std::find(lights.begin(), lights.end(), obj);
-	delete obj;
-	lights.erase(it);
+	deleteObjectFromContainer(obj, lights);
 }
 void Scene::deleteCamera(Object* obj)
 {
-	auto it = std::find(cameras.begin(), cameras.end(), obj);
-	delete obj;
-	cameras.erase(it);
+	deleteObjectFromContainer(obj, cameras);
 }
 void Scene::addLight(Object* object)
 {
-	if (object != nullptr)
-		lights.push_back(object);
-	else
+	if (!addObjectToVector(object, lights))
 		Logger::log("Failed to insert null light");
 }
 void Scene::addCamera(Object* object)
 {
-	if (object != nullptr)
-		cameras.push_back(object);
-	else
+	if (!addObjectToVector(object, cameras))
 		Logger::log("Failed to insert null light");
 }
 void Scene::setActiveCamera(Object* object)
