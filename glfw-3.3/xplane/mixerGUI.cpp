@@ -1,4 +1,6 @@
 #include "mixerGUI.h"
+
+#include "cameraBuilder.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
@@ -41,7 +43,7 @@ void MixerGUI::findAndDrawTransform(Object* obj)
 void MixerGUI::drawColor(void* color)
 {
 	ImGui::PushID(color);
-	ImGui::Text("color       ");
+	ImGui::Text("Color       ");
 	ImGui::SameLine();
 	ImGui::ColorEdit3("  ", (float*)(color));
 	ImGui::PopID();
@@ -109,6 +111,21 @@ void MixerGUI::drawCameraPanel(Object* obj)
 		{
 			drawDragFloat("fov", &camera->Zoom, 5, 90);
 		}
+		ImGui::PushID(&camera->Front);
+		if (ImGui::Button("Delete"))
+		{
+			scene->deleteCamera(obj);
+			Logger::log("deleted camera ");
+		}
+		ImGui::PopID();
+		ImGui::SameLine();
+		ImGui::PushID(&obj->name);
+		if (ImGui::Button("Set active"))
+		{
+			scene->setActiveCamera(obj);
+			Logger::log("active camera updated");
+		}
+		ImGui::PopID();
 	}
 	ImGui::PopID();
 }
@@ -134,9 +151,9 @@ void MixerGUI::drawObjectPanel(Object* obj)
 			{
 				drawColor(&(mat->diffuseColor));
 
-				drawDragFloat("roughness   ", &mat->roughness, 0, 1);
-				drawDragFloat("transparency", &mat->transparency, 0, 1);
-				drawDragFloat("ior         ", &mat->ior, 1, 3);
+				drawDragFloat("Roughness   ", &mat->roughness, 0, 1);
+				drawDragFloat("Transparency", &mat->transparency, 0, 1);
+				drawDragFloat("IOR         ", &mat->ior, 1, 3);
 
 
 			}
@@ -214,6 +231,13 @@ void MixerGUI::drawScenePanel()
 		{
 			drawCameraPanel(obj);
 		}
+		ImGui::PushID(&scene->cameras);
+		if (ImGui::Button("Add camera"))
+		{
+			scene->addCamera(CameraBuilder().addCamera(static_cast<float>(scene->window->width) / scene->window->height, 60).addTransform({ 1,1,1 }));
+			Logger::log("Add camera");
+		}
+		ImGui::PopID();
 		ImGui::EndGroupPanel();
 	}
 	ImGui::End();

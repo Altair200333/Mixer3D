@@ -269,6 +269,9 @@
     <ClInclude Include="vectorMath.h">
       <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
+    <ClInclude Include="cameraBuilder.h">
+      <Filter>Header Files\Builders&amp;Loaders</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="mixer.rc">

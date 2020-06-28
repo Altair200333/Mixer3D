@@ -30,10 +30,18 @@ struct OptiMesh
     std::vector<PolygonMesh> polygons;
     Material* mat;
 };
+struct OptiLight
+{
+	OptiLight(glm::vec3 _pos, PointLight* pl):pos(_pos), light(pl){}
+	
+    glm::vec3 pos;
+    PointLight* light;
+};
 class RayTracerEngine : public RenderEngine
 {
     int width, height;
     std::vector<OptiMesh> meshes;
+    std::vector<OptiLight> lights;
 public:
     Bitmap* env;
 	~RayTracerEngine() = default;
@@ -76,7 +84,10 @@ public:
  
         env = scene.environment;
 		batchSceneMeshes(scene);
-		
+		for(auto light: scene.lights)
+		{
+            lights.emplace_back(light->getComponent<Transform>()->position, light->getComponent<PointLight>());
+		}
         renderWithTracing(scene, img);
         return img;
 	}
@@ -112,6 +123,7 @@ protected:
     {
         Camera* camera = scene.getActiveCamera();
         glm::vec3 position = camera->owner->getComponent<Transform>()->position;
+    	
         for (int i = startX; i < endX; i += 1)
         {
             for (int j = startY; j < endY; j += 1)
@@ -119,7 +131,7 @@ protected:
                 glm::vec3 ray = camera->Front + camera->Right * float(i - width / 2) * scale +
                     camera->Up * float(j - height / 2) * scale;
             	
-                glm::vec3 c = castRay(ray, position,scene.lights, scene.maxBounces);
+                glm::vec3 c = castRay(ray, position, scene.maxBounces);
 
                 const int id = img.getPixelId(i, height - j - 1, 0);
 
@@ -132,21 +144,21 @@ protected:
 
     static glm::vec3 clampColor(glm::vec3 color)
     {
-        return { glm::clamp<int>(color.x, 10, 255),glm::clamp<int>(color.y, 10, 255),glm::clamp<int>(color.z, 10, 255) };
+        return { glm::clamp<float>(color.x, 10, 255),glm::clamp<float>(color.y, 10, 255),glm::clamp<float>(color.z, 10, 255) };
     }
 	glm::vec3 getLight(glm::vec3 color, glm::vec3 light)
     {
         return { color.x * light.x, color.y * light.y ,color.z * light.z };
     }
     
-    glm::vec3 getDiffuse(std::vector<Object*>& lights, Hit& hit)
+    glm::vec3 getDiffuse(Hit& hit)
     {
         glm::vec3 color = { 0, 0, 0 };
         for (auto light : lights)
         {
             glm::vec3 diffuse;
-            glm::vec3 lightPosition = light->getComponent<Transform>()->position;
-            glm::vec3 lightColor = light->getComponent<PointLight>()->color;
+            glm::vec3 lightPosition = light.pos;
+            glm::vec3 lightColor = light.light->color;
 
             glm::vec3 dirToLight = lightPosition - hit.pos;
             glm::vec3 offset = hit.pos + dirToLight * 0.0001f;
@@ -189,23 +201,24 @@ protected:
 		           ? surfaceHit.pos - surfaceHit.normal * 0.0001f
 		           : surfaceHit.pos + surfaceHit.normal * 0.0001f;
     }
-    glm::vec3 castRay(glm::vec3& ray, glm::vec3 src, std::vector<Object*>& lights, int reflects = 0)
+    glm::vec3 castRay(glm::vec3& ray, glm::vec3 src, int reflects = 0)
     {
         glm::vec3 color = { 10, 10, 10 };
         Hit surfaceHit = getHit(ray, src);
         if (surfaceHit.hit)
         {
-            color = getDiffuse(lights, surfaceHit);
+            color = getDiffuse(surfaceHit);
+        	
             if (reflects > 0 && surfaceHit.material->roughness < 1)
             {
                 glm::vec3 reflection = VectorMath::reflect(glm::normalize(ray), surfaceHit.normal);
                 auto offset = getOffset(surfaceHit, reflection);
-                glm::vec3 reflectedColor = castRay(reflection, offset, lights, reflects - 1);
+                glm::vec3 reflectedColor = castRay(reflection, offset, reflects - 1);
 
             	
                 glm::vec3 refraction = VectorMath::refract(glm::normalize(ray), surfaceHit.normal, surfaceHit.material->ior);
                 offset = getOffset(surfaceHit, refraction);
-                glm::vec3 refractedColor = castRay(refraction, offset, lights, reflects - 1);
+                glm::vec3 refractedColor = castRay(refraction, offset, reflects - 1);
 
                 float nonTransparency = 1 - surfaceHit.material->transparency;
                 float transparency = surfaceHit.material->transparency;

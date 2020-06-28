@@ -29,10 +29,14 @@ public:
 	void loadEnvironment(std::string path);
 	void addObject(Object* object);
 	void addLight(Object* object);
+	void addCamera(Object* object);
+	void setActiveCamera(Object* object);
 	void deleteObject(Object* obj);
 	void deleteLight(Object* obj);
+	void deleteCamera(Object* obj);
 	Camera* getActiveCamera();
 	virtual ~Scene() = default;
 	void clear();
-	
+
+	Scene& operator=(Scene& other) = delete;
 };

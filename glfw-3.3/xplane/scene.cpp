@@ -36,6 +36,12 @@ void Scene::deleteLight(Object* obj)
 	delete obj;
 	lights.erase(it);
 }
+void Scene::deleteCamera(Object* obj)
+{
+	auto it = std::find(cameras.begin(), cameras.end(), obj);
+	delete obj;
+	cameras.erase(it);
+}
 void Scene::addLight(Object* object)
 {
 	if (object != nullptr)
@@ -43,9 +49,22 @@ void Scene::addLight(Object* object)
 	else
 		Logger::log("Failed to insert null light");
 }
+void Scene::addCamera(Object* object)
+{
+	if (object != nullptr)
+		cameras.push_back(object);
+	else
+		Logger::log("Failed to insert null light");
+}
+void Scene::setActiveCamera(Object* object)
+{
+	if (object == nullptr)
+		return;
+	std::iter_swap(cameras.begin(), std::find(cameras.begin(), cameras.end(), object));
+}
 Camera* Scene::getActiveCamera()
 {
-	return cameras.size() > 0 ? cameras[0]->getComponent<Camera>() : nullptr;
+	return !cameras.empty() ? cameras[0]->getComponent<Camera>() : nullptr;
 }
 void Scene::clear()
 {
