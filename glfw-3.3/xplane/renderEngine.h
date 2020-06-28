@@ -1,6 +1,7 @@
 #pragma once
 #include "scene.h"
 #include "libbitmap.h"
+
 class RenderEngine
 {
 public:

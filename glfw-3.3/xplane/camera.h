@@ -34,12 +34,12 @@ public:
     glm::vec3 Right;
     glm::vec3 WorldUp;
     // Euler Angles
-    float Yaw;
-    float Pitch;
+    float yaw;
+    float pitch;
     // Camera options
-    float MovementSpeed;
-    float MouseSensitivity;
-    float Zoom;
+    float movementSpeed;
+    float mouseSensitivity;
+    float zoom;
     float aspectRatio;// = w/h
     // Constructor with vectors
     Camera(Object* _owner, float aspect, float _zoom = ZOOM);

@@ -3,7 +3,7 @@
 #include "objectBuilder.h"
 #include "scene.h"
 
-class CameraBuilder:public ObjectBuilder
+class CameraBuilder final:public ObjectBuilder
 {
 public:
 	CameraBuilder() :ObjectBuilder() {}
@@ -22,7 +22,7 @@ inline void CameraBuilder::toJson(Object* object, nlohmann::json& value)
 {
 	auto transform = object->getComponent<Transform>();
 	value["position"] = { transform->position.x, transform->position.y, transform->position.z };
-	value["fov"] = object->getComponent<Camera>()->Zoom;
+	value["fov"] = object->getComponent<Camera>()->zoom;
 }
 
 inline Object* CameraBuilder::fromJson(nlohmann::json& value, Scene& scene)

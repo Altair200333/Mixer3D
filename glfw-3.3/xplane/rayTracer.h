@@ -10,7 +10,7 @@
 #include "renderEngine.h"
 #include "vectorMath.h"
 #include "hit.h"
-class RayTracerEngine : public RenderEngine
+class RayTracerEngine final: public RenderEngine
 {
 protected:
     

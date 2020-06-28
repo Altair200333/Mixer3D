@@ -71,6 +71,12 @@ Camera* Scene::getActiveCamera()
 {
 	return !cameras.empty() ? cameras[0]->getComponent<Camera>() : nullptr;
 }
+
+Scene::~Scene()
+{
+	clear();
+}
+
 void Scene::clear()
 {
 	if (environment != nullptr)

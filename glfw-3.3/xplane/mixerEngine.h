@@ -9,7 +9,7 @@
 //On start is setups window and load scene with specific parameters
 //after that user calls mainloop in which all input is handled
 
-class MixerEngine
+class MixerEngine final
 {
 public:
 	Window window;
@@ -27,10 +27,7 @@ public:
 
 	void onUpdate();
 
-	virtual ~MixerEngine()
-	{
-		scene.clear();
-	}
+	~MixerEngine() = default;
 protected:
 	// timing
 	float deltaTime = 0.0f;

@@ -22,7 +22,7 @@ void MeshRenderer::render(Camera* camera) const
 	shader.setVec3("diffuse", owner->getComponent<Material>()->diffuseColor);
 
 	// view/projection transformations
-	const glm::mat4 projection = glm::perspective(glm::radians(camera->Zoom), camera->aspectRatio, 0.1f, 1000.0f);
+	const glm::mat4 projection = glm::perspective(glm::radians(camera->zoom), camera->aspectRatio, 0.1f, 1000.0f);
 	const glm::mat4 view = camera->GetViewMatrix();
 	shader.setMat4("projection", projection);
 	shader.setMat4("view", view);

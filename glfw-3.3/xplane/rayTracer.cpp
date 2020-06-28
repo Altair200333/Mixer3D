@@ -17,7 +17,7 @@ void RayTracerEngine::batchSceneMeshes(Scene& scene)
         om.mat = obj->getComponent<Material>();
         om.pos = obj->getComponent<Transform>()->position;
         auto mesh = obj->getComponent<Mesh>();
-        for (int i = 0; i < mesh->vertexCount / 3; i++)
+        for (int i = 0; i < mesh->vertexCount / 3; ++i)
         {
             om.polygons.push_back(mesh->getPolygon(i));
             auto& pol = om.polygons[om.polygons.size() - 1];
@@ -48,7 +48,7 @@ Bitmap RayTracerEngine::render(Scene& scene, int width, int height)
     int l = img.m_width * img.m_height * 3;
 
     img.m_buffer = new uint8_t[l]();
-    for (int i = 0; i < l; i++)
+    for (int i = 0; i < l; ++i)
     {
         img.m_buffer[i] = 10;
     }
@@ -62,7 +62,7 @@ Bitmap RayTracerEngine::render(Scene& scene, int width, int height)
 
 void RayTracerEngine::renderWithTracing(Scene& scene, Bitmap& img)
 {
-    const float closeHeight = 2 * tan(scene.getActiveCamera()->Zoom / 2 * M_PI / 180);
+    const float closeHeight = 2 * tan(scene.getActiveCamera()->zoom / 2 * M_PI / 180);
     const float scale = closeHeight / height;
 
     const auto processor_count = std::thread::hardware_concurrency();
@@ -213,7 +213,7 @@ Hit RayTracerEngine::getHit(glm::vec3& ray, glm::vec3& src) const
     Hit closestHit = { {100000, 100000, 100000}, {0, 0, 1}, {}, false };
     for (auto& m : meshes)
     {
-        for (int i = 0; i < m.polygons.size(); i++)
+        for (int i = 0; i < m.polygons.size(); ++i)
         {
             glm::vec3 hit = VectorMath::intersectPoint(ray, src, m.polygons[i].normal, m.polygons[i].vec1);
             if (VectorMath::dist2(hit, m.polygons[i].vec1) > m.polygons[i].maxDistance)

@@ -4,7 +4,7 @@
 #include "window.h"
 
 
-class SceneRenderer
+class SceneRenderer final
 {
 protected:
     const Window* window;
@@ -19,5 +19,5 @@ public:
 
     void drawScene() const;
     void swapBuffers() const;
-    virtual ~SceneRenderer() = default;
+    ~SceneRenderer() = default;
 };

@@ -10,7 +10,7 @@
 #include "window.h"
 #include "bmpWriter.h"
 //Scene class is more of a container that has information about objects, materials, lighting, cameras etc
-class Scene
+class Scene final
 {
 public:
 	int maxBounces = 2;
@@ -22,9 +22,7 @@ public:
 	std::string envPath;
 	Bitmap* environment = nullptr;
 	Window* window;
-	Scene(Window* _window):window(_window)
-	{
-	}
+	Scene(Window* _window):window(_window){}
 
 	void loadEnvironment(std::string path);
 	void addObject(Object* object);
@@ -35,8 +33,9 @@ public:
 	void deleteLight(Object* obj);
 	void deleteCamera(Object* obj);
 	Camera* getActiveCamera();
-	virtual ~Scene() = default;
+	~Scene();
 	void clear();
 
 	Scene& operator=(Scene& other) = delete;
+
 };

@@ -12,7 +12,7 @@
 #include "ObjectLoader.h"
 #include "SceneSaveLoader.h"
 
-class MixerGUI: public GUI
+class MixerGUI final: public GUI
 {
 	Scene* scene;
 

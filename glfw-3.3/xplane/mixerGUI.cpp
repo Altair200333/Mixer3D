@@ -12,7 +12,7 @@ void MixerGUI::onStart(Window* window)
 {
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	ImGuiIO& io = ImGui::GetIO(); io;
 	ImGui::StyleColorsDark();
 	ImGui_ImplGlfw_InitForOpenGL(window->window, true);
 	ImGui_ImplOpenGL3_Init((char*)glGetString(3));
@@ -112,7 +112,7 @@ void MixerGUI::drawCameraPanel(Object* obj)
 		auto camera = obj->getComponent<Camera>();
 		if (camera != nullptr)
 		{
-			drawDragFloat("fov", &camera->Zoom, 5, 90);
+			drawDragFloat("fov", &camera->zoom, 5, 90);
 		}
 		ImGui::PushID(&camera->Front);
 		if (ImGui::Button("Delete"))

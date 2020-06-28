@@ -15,7 +15,6 @@ bool VectorMath::pointInPolygon(glm::vec3 v, glm::vec3 v0, glm::vec3 v1, glm::ve
 }
 bool VectorMath::pointInPolygon(glm::vec3 v, const PolygonMesh& p)
 {
-	//bool t = (v - p.vertices[0]).magnitudeSq() < 10|| (v - p.vertices[1]).magnitudeSq() < 10|| (v - p.vertices[2]).magnitudeSq() < 10;
 	float area = glm::length(glm::cross((p.vec1 - p.vec2), (p.vec3 - p.vec2))) * 0.5f;
 
 	float a = glm::length(glm::cross((v - p.vec2), (v - p.vec3))) / (2 * area);

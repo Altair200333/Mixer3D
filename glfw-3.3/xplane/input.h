@@ -2,13 +2,13 @@
 #include <GLFW/glfw3.h>
 #include <map>
 
-struct KeyCode
+struct KeyCode final
 {
 	static const int W = GLFW_KEY_W, A = GLFW_KEY_A,
 		S = GLFW_KEY_S, D = GLFW_KEY_D, Q = GLFW_KEY_Q, E = GLFW_KEY_E,
 		R = GLFW_KEY_R, Z = GLFW_KEY_Z, ESC = GLFW_KEY_ESCAPE, MMB = GLFW_MOUSE_BUTTON_MIDDLE;
 };
-class Input
+class Input final
 {
 protected:
 	//code - action map
