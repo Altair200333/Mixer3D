@@ -64,6 +64,9 @@
     <Filter Include="Source Files\Builders&amp;Loaders">
       <UniqueIdentifier>{d5b94bb7-4b10-447c-b140-1e46413bf8c3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\RenderEngine">
+      <UniqueIdentifier>{1f466866-b441-493e-bfd7-edc571914e30}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
@@ -143,6 +146,9 @@
     </ClCompile>
     <ClCompile Include="STLMeshLoader.cpp">
       <Filter>Source Files\Builders&amp;Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="vectorMath.cpp">
+      <Filter>Source Files\RenderEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

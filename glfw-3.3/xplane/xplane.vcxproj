@@ -166,6 +166,7 @@
     <ClCompile Include="SceneRenderer.cpp" />
     <ClCompile Include="sceneSaveLoader.cpp" />
     <ClCompile Include="shader.cpp" />
+    <ClCompile Include="vectorMath.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
