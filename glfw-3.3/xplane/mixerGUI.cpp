@@ -86,6 +86,7 @@ void MixerGUI::drawLightPanel(Object* obj)
 		if (light != nullptr)
 		{
 			drawColor(&light->color);
+			drawDragFloat("Intensity   ", &light->intensity, 0.1, 100);
 		}
 		ImGui::PushID(&obj->name);
 		if (ImGui::Button("Delete"))

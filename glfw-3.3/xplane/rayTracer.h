@@ -131,22 +131,24 @@ protected:
                 glm::vec3 ray = camera->Front + camera->Right * float(i - width / 2) * scale +
                     camera->Up * float(j - height / 2) * scale;
             	
-                glm::vec3 c = castRay(ray, position, scene.maxBounces);
+                glm::vec3 color = castRay(ray, position, scene.maxBounces);
 
                 const int id = img.getPixelId(i, height - j - 1, 0);
 
-                img.m_buffer[id + 2] = c.r;
-                img.m_buffer[id + 1] = c.g;
-                img.m_buffer[id] = c.b;
+                img.m_buffer[id + 2] = color.r;
+                img.m_buffer[id + 1] = color.g;
+                img.m_buffer[id] = color.b;
             }
         }
     }
 
     static glm::vec3 clampColor(glm::vec3 color)
     {
-        return { glm::clamp<float>(color.x, 10, 255),glm::clamp<float>(color.y, 10, 255),glm::clamp<float>(color.z, 10, 255) };
+    	if(color.x>255)
+	        std::cout << "s\n";
+        return { std::clamp<float>(color.x, 10, 255),std::clamp<float>(color.y, 10, 255),std::clamp<float>(color.z, 10, 255) };
     }
-	glm::vec3 getLight(glm::vec3 color, glm::vec3 light)
+	glm::vec3 multyplyByLight(glm::vec3 color, glm::vec3 light)
     {
         return { color.x * light.x, color.y * light.y ,color.z * light.z };
     }
@@ -168,7 +170,7 @@ protected:
             {
                 float slope = abs(glm::dot(hit.normal, glm::normalize(hit.pos - lightPosition)));
 
-                diffuse = clampColor(getLight(hit.material->diffuseColor, lightColor) * 255.0f * slope);
+                diffuse = clampColor(multyplyByLight(hit.material->diffuseColor, lightColor) * 255.0f * slope * (light.light->intensity / glm::length2(dirToLight)));
             }
             else
             {
@@ -176,7 +178,7 @@ protected:
             }
             color += diffuse;
         }
-        return color;
+        return clampColor(color);
     }
 	
     glm::vec2 getMapAngles(glm::vec3 ray) const
@@ -187,6 +189,8 @@ protected:
     }
 	glm::vec3 getBackgroundColor(glm::vec3& ray)
     {
+        if (env == nullptr)
+            return { 10,10,10 };
         glm::vec2 c = getMapAngles(ray);
 
         float x = env->m_width * c.x / 360;
@@ -204,6 +208,7 @@ protected:
     glm::vec3 castRay(glm::vec3& ray, glm::vec3 src, int reflects = 0)
     {
         glm::vec3 color = { 10, 10, 10 };
+    	
         Hit surfaceHit = getHit(ray, src);
         if (surfaceHit.hit)
         {
@@ -218,7 +223,8 @@ protected:
             	
                 glm::vec3 refraction = VectorMath::refract(glm::normalize(ray), surfaceHit.normal, surfaceHit.material->ior);
                 offset = getOffset(surfaceHit, refraction);
-                glm::vec3 refractedColor = castRay(refraction, offset, reflects - 1);
+            	
+                glm::vec3 refractedColor = (surfaceHit.material->transparency < 1) ? castRay(refraction, offset, reflects - 1) : glm::vec3(0, 0, 0);
 
                 float nonTransparency = 1 - surfaceHit.material->transparency;
                 float transparency = surfaceHit.material->transparency;

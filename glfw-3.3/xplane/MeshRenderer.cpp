@@ -10,6 +10,11 @@ MeshRenderer::MeshRenderer(Window* _window, Object* _owner) :Component(_owner), 
 }
 void MeshRenderer::render(Camera* camera) const
 {
+	if(owner->getComponent<Mesh>() == nullptr)
+	{
+		Logger::log("Mesh component required");
+		return;
+	}
 	shader.use();
 	shader.setVec3("viewPos", camera->owner->getComponent<Transform>()->position);
 

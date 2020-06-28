@@ -16,8 +16,8 @@ LightBuilder& LightBuilder::addStandartSphere(glm::vec3 color, Window* window)
 
 Object* LightBuilder::fromJson(nlohmann::json& value, Window* window)
 {
-	glm::vec3 color = { value.at("color")[0],value.at("color")[1] ,value.at("color")[2] };
-	glm::vec3 position = { value.at("position")[0],value.at("position")[1] ,value.at("position")[2] };
+	glm::vec3 color = getVec3Or(value, "color", { 1,1,1 });
+	glm::vec3 position = getVec3Or(value, "position", { 0,0,0 });
 
 	Object* obj = ObjectBuilder().addMesh("icosphere.stl").addRenderer(window).addMaterial(color, 1, 1);
 	obj->addComponent(new Transform(obj, position))->addComponent(new PointLight(obj, color, value.at("intensity")));
