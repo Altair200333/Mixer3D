@@ -48,21 +48,21 @@ void MixerEngine::onUpdate()
 	}
 
 	if (window.input.getKey(KeyCode::W))
-		camera->ProcessKeyboard(FORWARD, deltaTime);
+		camera->cameraMove(FORWARD, deltaTime);
 	if (window.input.getKey(KeyCode::S))
-		camera->ProcessKeyboard(BACKWARD, deltaTime);
+		camera->cameraMove(BACKWARD, deltaTime);
 	if (window.input.getKey(KeyCode::A))
-		camera->ProcessKeyboard(LEFT, deltaTime);
+		camera->cameraMove(LEFT, deltaTime);
 	if (window.input.getKey(KeyCode::D))
-		camera->ProcessKeyboard(RIGHT, deltaTime);
+		camera->cameraMove(RIGHT, deltaTime);
 	if (window.input.getKey(KeyCode::E))
-		camera->ProcessKeyboard(UP, deltaTime);
+		camera->cameraMove(UP, deltaTime);
 	if (window.input.getKey(KeyCode::Q))
-		camera->ProcessKeyboard(DOWN, deltaTime);
+		camera->cameraMove(DOWN, deltaTime);
 
 	if (window.input.getMouseButton(KeyCode::MMB))
 	{
-		camera->ProcessMouseMovement(window.input.dx(), window.input.dy());
+		camera->cameraMouseLook(window.input.dx(), window.input.dy());
 	}
 
 }

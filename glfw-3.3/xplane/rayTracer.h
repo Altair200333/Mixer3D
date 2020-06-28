@@ -9,31 +9,18 @@
 #include "mesh.h"
 #include "renderEngine.h"
 #include "vectorMath.h"
-
-
-class Hit
-{
-public:
-	glm::vec3 pos;
-    glm::vec3 normal;
-    Material* material;
-    bool hit;
-
-    Hit(glm::vec3 _pos, glm::vec3 _norm, Material* _material, bool _hit) : pos(_pos), normal(_norm), material(_material),
-        hit(_hit)
-    {
-    }
-};
-
+#include "hit.h"
 class RayTracerEngine : public RenderEngine
 {
-    struct OptiMesh
+protected:
+    
+    struct OptiMesh final
     {
         glm::vec3 pos;
         std::vector<PolygonMesh> polygons;
         Material* mat;
     };
-    struct OptiLight
+    struct OptiLight final
     {
         OptiLight(glm::vec3 _pos, PointLight* pl) :pos(_pos), light(pl) {}
 
@@ -49,7 +36,6 @@ public:
 	~RayTracerEngine() = default;
 
     
-
     Bitmap render(Scene& scene, int width, int height) override;
 protected:
     void batchSceneMeshes(Scene& scene);

@@ -27,7 +27,7 @@ public:
 
 	void onUpdate();
 
-	~MixerEngine()
+	virtual ~MixerEngine()
 	{
 		scene.clear();
 	}

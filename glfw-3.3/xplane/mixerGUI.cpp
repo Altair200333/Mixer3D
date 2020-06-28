@@ -4,6 +4,10 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
+MixerGUI::MixerGUI(Scene* _scene): scene(_scene)
+{
+}
+
 void MixerGUI::onStart(Window* window) 
 {
 	IMGUI_CHECKVERSION();

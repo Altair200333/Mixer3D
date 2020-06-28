@@ -7,7 +7,7 @@
 #include "window.h"
 #include "camera.h"
 
-class MeshRenderer : public Component
+class MeshRenderer final: public Component
 {
 	const Window* window;
 public:
@@ -21,4 +21,5 @@ public:
     MeshRenderer(Window* _window, Object* _owner);
 	void render(Camera* camera) const;
     void initMeshRenderer();
+	~MeshRenderer();
 };

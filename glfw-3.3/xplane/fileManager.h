@@ -3,9 +3,8 @@
 #include <string>
 #include <filesystem>
 
-class FileManager
+namespace FileManager
 {
-public:
-	static bool fileExists(const std::string& name);
-	static std::string getPathDialog();
+	bool fileExists(const std::string& name);
+	std::string getPathDialog();
 };

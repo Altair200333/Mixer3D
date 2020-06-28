@@ -185,6 +185,7 @@
     <ClInclude Include="componentManager.h" />
     <ClInclude Include="fileManager.h" />
     <ClInclude Include="gui.h" />
+    <ClInclude Include="hit.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="itemBuilder.h" />
     <ClInclude Include="lightBuilder.h" />

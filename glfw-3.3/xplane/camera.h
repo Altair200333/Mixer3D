@@ -24,7 +24,7 @@ const float SENSITIVITY = 0.1f;
 const float ZOOM = 60.0f;
 const float ASPECTR = 1.0f;
 
-class Camera: public Component
+class Camera final: public Component
 {
 public:
     const static uint64_t componentID = 4;
@@ -51,10 +51,10 @@ public:
     glm::mat4 GetViewMatrix() const;
 
     // Processes input received from any keyboard-like input system. Accepts input parameter in the form of camera defined ENUM (to abstract it from windowing systems)
-    void ProcessKeyboard(Camera_Movement direction, float deltaTime) const;
+    void cameraMove(Camera_Movement direction, float deltaTime) const;
 
     // Processes input received from a mouse input system. Expects the offset value in both the x and y direction.
-    void ProcessMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch = true);
+    void cameraMouseLook(float xoffset, float yoffset, GLboolean constrainPitch = true);
 
 
 private:

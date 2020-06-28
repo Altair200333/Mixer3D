@@ -17,7 +17,7 @@ class MixerGUI: public GUI
 	Scene* scene;
 
 public:
-	MixerGUI(Scene* _scene ):scene(_scene){}
+	MixerGUI(Scene* _scene);
 	void onStart(Window* window) override;
 	void draw() override;
 

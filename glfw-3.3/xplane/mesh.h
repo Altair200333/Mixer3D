@@ -6,7 +6,7 @@
 #include "polygon.h"
 
 
-class Mesh : public Component
+class Mesh final: public Component
 {
 public:
 	const static uint64_t componentID = 2;

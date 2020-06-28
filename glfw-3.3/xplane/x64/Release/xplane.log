@@ -1,9 +1,121 @@
-﻿  scene.cpp
+﻿  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_glfw.cpp
+  imgui_impl_opengl3.cpp
+  imgui_widgets.cpp
+  camera.cpp
+  componentManager.cpp
+  fileManager.cpp
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\xstring(2388,23): warning C4244: 'argument': conversion from 'wchar_t' to 'const _Elem', possible loss of data
+          with
+          [
+              _Elem=char
+          ]
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\xstring(2399): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(_Iter,const _Iter,std::input_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\xstring(2399): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(_Iter,const _Iter,std::input_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\xstring(2379): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(const _Iter,const _Iter,std::forward_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\xstring(2379): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(const _Iter,const _Iter,std::forward_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\fileManager.cpp(40): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,void>(_Iter,_Iter,const _Alloc &)' being compiled
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\fileManager.cpp(40): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,void>(_Iter,_Iter,const _Alloc &)' being compiled
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\filesystem(2087): message : see reference to class template instantiation 'std::chrono::time_point<std::filesystem::_File_time_clock,std::chrono::duration<std::chrono::system_clock::rep,std::chrono::system_clock::period>>' being compiled
+E:\Programms\VISUALSTUDIO\VC\Tools\MSVC\14.24.28314\include\xstring(1743): message : see reference to class template instantiation 'std::basic_string_view<wchar_t,std::char_traits<wchar_t>>' being compiled
+  input.cpp
+  lightBuilder.cpp
+  loger.cpp
+  main.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+E:\WORK\CPP\vsProj\glfw-3.3\build\include\glad\glad.h(32): message : see previous definition of 'APIENTRY'
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(41,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(42,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  mesh.cpp
+  rayTracer.cpp
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.cpp(7,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.cpp(8,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.cpp(48,43): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.cpp(65,33): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.cpp(65,29): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.cpp(103,64): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.cpp(103,64): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.cpp(105,41): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.cpp(106,41): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.cpp(107,37): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.cpp(167,70): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.cpp(167,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.cpp(167,77): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  STLMeshLoader.cpp
+  MeshRenderer.cpp
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\MeshRenderer.cpp(36,72): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+  mixerEngine.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+E:\WORK\CPP\vsProj\glfw-3.3\build\include\glad\glad.h(32): message : see previous definition of 'APIENTRY'
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(41,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(42,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.cpp(65,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.cpp(65,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  mixerGUI.cpp
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.cpp(93,61): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.cpp(252,72): warning C4305: 'argument': truncation from 'double' to 'float'
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerGUI.cpp(259,89): warning C4305: 'argument': truncation from 'double' to 'float'
+  objectBuilder.cpp
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\objectBuilder.cpp(55,56): warning C4305: 'argument': truncation from 'double' to 'float'
+  Compiling...
+  objectLoader.cpp
+  scene.cpp
+  SceneRenderer.cpp
+  sceneSaveLoader.cpp
+  shader.cpp
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\shader.cpp(62,37): warning C4101: 'e': unreferenced local variable
+  vectorMath.cpp
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\vectorMath.cpp(33,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  window.cpp
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\window.cpp(8,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\window.cpp(45,85): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  glad.c
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  25 of 3887 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    35 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB not found, fall back to full compilation.
+  All 3891 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
 glfw3.lib(context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(context.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Release\glfw.pdb'; linking object as if no debug info
 glfw3.lib(init.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(init.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Release\glfw.pdb'; linking object as if no debug info

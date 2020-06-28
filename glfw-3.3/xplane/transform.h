@@ -2,7 +2,7 @@
 #include <glm/glm/glm.hpp>
 #include "component.h"
 
-class Transform: public Component
+class Transform final: public Component
 {
 public:
 	const static uint64_t componentID = 1;

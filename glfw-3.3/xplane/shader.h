@@ -7,7 +7,7 @@
 #include <sstream>
 #include <iostream>
 
-class Shader
+class Shader final
 {
 public:
 	

@@ -4,4 +4,5 @@ class MeshLoader
 {
 public:
 	virtual Mesh* load(std::string path) = 0;
+	virtual ~MeshLoader() = default;
 };

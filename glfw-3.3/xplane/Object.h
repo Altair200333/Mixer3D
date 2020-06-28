@@ -3,7 +3,7 @@
 #include <utility>
 #include "componentManager.h"
 
-class Object
+class Object final
 {
 	ComponentManager componentManager;
 public:
@@ -25,5 +25,5 @@ public:
 	{
 		return componentManager.getComponent<T>();
 	}
-	virtual ~Object() = default;
+	~Object() = default;
 };
