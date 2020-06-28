@@ -10,4 +10,6 @@ struct PolygonMesh
 	glm::vec3 vec2;
 	glm::vec3 vec3;
 	glm::vec3 normal;
+
+	float maxDistance = -1;
 };

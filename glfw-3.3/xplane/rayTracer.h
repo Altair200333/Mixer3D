@@ -34,7 +34,6 @@ class RayTracerEngine : public RenderEngine
 {
     int width, height;
     std::vector<OptiMesh> meshes;
-    float maxPolygon = -1;
 public:
     Bitmap* env;
 	~RayTracerEngine() = default;
@@ -54,13 +53,11 @@ public:
                 pol.vec1 += om.pos;
 			    pol.vec2 += om.pos;
 			    pol.vec3 += om.pos;
-                maxPolygon = std::max<float>({maxPolygon, VectorMath::dist2(pol.vec1, pol.vec2), VectorMath::dist2(pol.vec1, pol.vec3), VectorMath::dist2(pol.vec2, pol.vec3) });
+                pol.maxDistance = std::max<float>({pol.maxDistance, VectorMath::dist2(pol.vec1, pol.vec2), VectorMath::dist2(pol.vec1, pol.vec3), VectorMath::dist2(pol.vec2, pol.vec3) });
 		    }
 		    meshes.push_back(om);
 	    }
 	    Logger::log(std::to_string(meshes.size()));
-	    Logger::log(std::to_string(maxPolygon));
-	    std::cout << "finish\n";
     }
 
 	Bitmap render(Scene& scene, int width, int height) override
@@ -231,7 +228,7 @@ protected:
             for (int i = 0; i < m.polygons.size(); i++)
             {
                 glm::vec3 hit = VectorMath::intersectPoint(ray, src, m.polygons[i].normal, m.polygons[i].vec1);
-                if(VectorMath::dist2(hit, m.polygons[i].vec1) > maxPolygon)
+                if(VectorMath::dist2(hit, m.polygons[i].vec1) > m.polygons[i].maxDistance)
                     continue;
                 if (VectorMath::pointInPolygon(hit, m.polygons[i])
                     && VectorMath::dist2(closestHit.pos, src) > VectorMath::dist2(hit, src) && glm::dot(hit - src, ray) > 0)
