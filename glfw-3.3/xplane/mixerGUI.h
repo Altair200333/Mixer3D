@@ -32,4 +32,5 @@ protected:
 	void drawSceneSettings();
 	void drawScenePanel();
 	void drawLogsPanel();
+	void drawControlsPanel();
 };

@@ -23,7 +23,7 @@ void MixerGUI::draw()
 
 	drawScenePanel();
 	drawLogsPanel();
-
+	drawControlsPanel();
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
@@ -104,9 +104,7 @@ void MixerGUI::drawCameraPanel(Object* obj)
 	ImGui::PushID(obj);
 	if (ImGui::CollapsingHeader("Camera"))
 	{
-		ImGui::PushID(obj);
 		findAndDrawTransform(obj);
-		ImGui::PopID();
 		auto camera = obj->getComponent<Camera>();
 		if (camera != nullptr)
 		{
@@ -251,3 +249,9 @@ void MixerGUI::drawLogsPanel()
 	ImGui::End();
 }
 
+void MixerGUI::drawControlsPanel()
+{
+	ImGui::Begin("Controls");
+	ImGui::TextColored(ImVec4(0.4, 0.5, 0.8, 1), "Move camera - WASD\\QE\nRender image - R");
+	ImGui::End();
+}

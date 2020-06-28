@@ -164,9 +164,9 @@ protected:
 
             glm::vec3 dirToLight = lightPosition - hit.pos;
             glm::vec3 offset = hit.pos + dirToLight * 0.0001f;
-            Hit lhits = getHit(dirToLight, offset);
+            Hit lightHits = getHit(dirToLight, offset);
 
-            if (!lhits.hit)
+            if (!lightHits.hit)
             {
                 float slope = abs(glm::dot(hit.normal, glm::normalize(hit.pos - lightPosition)));
 
