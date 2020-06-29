@@ -13,9 +13,9 @@ namespace
 	}
 	void deleteObjectFromContainer(Object* object, std::vector<Object*>& list)
 	{
-		const auto it = std::find(list.begin(), list.end(), object);
+		list.erase(std::remove(list.begin(), list.end(), object), list.end());
+
 		delete object;
-		list.erase(it);
 	}
 }
 void Scene::loadEnvironment(std::string path)
