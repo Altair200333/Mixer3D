@@ -3,11 +3,44 @@ C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(1
 E:\WORK\CPP\vsProj\glfw-3.3\build\include\glad\glad.h(32): message : see previous definition of 'APIENTRY'
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(38,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(39,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  mesh.cpp
+  mixerEngine.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+E:\WORK\CPP\vsProj\glfw-3.3\build\include\glad\glad.h(32): message : see previous definition of 'APIENTRY'
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(38,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(39,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(46,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(47,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(106,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(124,37): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(124,33): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(162,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(162,1): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(164,45): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(165,45): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(166,41): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(226,74): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(226,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(226,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.cpp(67,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.cpp(67,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  40 of 3886 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    34 functions had inline decision re-evaluated but remain unchanged
+  2211 of 4065 functions (54.4%) were compiled, the rest were copied from previous compilation.
+    288 functions were new in current compilation
+    422 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 glfw3.lib(context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(context.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Release\glfw.pdb'; linking object as if no debug info
 glfw3.lib(init.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(init.obj)' or at 'E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Release\glfw.pdb'; linking object as if no debug info

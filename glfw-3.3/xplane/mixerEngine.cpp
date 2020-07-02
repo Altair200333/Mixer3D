@@ -1,5 +1,7 @@
 #include "mixerEngine.h"
 
+#include "voxelBasedTracer.h"
+
 void MixerEngine::mainLoop()
 {
 	while (!window.shouldClose())
@@ -38,7 +40,7 @@ void MixerEngine::onUpdate()
 
 	if (window.input.getKeyUp(KeyCode::R))
 	{
-		RayTracerEngine rt;
+		VoxelTracerEngine rt;
 		Bitmap img = rt.render(scene, window.width, window.height);
 		BMPWriter bmpw;
 		bmpw.save(img, "render.bmp");

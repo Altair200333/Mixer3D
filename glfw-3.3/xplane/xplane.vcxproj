@@ -211,6 +211,7 @@
     <ClInclude Include="shader.h" />
     <ClInclude Include="transform.h" />
     <ClInclude Include="vectorMath.h" />
+    <ClInclude Include="voxelBasedTracer.h" />
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +224,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="GLFW_ICON.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="rayMarching.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

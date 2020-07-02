@@ -278,6 +278,9 @@
     <ClInclude Include="hit.h">
       <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
+    <ClInclude Include="voxelBasedTracer.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="mixer.rc">
@@ -288,5 +291,10 @@
     <Image Include="GLFW_ICON.ico">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="rayMarching.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </None>
   </ItemGroup>
 </Project>
