@@ -1,7 +1,11 @@
-﻿  scene.cpp
+﻿  main.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+E:\WORK\CPP\vsProj\glfw-3.3\build\include\glad\glad.h(32): message : see previous definition of 'APIENTRY'
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(38,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(39,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  7 of 3886 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  40 of 3886 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     34 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

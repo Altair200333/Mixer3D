@@ -1,6 +1,6 @@
 #include "mesh.h"
 
-Mesh::Mesh(float* _vertices, size_t vCount) :vertexCount(vCount), Component(nullptr)
+Mesh::Mesh(float* _vertices, size_t vCount) : vertexCount(vCount), Component(nullptr)
 {
 	vertices = _vertices;
 }
