@@ -42,6 +42,11 @@ class RayTracingGPURenderer final : public RenderEngine
     std::vector<OptiLight> lights;
     
 public:
+    Shader shader;
+	RayTracingGPURenderer()
+	{
+        shader = Shader("Shaders/vertexshader.vs", "Shaders/fragmentshader.fs", "Shaders/geometry.gs");
+	}
     Bitmap render(Scene& scene, int width, int height) override
     {
         Bitmap img;
@@ -57,13 +62,32 @@ public:
         }
         batchSceneMeshes(scene);
         batchSceneLights(scene);
-        glMagic(scene, img);
+        glMagic(scene);
+        readPixels(img);
         //renderWithTracing(scene, img);
         return img;
     }
-	void glMagic(Scene& scene, Bitmap& img)
+
+    void readPixels(Bitmap& img)
+    {
+	    //write data from hl buffer directly to image
+	    glReadPixels(0, 0, img.m_width, img.m_height, GL_BGR, GL_UNSIGNED_BYTE, img.m_buffer);
+		
+		for(int i=0;i<img.m_height/2;i++)
+		{
+            for (int j = 0; j < img.m_width; j++)
+            {
+                int id1 = img.getPixelId(j, i, 0);
+                int id2 = img.getPixelId(j, img.m_height-i-1, 0);
+                std::swap(img.m_buffer[id1], img.m_buffer[id2]);
+                std::swap(img.m_buffer[id1+1], img.m_buffer[id2+1]);
+                std::swap(img.m_buffer[id1+2], img.m_buffer[id2+2]);
+            }
+		}
+    }
+
+	void glMagic(Scene& scene)
     {      
-        Shader shader("Shaders/vertexshader.vs", "Shaders/fragmentshader.fs", "Shaders/geometry.gs");
         shader.use();
 
         const float closeHeight = 2 * tan(scene.getActiveCamera()->zoom / 2 * M_PI / 180);
@@ -107,8 +131,6 @@ public:
         // render the data
         glDrawArrays(GL_POINTS, 0, 1);
     	
-        //write data from hl buffer directly to image
-        glReadPixels(0, 0, img.m_width, img.m_height, GL_BGR, GL_UNSIGNED_BYTE, img.m_buffer);
     
     }
     

@@ -8,11 +8,14 @@
 
 void MixerEngine::mainLoop()
 {
+	RayTracingGPURenderer* rt = new RayTracingGPURenderer();
+	rt->render(scene, window.width, window.height);
 	while (!window.shouldClose())
 	{
 		calcDeltaTime(window.getTime());
 		viewportRenderer.clearBuffer();
 		viewportRenderer.drawScene();
+		//rt->glMagic(scene);
 		gui.draw();
 		viewportRenderer.swapBuffers();
 		window.pollEvents();

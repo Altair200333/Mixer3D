@@ -203,7 +203,7 @@ vec3 castRay(vec3 ray, vec3 src, int reflects)
 }
 void main()
 {  	
-    vec3 ray = camera.front + camera.right * float(texcoord.x*camera.width - camera.width / 2) * camera.scale - camera.up * float(texcoord.y*camera.height - camera.height / 2) * camera.scale;
+    vec3 ray = camera.front + camera.right * float(texcoord.x*camera.width - camera.width / 2) * camera.scale + camera.up * float(texcoord.y*camera.height - camera.height / 2) * camera.scale;
 
     vec3 color = castRay(ray, camera.position, 1);
     FragColor = vec4(color, 1.0);

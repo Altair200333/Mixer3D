@@ -174,6 +174,7 @@ glm::vec3 RayTracingRenderer::getOffset(Hit& surfaceHit, glm::vec3& direction)
         ? surfaceHit.pos - surfaceHit.normal * 0.0001f
         : surfaceHit.pos + surfaceHit.normal * 0.0001f;
 }
+const bool recursionAllowed = false;
 glm::vec3 RayTracingRenderer::castRay(glm::vec3& ray, glm::vec3 src, int reflects)
 {
     glm::vec3 color = { 10, 10, 10 };
@@ -185,6 +186,7 @@ glm::vec3 RayTracingRenderer::castRay(glm::vec3& ray, glm::vec3 src, int reflect
 
         if (reflects > 0)
         {
+        	
             glm::vec3 reflection = VectorMath::reflect(glm::normalize(ray), surfaceHit.normal);
             auto offset = getOffset(surfaceHit, reflection);
             glm::vec3 reflectedColor = castRay(reflection, offset, reflects - 1);
