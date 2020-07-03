@@ -39,28 +39,14 @@ public:
     }
 	void glMagic(Scene& scene, Bitmap& img)
     {      
-        Shader shader("Shaders/vertexshader.vs", "Shaders/fragmentshader.fs");
+        Shader shader("Shaders/vertexshader.vs", "Shaders/fragmentshader.fs", "Shaders/geometry.gs");
         shader.use();
-        shader.setVec3("viewPos", scene.getActiveCamera()->owner->getComponent<Transform>()->position);
-
-        // material properties
-        shader.setVec3("diffuse", scene.objects[0]->getComponent<Material>()->diffuseColor);
-
-        // view/projection transformations
-        const glm::mat4 projection = glm::perspective(glm::radians(scene.getActiveCamera()->zoom), scene.getActiveCamera()->aspectRatio, 0.1f, 1000.0f);
-        const glm::mat4 view = scene.getActiveCamera()->GetViewMatrix();
-        shader.setMat4("projection", projection);
-        shader.setMat4("view", view);
-
-        // world transformation
-        const glm::mat4 worldModel = glm::translate(scene.objects[0]->getComponent<MeshRenderer>()->model, scene.objects[0]->getComponent<Transform>()->position);
-        shader.setMat4("model", worldModel);
-
+        //clear the screen
         glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        // render the cube
-        glDrawArrays(GL_TRIANGLES, 0, 0);
-
+        // render the data
+        glDrawArrays(GL_POINTS, 0, 1);
+        //write data from hl buffer directly to image
         glReadPixels(0, 0, img.m_width, img.m_height, GL_RGB, GL_UNSIGNED_BYTE, img.m_buffer);
     
     }
@@ -138,11 +124,8 @@ public:
     }
     glm::vec3 castRay(glm::vec3& ray, glm::vec3 src, int reflects)
     {
-        float minDst = 90000;
-    	
-        float dst = getMinDst(src);
         
-        return { 1,dst>=minDst?1:100,1 };
+        return { 1,100,1 };
     }
 
 protected:
