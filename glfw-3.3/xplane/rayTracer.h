@@ -10,7 +10,7 @@
 #include "renderEngine.h"
 #include "vectorMath.h"
 #include "hit.h"
-class RayTracerEngine final: public RenderEngine
+class RayTracingRenderer final: public RenderEngine
 {
 protected:
     
@@ -33,7 +33,7 @@ protected:
     std::vector<OptiLight> lights;
 public:
     Bitmap* env;
-	~RayTracerEngine() = default;
+	~RayTracingRenderer() = default;
 
     
     Bitmap render(Scene& scene, int width, int height) override;

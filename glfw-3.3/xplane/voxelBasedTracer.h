@@ -10,6 +10,9 @@
 #include "renderEngine.h"
 #include "vectorMath.h"
 #include "hit.h"
+
+//it doenst work in *scale* different from 1, may be i will fix it later
+//and it seem like it is even slower that normal tracer;
 class VoxelTracerEngine final : public RenderEngine
 {
 protected:
@@ -97,7 +100,7 @@ public:
         }
     }
 
-    Bitmap render(Scene& scene, int width, int height)
+    Bitmap render(Scene& scene, int width, int height) override
     {
         Bitmap img;
         img.m_width = this->width = width;

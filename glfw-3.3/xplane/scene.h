@@ -14,6 +14,8 @@ class Scene final
 {
 public:
 	int maxBounces = 2;
+	int renderEngine = 0;
+	
 	std::vector<Object*> objects;
 	std::vector<Object*> lights;
 	std::vector<Object*> cameras;

@@ -1,6 +1,10 @@
 #include "mixerEngine.h"
 
+
+#include "rayMarching.h"
 #include "voxelBasedTracer.h"
+#include "mixerGUI.h"
+
 
 void MixerEngine::mainLoop()
 {
@@ -40,13 +44,20 @@ void MixerEngine::onUpdate()
 
 	if (window.input.getKeyUp(KeyCode::R))
 	{
-		VoxelTracerEngine rt;
-		Bitmap img = rt.render(scene, window.width, window.height);
-		BMPWriter bmpw;
-		bmpw.save(img, "render.bmp");
-		Logger::log("Render finished");
-		img.clear();
-
+		RenderEngine* rt = nullptr;
+		if (scene.renderEngine == 0)
+			rt = new RayTracingRenderer();
+		else if (scene.renderEngine == 1)
+			rt = new RayMarchingRenderer();
+		if (rt != nullptr)
+		{
+			Bitmap img = rt->render(scene, window.width, window.height);
+			BMPWriter bmpw;
+			bmpw.save(img, "render.bmp");
+			Logger::log("Render finished");
+			img.clear();
+		}
+		delete rt;
 	}
 
 	if (window.input.getKey(KeyCode::W))

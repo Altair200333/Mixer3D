@@ -191,6 +191,22 @@ void MixerGUI::drawSceneSettings()
 
 	}
 	ImGui::PopID();
+	const char* items[] = { "Ray Tracer", "Ray Marcher" };
+	static int current_item = 1;
+
+	if (ImGui::BeginCombo("##combo", items[current_item])) // The second parameter is the label previewed before opening the combo.
+	{
+		for (int n = 0; n < IM_ARRAYSIZE(items); n++)
+		{
+			bool is_selected = (current_item == n); // You can store your selection however you want, outside or inside your objects
+			if (ImGui::Selectable(items[n], is_selected))
+				current_item = n;
+			if (is_selected)
+				ImGui::SetItemDefaultFocus();   // You may set the initial focus when opening the combo (scrolling + for keyboard navigation support)
+		}
+		ImGui::EndCombo();
+	}
+	scene->renderEngine = current_item;
 }
 
 void MixerGUI::drawScenePanel()

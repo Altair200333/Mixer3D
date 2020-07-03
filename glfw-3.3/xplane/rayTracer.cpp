@@ -9,7 +9,7 @@ namespace
         return { theta, alpha };
     }
 }
-void RayTracerEngine::batchSceneMeshes(Scene& scene)
+void RayTracingRenderer::batchSceneMeshes(Scene& scene)
 {
     for (auto obj : scene.objects)
     {
@@ -31,7 +31,7 @@ void RayTracerEngine::batchSceneMeshes(Scene& scene)
     Logger::log(std::to_string(meshes.size()));
 }
 
-void RayTracerEngine::batchLight(Scene& scene)
+void RayTracingRenderer::batchLight(Scene& scene)
 {
 	for (auto light : scene.lights)
 	{
@@ -39,7 +39,7 @@ void RayTracerEngine::batchLight(Scene& scene)
 	}
 }
 
-Bitmap RayTracerEngine::render(Scene& scene, int width, int height)
+Bitmap RayTracingRenderer::render(Scene& scene, int width, int height)
 {
     Bitmap img;
     img.m_width = this->width = width;
@@ -60,7 +60,7 @@ Bitmap RayTracerEngine::render(Scene& scene, int width, int height)
     return img;
 }
 
-void RayTracerEngine::renderWithTracing(Scene& scene, Bitmap& img)
+void RayTracingRenderer::renderWithTracing(Scene& scene, Bitmap& img)
 {
     const float closeHeight = 2 * tan(scene.getActiveCamera()->zoom / 2 * M_PI / 180);
     const float scale = closeHeight / height;
@@ -86,7 +86,7 @@ void RayTracerEngine::renderWithTracing(Scene& scene, Bitmap& img)
     }
 }
 
-void RayTracerEngine::renderRegion(Scene& scene, Bitmap& img, const float scale, int startX, int endX, int startY, int endY)
+void RayTracingRenderer::renderRegion(Scene& scene, Bitmap& img, const float scale, int startX, int endX, int startY, int endY)
 {
     Camera* camera = scene.getActiveCamera();
     glm::vec3 position = camera->owner->getComponent<Transform>()->position;
@@ -109,16 +109,16 @@ void RayTracerEngine::renderRegion(Scene& scene, Bitmap& img, const float scale,
     }
 }
 
-glm::vec3 RayTracerEngine::clampColor(glm::vec3 color)
+glm::vec3 RayTracingRenderer::clampColor(glm::vec3 color)
 {
     return { std::clamp<float>(color.x, 10, 255),std::clamp<float>(color.y, 10, 255),std::clamp<float>(color.z, 10, 255) };
 }
-glm::vec3 RayTracerEngine::multyplyByLight(glm::vec3 color, glm::vec3 light)
+glm::vec3 RayTracingRenderer::multyplyByLight(glm::vec3 color, glm::vec3 light)
 {
     return { color.x * light.x, color.y * light.y ,color.z * light.z };
 }
 
-glm::vec3 RayTracerEngine::getDiffuse(Hit& hit)
+glm::vec3 RayTracingRenderer::getDiffuse(Hit& hit)
 {
     glm::vec3 color = { 0, 0, 0 };
     for (auto light : lights)
@@ -156,7 +156,7 @@ glm::vec3 RayTracerEngine::getDiffuse(Hit& hit)
 }
 
 
-glm::vec3 RayTracerEngine::getBackgroundColor(glm::vec3& ray)
+glm::vec3 RayTracingRenderer::getBackgroundColor(glm::vec3& ray)
 {
     if (env == nullptr)
         return { 10,10,10 };
@@ -168,13 +168,13 @@ glm::vec3 RayTracerEngine::getBackgroundColor(glm::vec3& ray)
     return { env->m_buffer[id + 2],  env->m_buffer[id + 1], env->m_buffer[id] };
 }
 
-glm::vec3 RayTracerEngine::getOffset(Hit& surfaceHit, glm::vec3& direction)
+glm::vec3 RayTracingRenderer::getOffset(Hit& surfaceHit, glm::vec3& direction)
 {
     return glm::dot(direction, surfaceHit.normal) < 0
         ? surfaceHit.pos - surfaceHit.normal * 0.0001f
         : surfaceHit.pos + surfaceHit.normal * 0.0001f;
 }
-glm::vec3 RayTracerEngine::castRay(glm::vec3& ray, glm::vec3 src, int reflects)
+glm::vec3 RayTracingRenderer::castRay(glm::vec3& ray, glm::vec3 src, int reflects)
 {
     glm::vec3 color = { 10, 10, 10 };
 
@@ -208,7 +208,7 @@ glm::vec3 RayTracerEngine::castRay(glm::vec3& ray, glm::vec3 src, int reflects)
     return color;
 }
 
-Hit RayTracerEngine::getHit(glm::vec3& ray, glm::vec3& src) const
+Hit RayTracingRenderer::getHit(glm::vec3& ray, glm::vec3& src) const
 {
     Hit closestHit = { {100000, 100000, 100000}, {0, 0, 1}, {}, false };
     for (auto& m : meshes)
