@@ -183,7 +183,7 @@ glm::vec3 RayTracingRenderer::castRay(glm::vec3& ray, glm::vec3 src, int reflect
     {
         color = getDiffuse(surfaceHit);
 
-        if (reflects > 0 && surfaceHit.material->roughness < 1)
+        if (reflects > 0)
         {
             glm::vec3 reflection = VectorMath::reflect(glm::normalize(ray), surfaceHit.normal);
             auto offset = getOffset(surfaceHit, reflection);
@@ -193,7 +193,7 @@ glm::vec3 RayTracingRenderer::castRay(glm::vec3& ray, glm::vec3 src, int reflect
             glm::vec3 refraction = VectorMath::refract(glm::normalize(ray), surfaceHit.normal, surfaceHit.material->ior);
             offset = getOffset(surfaceHit, refraction);
 
-            glm::vec3 refractedColor = (surfaceHit.material->transparency < 1) ? castRay(refraction, offset, reflects - 1) : glm::vec3(0, 0, 0);
+            glm::vec3 refractedColor = castRay(refraction, offset, reflects - 1);
 
             float nonTransparency = 1 - surfaceHit.material->transparency;
             float transparency = surfaceHit.material->transparency;

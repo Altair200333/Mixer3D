@@ -3,7 +3,6 @@
 #include <thread>
 #include <glm/glm/gtx/norm.hpp>
 #include "renderEngine.h"
-#include "hit.h"
 #include "MeshRenderer.h"
 #include "mixerEngine.h"
 #include "polygon.h"
@@ -11,16 +10,36 @@
 class RayTracingGPURenderer final : public RenderEngine
 {
     int width, height;
-	
+    struct Hit final
+    {
+        glm::vec3 pos;
+        glm::vec3 normal;
+        bool hit;
+
+        Hit(glm::vec3 _pos, glm::vec3 _norm, bool _hit) : pos(_pos), normal(_norm), hit(_hit)
+        {
+        }
+    };
     struct OptiPolygon final
     {
 	    glm::vec3 v1;
         glm::vec3 v2;
         glm::vec3 v3;
+        glm::vec3 normal;
         float maxd = -1;
         glm::vec3 color;
+        float roughness;
+        float transparency;
+        float ior;
+    };
+    struct OptiLight
+    {
+	    glm::vec3 pos;
+	    glm::vec3 color;
+        float intensity;
     };
     std::vector<OptiPolygon> meshes;
+    std::vector<OptiLight> lights;
     
 public:
     Bitmap render(Scene& scene, int width, int height) override
@@ -37,7 +56,7 @@ public:
             img.m_buffer[i] = 10;
         }
         batchSceneMeshes(scene);
-
+        batchSceneLights(scene);
         glMagic(scene, img);
         //renderWithTracing(scene, img);
         return img;
@@ -64,20 +83,35 @@ public:
             shader.setVec3(prefix + "v1", meshes[i].v1);
             shader.setVec3(prefix + "v2", meshes[i].v2);
             shader.setVec3(prefix + "v3", meshes[i].v3);
+            shader.setVec3(prefix + "normal", meshes[i].normal);
             shader.setFloat(prefix + "maxd", meshes[i].maxd);
-            shader.setVec3(prefix + "color", meshes[i].color);
+            shader.setVec3(prefix + "mat.color", meshes[i].color);
+            shader.setFloat(prefix + "mat.roughness", meshes[i].roughness);
+            shader.setFloat(prefix + "mat.transparency", meshes[i].transparency);
+            shader.setFloat(prefix + "mat.ior", meshes[i].ior);
         }
         shader.setInt("polygonsCount", meshes.size());
+
+        for (int i = 0; i < lights.size(); ++i)
+        {
+            std::string prefix = "lights[" + std::to_string(i) + "].";
+            shader.setVec3(prefix + "color", lights[i].color);
+            shader.setVec3(prefix + "pos", lights[i].pos);
+            shader.setFloat(prefix + "intensity", lights[i].intensity);
+        }
+        shader.setInt("lightsCount", lights.size());
         //clear the screen
         glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        
         // render the data
         glDrawArrays(GL_POINTS, 0, 1);
     	
         //write data from hl buffer directly to image
-        glReadPixels(0, 0, img.m_width, img.m_height, GL_RGB, GL_UNSIGNED_BYTE, img.m_buffer);
+        glReadPixels(0, 0, img.m_width, img.m_height, GL_BGR, GL_UNSIGNED_BYTE, img.m_buffer);
     
     }
+    
     void renderWithTracing(Scene& scene, Bitmap& img)
     {
         const float closeHeight = 2 * tan(scene.getActiveCamera()->zoom / 2 * M_PI / 180);
@@ -103,7 +137,6 @@ public:
             t.join();
         }
     }
-
     void renderRegion(Scene& scene, Bitmap& img, const float scale, int startX, int endX, int startY, int endY)
     {
         Camera* camera = scene.getActiveCamera();
@@ -126,15 +159,57 @@ public:
             }
         }
     }
-	
     glm::vec3 castRay(glm::vec3& ray, glm::vec3 src, int reflects)
     {
-        
-        return { 1,100,1 };
+        Hit surfaceHit = getHit(ray, src);
+        if (surfaceHit.hit)
+        {
+            return glm::vec3(100, 100, 100);
+        }
+        return glm::vec3(10, 10, 10);
     }
+    bool pointInPolygon(glm::vec3 v, OptiPolygon p)
+    {
+        float area = glm::length(glm::cross((p.v1 - p.v2), (p.v3 - p.v2))) * 0.5f;
 
+        float a = glm::length(glm::cross((v - p.v2), (v - p.v3))) / (2 * area);
+        float b = glm::length(glm::cross((v - p.v3), (v - p.v1))) / (2 * area);
+        float c = glm::length(glm::cross((v - p.v2), (v - p.v1))) / (2 * area);
+
+        float tresh = 1.0f + 0.0001f;
+        return a <= tresh && a >= 0 && b <= tresh && b >= 0 && c <= tresh && c >= 0 && (a + b + c) <= tresh;
+    }
+    Hit getHit(glm::vec3& ray, glm::vec3& src) 
+    {
+        Hit closestHit = Hit( glm::vec3(100000, 100000, 100000), glm::vec3(0, 0, 1), false );
+
+        for (int i = 0; i < meshes.size(); i++)
+        {
+	        glm::vec3 hit = VectorMath::intersectPoint(ray, src, meshes[i].normal, meshes[i].v1);
+            if (VectorMath::dist2(hit, meshes[i].v1) > meshes[i].maxd)
+                continue;
+            if (pointInPolygon(hit, meshes[i])
+                && VectorMath::dist2(closestHit.pos, src) > VectorMath::dist2(hit, src) && dot(hit - src, ray) > 0)
+            {
+                closestHit = Hit(hit, meshes[i].normal, true);
+            }
+
+        }
+
+        return closestHit;
+    }
 protected:
-   
+    void batchSceneLights(Scene& scene)
+    {
+        for (auto obj : scene.lights)
+        {
+            OptiLight light;
+            light.pos = obj->getComponent<Transform>()->position;
+            light.color = obj->getComponent<PointLight>()->color;
+        	light.intensity = obj->getComponent<PointLight>()->intensity;
+            lights.push_back(light);
+        }
+    }
     void batchSceneMeshes(Scene& scene)
     {
         for (auto obj : scene.objects)
@@ -146,13 +221,17 @@ protected:
                 PolygonMesh pol = mesh->getPolygon(i);
                 OptiPolygon om;
                 om.color = obj->getComponent<Material>()->diffuseColor;
+            	om.roughness = obj->getComponent<Material>()->roughness;
+            	om.transparency = obj->getComponent<Material>()->transparency;
+            	om.ior = obj->getComponent<Material>()->ior;
                 om.v1 = pol.vec1;
                 om.v2 = pol.vec2;
-                om.v2 = pol.vec2;
+                om.v3 = pol.vec3;
+                om.normal = pol.normal;
                 om.v1 += pos;
                 om.v2 += pos;
                 om.v3 += pos;
-                om.maxd = std::max<float>({ om.maxd, VectorMath::dist2(pol.vec1, pol.vec2), VectorMath::dist2(pol.vec1, pol.vec3), VectorMath::dist2(pol.vec2, pol.vec3) });
+                om.maxd = std::max<float>({ om.maxd, VectorMath::dist2(om.v1, om.v2), VectorMath::dist2(om.v1, om.v3), VectorMath::dist2(om.v2, om.v3) });
                 meshes.push_back(om);
             }
         }
