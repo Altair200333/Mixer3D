@@ -5,17 +5,22 @@
 #include "renderEngine.h"
 #include "hit.h"
 #include "MeshRenderer.h"
+#include "mixerEngine.h"
+#include "polygon.h"
 
-class RayMarchingRenderer final : public RenderEngine
+class RayTracingGPURenderer final : public RenderEngine
 {
     int width, height;
-    struct OptiMesh final
+	
+    struct OptiPolygon final
     {
-        glm::vec3 pos;
-        std::vector<PolygonMesh> polygons;
-        Material* mat;
+	    glm::vec3 v1;
+        glm::vec3 v2;
+        glm::vec3 v3;
+        float maxd = -1;
+        glm::vec3 color;
     };
-    std::vector<OptiMesh> meshes;
+    std::vector<OptiPolygon> meshes;
     
 public:
     Bitmap render(Scene& scene, int width, int height) override
@@ -41,11 +46,34 @@ public:
     {      
         Shader shader("Shaders/vertexshader.vs", "Shaders/fragmentshader.fs", "Shaders/geometry.gs");
         shader.use();
+
+        const float closeHeight = 2 * tan(scene.getActiveCamera()->zoom / 2 * M_PI / 180);
+        const float scale = closeHeight / height;
+        auto camera = scene.getActiveCamera();
+        shader.setVec3("camera.position", camera->owner->getComponent<Transform>()->position);
+        shader.setFloat("camera.scale", scale);
+        shader.setVec3("camera.front", camera->Front);
+        shader.setVec3("camera.right", camera->Right);
+        shader.setVec3("camera.up", camera->Up);
+        shader.setInt("camera.width", width);
+        shader.setInt("camera.height", height);
+
+        for(int i=0; i<meshes.size(); ++i)
+        {
+            std::string prefix = "polygons[" + std::to_string(i) + "].";
+            shader.setVec3(prefix + "v1", meshes[i].v1);
+            shader.setVec3(prefix + "v2", meshes[i].v2);
+            shader.setVec3(prefix + "v3", meshes[i].v3);
+            shader.setFloat(prefix + "maxd", meshes[i].maxd);
+            shader.setVec3(prefix + "color", meshes[i].color);
+        }
+        shader.setInt("polygonsCount", meshes.size());
         //clear the screen
         glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         // render the data
         glDrawArrays(GL_POINTS, 0, 1);
+    	
         //write data from hl buffer directly to image
         glReadPixels(0, 0, img.m_width, img.m_height, GL_RGB, GL_UNSIGNED_BYTE, img.m_buffer);
     
@@ -98,30 +126,7 @@ public:
             }
         }
     }
-	float getMinDst(glm::vec3 src)
-    {
-        const glm::vec3 front = { 0,0,1 };
-        const glm::vec3 up = { 0,1,0 };
-        const glm::vec3 right = { 1,0,0 };
-        float step = 0.1f;
-        float dst = 100000;
-	    for(float i=0;i<2*M_PI;i+=step)
-	    {
-	    	
-            for (float j = 0; j < M_PI; j+=step)
-            {
-
-                float x = sin(j) * cos(i);
-                float y = sin(j) * sin(i);
-                float z = cos(j);
-                glm::vec3 ray = right * x + front * y + up * z;
-                Hit hit = getHit(ray, src);
-            	if(hit.hit)
-					dst = min(dst, glm::length2(hit.pos - src));
-            }
-	    }
-        return dst;
-    }
+	
     glm::vec3 castRay(glm::vec3& ray, glm::vec3 src, int reflects)
     {
         
@@ -129,46 +134,27 @@ public:
     }
 
 protected:
-    Hit getHit(glm::vec3& ray, glm::vec3& src) const
-    {
-    	//just make real remote hit that doesn't hit anything
-        Hit closestHit = { {100000, 100000, 100000}, {0, 0, 1}, {}, false };
-        for (auto& m : meshes)
-        {
-            for (int i = 0; i < m.polygons.size(); ++i)
-            {
-                glm::vec3 hit = VectorMath::intersectPoint(ray, src, m.polygons[i].normal, m.polygons[i].vec1);
-            	//cheap check for point being in radius of polygon
-                if (VectorMath::dist2(hit, m.polygons[i].vec1) > m.polygons[i].maxDistance)
-                    continue;
-                if (VectorMath::pointInPolygon(hit, m.polygons[i])
-                    && VectorMath::dist2(closestHit.pos, src) > VectorMath::dist2(hit, src) && glm::dot(hit - src, ray) > 0)
-                {
-                    closestHit = { hit, m.polygons[i].normal, m.mat, true };
-                }
-            }
-        }
-
-        return closestHit;
-    }
+   
     void batchSceneMeshes(Scene& scene)
     {
         for (auto obj : scene.objects)
         {
-            OptiMesh om;
-            om.mat = obj->getComponent<Material>();
-            om.pos = obj->getComponent<Transform>()->position;
+            glm::vec3 pos = obj->getComponent<Transform>()->position;
             auto mesh = obj->getComponent<Mesh>();
             for (int i = 0; i < mesh->vertexCount / 3; ++i)
             {
-                om.polygons.push_back(mesh->getPolygon(i));
-                auto& pol = om.polygons[om.polygons.size() - 1];
-                pol.vec1 += om.pos;
-                pol.vec2 += om.pos;
-                pol.vec3 += om.pos;
-                pol.maxDistance = std::max<float>({ pol.maxDistance, VectorMath::dist2(pol.vec1, pol.vec2), VectorMath::dist2(pol.vec1, pol.vec3), VectorMath::dist2(pol.vec2, pol.vec3) });
+                PolygonMesh pol = mesh->getPolygon(i);
+                OptiPolygon om;
+                om.color = obj->getComponent<Material>()->diffuseColor;
+                om.v1 = pol.vec1;
+                om.v2 = pol.vec2;
+                om.v2 = pol.vec2;
+                om.v1 += pos;
+                om.v2 += pos;
+                om.v3 += pos;
+                om.maxd = std::max<float>({ om.maxd, VectorMath::dist2(pol.vec1, pol.vec2), VectorMath::dist2(pol.vec1, pol.vec3), VectorMath::dist2(pol.vec2, pol.vec3) });
+                meshes.push_back(om);
             }
-            meshes.push_back(om);
         }
         Logger::log(std::to_string(meshes.size()));
     }

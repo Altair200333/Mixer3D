@@ -226,7 +226,7 @@
     <Image Include="GLFW_ICON.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="rayMarching.h" />
+    <None Include="rayTracingGPU.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

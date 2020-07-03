@@ -293,7 +293,7 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="rayMarching.h">
+    <None Include="rayTracingGPU.h">
       <Filter>Header Files\RenderEngine</Filter>
     </None>
   </ItemGroup>

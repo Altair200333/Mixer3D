@@ -1,7 +1,7 @@
 #include "mixerEngine.h"
 
 
-#include "rayMarching.h"
+#include "rayTracingGPU.h"
 #include "voxelBasedTracer.h"
 #include "mixerGUI.h"
 
@@ -48,7 +48,7 @@ void MixerEngine::onUpdate()
 		if (scene.renderEngine == 0)
 			rt = new RayTracingRenderer();
 		else if (scene.renderEngine == 1)
-			rt = new RayMarchingRenderer();
+			rt = new RayTracingGPURenderer();
 		if (rt != nullptr)
 		{
 			Bitmap img = rt->render(scene, window.width, window.height);
