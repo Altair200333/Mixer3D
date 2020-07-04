@@ -259,6 +259,7 @@ protected:
                 om.v2 += pos;
                 om.v3 += pos;
                 om.maxd = std::max<float>({ om.maxd, VectorMath::dist2(om.v1, om.v2), VectorMath::dist2(om.v1, om.v3), VectorMath::dist2(om.v2, om.v3) });
+            	
                 meshes.push_back(om);
             }
         }
@@ -275,6 +276,7 @@ protected:
             polygons.push_back(v4);
             polygons.push_back(v5);
     	}
+        std::cout << "bake end\n";
         Logger::log(std::to_string(meshes.size()));
     }
 };
