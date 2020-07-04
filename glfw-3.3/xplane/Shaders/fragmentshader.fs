@@ -2,7 +2,6 @@
 out vec4 FragColor;
 
 in vec2 texcoord;
-in float r;
 
 struct Camera
 {
@@ -65,18 +64,26 @@ bool pointInPolygon(vec3 v, Polygon p)
     return a <= tresh && a >= 0 && b <= tresh && b >= 0 && c <= tresh && c >= 0 && (a + b + c) <= tresh;
 }
 
-uniform Polygon polygons[300];
+uniform Polygon polygons[200];
 uniform int polygonsCount = 0;
 
 uniform Light lights[40];
 uniform int lightsCount = 0;
 uniform Camera camera;
 
-
+uniform samplerBuffer VertexSampler0;
 
 Polygon getPolygon(int id)
 {
-    return polygons[id];
+    int off = id*5;
+    vec4 v1 = texelFetch(VertexSampler0, off + 0);
+    vec4 v2 = texelFetch(VertexSampler0, off + 1);
+    vec4 v3 = texelFetch(VertexSampler0, off + 2);
+    vec4 v4 = texelFetch(VertexSampler0, off + 3);
+    vec4 v5 = texelFetch(VertexSampler0, off + 4);
+    //                    v1               v2                   v3                    norm                    maxd                 color            rougn  transp ior
+    Polygon p = Polygon(vec3(v1.xyz), vec3(v1.w, v2.x, v2.y), vec3(v2.z, v2.w, v3.x), vec3(v3.y, v3.z, v3.w), v4.x, Material(vec3(v4.y, v4.z, v4.w), v5.x, v5.y, v5.z));
+    return p;//polygons[id];
 }
 
 float dist2(vec3 v1, vec3 v2)
@@ -209,5 +216,5 @@ void main()
     vec3 ray = camera.front + camera.right * float(texcoord.x*camera.width - camera.width / 2) * camera.scale + camera.up * float(texcoord.y*camera.height - camera.height / 2) * camera.scale;
 
     vec3 color = castRay(ray, camera.position, 1);
-    FragColor = vec4(r, 0,0,1);//vec4(color, 1.0);
+    FragColor = vec4(color, 1.0);
 } 

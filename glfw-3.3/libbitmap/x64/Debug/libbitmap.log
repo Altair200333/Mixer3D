@@ -5,4 +5,6 @@ E:\WORK\CPP\vsProj\glfw-3.3\libbitmap\bmpWriter.cpp(882,49): warning C4267: 'arg
 E:\WORK\CPP\vsProj\glfw-3.3\libbitmap\bmpWriter.cpp(883,44): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\libbitmap\bmpWriter.cpp(884,48): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\libbitmap\bmpWriter.cpp(885,48): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  libbitmap.cpp
+  Generating Code...
   libbitmap.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\libbitmap.lib

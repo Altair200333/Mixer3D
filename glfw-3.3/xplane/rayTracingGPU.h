@@ -39,7 +39,7 @@ class RayTracingGPURenderer final : public RenderEngine
         float intensity;
     };
     std::vector<OptiPolygon> meshes;
-    std::vector<float> polygons;
+    std::vector<glm::vec4> polygons;
     std::vector<OptiLight> lights;
     
 public:
@@ -101,7 +101,7 @@ public:
         shader.setVec3("camera.up", camera->Up);
         shader.setInt("camera.width", width);
         shader.setInt("camera.height", height);
-
+        /*
         for(int i=0; i<meshes.size(); ++i)
         {
             std::string prefix = "polygons[" + std::to_string(i) + "].";
@@ -114,7 +114,7 @@ public:
             shader.setFloat(prefix + "mat.roughness", meshes[i].roughness);
             shader.setFloat(prefix + "mat.transparency", meshes[i].transparency);
             shader.setFloat(prefix + "mat.ior", meshes[i].ior);
-        }
+        }*/
         shader.setInt("polygonsCount", meshes.size());
 
         for (int i = 0; i < lights.size(); ++i)
@@ -125,12 +125,11 @@ public:
             shader.setFloat(prefix + "intensity", lights[i].intensity);
         }
         shader.setInt("lightsCount", lights.size());
-
-        float a[] = { 0.8, 0.8, 0.8 };
+		
         unsigned int texture1;
         glGenBuffers(1, &texture1);
         glBindBuffer(GL_TEXTURE_BUFFER, texture1);
-        glBufferData(GL_TEXTURE_BUFFER, 3 * sizeof(float), &a[0], GL_STATIC_DRAW);
+        glBufferData(GL_TEXTURE_BUFFER, polygons.size()* sizeof(glm::vec4), &polygons[0], GL_STATIC_DRAW);
 
         GLuint id;
         glGenTextures(1, &id);
@@ -249,12 +248,13 @@ protected:
             lights.push_back(light);
         }
     }
+	/*
 	void pushVector(glm::vec3& v)
     {
         polygons.push_back(v.x);
         polygons.push_back(v.y);
         polygons.push_back(v.z);
-    }
+    }*/
     void batchSceneMeshes(Scene& scene)
     {
         for (auto obj : scene.objects)
@@ -282,6 +282,7 @@ protected:
         }
     	for(auto& p:meshes)
     	{
+    		/*
             pushVector(p.v1);
             pushVector(p.v2);
             pushVector(p.v3);
@@ -290,8 +291,17 @@ protected:
             pushVector(p.color);
             polygons.push_back(p.roughness);
             polygons.push_back(p.transparency);
-            polygons.push_back(p.ior);
-    		
+            polygons.push_back(p.ior);*/
+            glm::vec4 v1 = { p.v1.x,p.v1.y ,p.v1.z ,p.v2.x };
+            glm::vec4 v2 = { p.v2.y,p.v2.z ,p.v3.x ,p.v3.y};
+            glm::vec4 v3 = { p.v3.z,p.normal.x ,p.normal.y ,p.normal.z };
+            glm::vec4 v4 = { p.maxd,p.color.x ,p.color.y ,p.color.z };
+            glm::vec4 v5 = { p.roughness,p.transparency ,p.ior ,0};
+            polygons.push_back(v1);
+            polygons.push_back(v2);
+            polygons.push_back(v3);
+            polygons.push_back(v4);
+            polygons.push_back(v5);
     	}
         Logger::log(std::to_string(meshes.size()));
     }
