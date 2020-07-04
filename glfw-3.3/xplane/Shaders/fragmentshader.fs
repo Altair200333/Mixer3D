@@ -64,9 +64,8 @@ bool pointInPolygon(vec3 v, Polygon p)
     return a <= tresh && a >= 0 && b <= tresh && b >= 0 && c <= tresh && c >= 0 && (a + b + c) <= tresh;
 }
 
-uniform Polygon polygons[200];
 uniform int polygonsCount = 0;
-
+uniform int reflects = 0;
 uniform Light lights[40];
 uniform int lightsCount = 0;
 uniform Camera camera;
@@ -177,37 +176,46 @@ vec3 getOffset(Hit surfaceHit, vec3 direction)
         ? surfaceHit.pos - surfaceHit.normal * 0.0001f
         : surfaceHit.pos + surfaceHit.normal * 0.0001f;
 }
+vec3 getBackgroundColor(vec3 ray)
+{
+    return vec3(0.1,0.1,0.1);
+}
 vec3 castRay(vec3 ray, vec3 src, int reflects)
 {
-    vec3 color = vec3(10, 10, 10);
-
+    vec3 color = vec3( 10, 10, 10 );
     Hit surfaceHit = getHit(ray, src);
-
+    
     if (surfaceHit.hit)
     {
         color = getDiffuse(surfaceHit);
-
-        vec3 reflection = reflect(normalize(ray), surfaceHit.normal);
-        vec3 offset = getOffset(surfaceHit, reflection);
-        vec3 reflectedColor = vec3(0,0,0);//castRay(reflection, offset, reflects - 1);
-
-
-        vec3 refraction = refract(normalize(ray), surfaceHit.normal, surfaceHit.mat.ior);
-        offset = getOffset(surfaceHit, refraction);
-
-        vec3 refractedColor = vec3(0,0,0);//(surfaceHit.mat.transparency < 1) ? castRay(refraction, offset, reflects - 1) : vec3(0, 0, 0);
-
-        float nonTransparency = 1 - surfaceHit.mat.transparency;
-        float transparency = surfaceHit.mat.transparency;
-        float rough = surfaceHit.mat.roughness;
-        return clampColor((color * rough + reflectedColor * (1 - rough)) * nonTransparency + transparency * refractedColor);
+        Hit lastHit = surfaceHit;
+        vec3 lastRay = ray;
         
+        while(reflects>0)
+        {
+            vec3 reflection = reflect(normalize(lastRay), lastHit.normal);
+            vec3 offset = getOffset(lastHit, reflection);
+
+            Hit hit = getHit(reflection, offset);
+            if (hit.hit)
+            {
+                color += getDiffuse(hit) * (1-lastHit.mat.roughness);
+            }
+            else
+            {
+                color += (1 - lastHit.mat.roughness)*getBackgroundColor(reflection);
+                break;
+            }
+            lastHit = hit;
+            lastRay = reflection;
+            reflects--;
+        }
     }
     else
     {
-        color = vec3(0.1,0.1,0.1);
+        color = getBackgroundColor(ray);
     }
-    return color;
+    return clampColor(color);
 }
 
 void main()
@@ -215,6 +223,6 @@ void main()
     
     vec3 ray = camera.front + camera.right * float(texcoord.x*camera.width - camera.width / 2) * camera.scale + camera.up * float(texcoord.y*camera.height - camera.height / 2) * camera.scale;
 
-    vec3 color = castRay(ray, camera.position, 1);
+    vec3 color = castRay(ray, camera.position, reflects);
     FragColor = vec4(color, 1.0);
 } 

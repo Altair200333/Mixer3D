@@ -101,21 +101,9 @@ public:
         shader.setVec3("camera.up", camera->Up);
         shader.setInt("camera.width", width);
         shader.setInt("camera.height", height);
-        /*
-        for(int i=0; i<meshes.size(); ++i)
-        {
-            std::string prefix = "polygons[" + std::to_string(i) + "].";
-            shader.setVec3(prefix + "v1", meshes[i].v1);
-            shader.setVec3(prefix + "v2", meshes[i].v2);
-            shader.setVec3(prefix + "v3", meshes[i].v3);
-            shader.setVec3(prefix + "normal", meshes[i].normal);
-            shader.setFloat(prefix + "maxd", meshes[i].maxd);
-            shader.setVec3(prefix + "mat.color", meshes[i].color);
-            shader.setFloat(prefix + "mat.roughness", meshes[i].roughness);
-            shader.setFloat(prefix + "mat.transparency", meshes[i].transparency);
-            shader.setFloat(prefix + "mat.ior", meshes[i].ior);
-        }*/
+        
         shader.setInt("polygonsCount", meshes.size());
+        shader.setInt("reflects", scene.maxBounces);
 
         for (int i = 0; i < lights.size(); ++i)
         {
@@ -248,13 +236,7 @@ protected:
             lights.push_back(light);
         }
     }
-	/*
-	void pushVector(glm::vec3& v)
-    {
-        polygons.push_back(v.x);
-        polygons.push_back(v.y);
-        polygons.push_back(v.z);
-    }*/
+	
     void batchSceneMeshes(Scene& scene)
     {
         for (auto obj : scene.objects)
@@ -282,16 +264,6 @@ protected:
         }
     	for(auto& p:meshes)
     	{
-    		/*
-            pushVector(p.v1);
-            pushVector(p.v2);
-            pushVector(p.v3);
-            pushVector(p.normal);
-            polygons.push_back(p.maxd);
-            pushVector(p.color);
-            polygons.push_back(p.roughness);
-            polygons.push_back(p.transparency);
-            polygons.push_back(p.ior);*/
             glm::vec4 v1 = { p.v1.x,p.v1.y ,p.v1.z ,p.v2.x };
             glm::vec4 v2 = { p.v2.y,p.v2.z ,p.v3.x ,p.v3.y};
             glm::vec4 v3 = { p.v3.z,p.normal.x ,p.normal.y ,p.normal.z };

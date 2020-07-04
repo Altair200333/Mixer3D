@@ -53,6 +53,6 @@ protected:
 
     glm::vec3 getOffset(Hit& surfaceHit, glm::vec3& direction);
     glm::vec3 castRay(glm::vec3& ray, glm::vec3 src, int reflects = 0);
-    
+    glm::vec3 castRayNoRecursion(glm::vec3& ray, glm::vec3 src, int reflects);
     Hit getHit(glm::vec3& ray, glm::vec3& src) const;
 };
