@@ -4,26 +4,30 @@ C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(1
 E:\WORK\CPP\vsProj\glfw-3.3\build\include\glad\glad.h(32): message : see previous definition of 'APIENTRY'
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(38,28): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.h(39,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(41,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(59,37): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(59,33): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(80,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(88,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(57,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(75,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(81,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(82,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(82,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(94,37): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(94,33): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(131,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(131,1): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(133,45): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(118,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(127,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(150,37): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(150,33): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(187,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(187,1): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(189,45): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
           with
           [
               T=float
           ]
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(134,45): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(190,45): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
           with
           [
               T=float
           ]
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(135,41): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracingGPU.h(191,41): warning C4244: '=': conversion from 'T' to 'uint8_t', possible loss of data
           with
           [
               T=float
@@ -53,6 +57,6 @@ E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(169,41): warning C4244: '=
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(229,74): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(229,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\voxelBasedTracer.h(229,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.cpp(78,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.cpp(78,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.cpp(81,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\WORK\CPP\vsProj\glfw-3.3\xplane\mixerEngine.cpp(81,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   xplane.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Debug\mixer.exe

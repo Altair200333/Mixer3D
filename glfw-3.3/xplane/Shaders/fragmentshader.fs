@@ -2,6 +2,7 @@
 out vec4 FragColor;
 
 in vec2 texcoord;
+in float r;
 
 struct Camera
 {
@@ -64,7 +65,7 @@ bool pointInPolygon(vec3 v, Polygon p)
     return a <= tresh && a >= 0 && b <= tresh && b >= 0 && c <= tresh && c >= 0 && (a + b + c) <= tresh;
 }
 
-uniform Polygon polygons[400];
+uniform Polygon polygons[300];
 uniform int polygonsCount = 0;
 
 uniform Light lights[40];
@@ -201,10 +202,12 @@ vec3 castRay(vec3 ray, vec3 src, int reflects)
     }
     return color;
 }
+
 void main()
 {  	
+    
     vec3 ray = camera.front + camera.right * float(texcoord.x*camera.width - camera.width / 2) * camera.scale + camera.up * float(texcoord.y*camera.height - camera.height / 2) * camera.scale;
 
     vec3 color = castRay(ray, camera.position, 1);
-    FragColor = vec4(color, 1.0);
+    FragColor = vec4(r, 0,0,1);//vec4(color, 1.0);
 } 

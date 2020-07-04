@@ -39,6 +39,7 @@ class RayTracingGPURenderer final : public RenderEngine
         float intensity;
     };
     std::vector<OptiPolygon> meshes;
+    std::vector<float> polygons;
     std::vector<OptiLight> lights;
     
 public:
@@ -124,6 +125,22 @@ public:
             shader.setFloat(prefix + "intensity", lights[i].intensity);
         }
         shader.setInt("lightsCount", lights.size());
+
+        float a[] = { 0.8, 0.8, 0.8 };
+        unsigned int texture1;
+        glGenBuffers(1, &texture1);
+        glBindBuffer(GL_TEXTURE_BUFFER, texture1);
+        glBufferData(GL_TEXTURE_BUFFER, 3 * sizeof(float), &a[0], GL_STATIC_DRAW);
+
+        GLuint id;
+        glGenTextures(1, &id);
+		glBindBuffer(GL_TEXTURE_BUFFER, 0);
+        glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+
+        glTexBuffer(GL_TEXTURE_BUFFER, GL_RGBA32F, texture1);
+
+        glBindBuffer(GL_TEXTURE_BUFFER, 0);
+        glBindTexture(GL_TEXTURE_BUFFER, 0);
         //clear the screen
         glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -232,6 +249,12 @@ protected:
             lights.push_back(light);
         }
     }
+	void pushVector(glm::vec3& v)
+    {
+        polygons.push_back(v.x);
+        polygons.push_back(v.y);
+        polygons.push_back(v.z);
+    }
     void batchSceneMeshes(Scene& scene)
     {
         for (auto obj : scene.objects)
@@ -257,6 +280,19 @@ protected:
                 meshes.push_back(om);
             }
         }
+    	for(auto& p:meshes)
+    	{
+            pushVector(p.v1);
+            pushVector(p.v2);
+            pushVector(p.v3);
+            pushVector(p.normal);
+            polygons.push_back(p.maxd);
+            pushVector(p.color);
+            polygons.push_back(p.roughness);
+            polygons.push_back(p.transparency);
+            polygons.push_back(p.ior);
+    		
+    	}
         Logger::log(std::to_string(meshes.size()));
     }
 };
