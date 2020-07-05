@@ -1,4 +1,5 @@
 #version 330 core
+#define M_PI 3.1415926535897932384626433832795
 out vec4 FragColor;
 
 in vec2 texcoord;
@@ -71,6 +72,7 @@ uniform int lightsCount = 0;
 uniform Camera camera;
 
 uniform samplerBuffer VertexSampler0;
+uniform samplerBuffer background;
 
 Polygon getPolygon(int id)
 {
@@ -179,9 +181,24 @@ vec3 getOffset(Hit surfaceHit, vec3 direction)
         ? surfaceHit.pos - surfaceHit.normal * 0.0001f
         : surfaceHit.pos + surfaceHit.normal * 0.0001f;
 }
+vec2 getMapAngles(vec3 ray)
+{
+    float theta = atan(ray.z, ray.x) * 180 / M_PI + 180;
+    float alpha = atan(ray.y, sqrt(ray.x * ray.x + ray.z * ray.z)) * 180 / M_PI + 90;
+    return vec2(theta, alpha);
+}
+uniform int e_w;
+uniform int e_h;
 vec3 getBackgroundColor(vec3 ray)
 {
     return vec3(0.1,0.1,0.1);
+    //vec2 c = getMapAngles(ray);
+
+    //float x = e_w * c.x / 360;
+    //float y = e_h * c.y / 180;
+    //int id = int(x+y*e_w);
+    //return texelFetch(background, 0).xyz;
+    
 }
 vec3 castRay(vec3 ray, vec3 src, int reflects)
 {
@@ -220,12 +237,19 @@ vec3 castRay(vec3 ray, vec3 src, int reflects)
     }
     return clampColor(color);
 }
-
+uniform float startX;
+uniform float endX;
+uniform float startY;
+uniform float endY;
 void main()
 {  	
-    
-    vec3 ray = camera.front + camera.right * float(texcoord.x*camera.width - camera.width / 2) * camera.scale + camera.up * float(texcoord.y*camera.height - camera.height / 2) * camera.scale;
+    if(texcoord.x>=startX && texcoord.x<=endX && texcoord.y>=startY && texcoord.y<=endY)
+    {
+        vec3 ray = camera.front + camera.right * float(texcoord.x*camera.width - camera.width / 2) * camera.scale + camera.up * float(texcoord.y*camera.height - camera.height / 2) * camera.scale;
 
-    vec3 color = castRay(ray, camera.position, reflects);
-    FragColor = vec4(color, 1.0);
+        vec3 color = castRay(ray, camera.position, reflects);
+        FragColor = vec4(color, 1.0);
+    }
+    else
+        discard; 
 } 

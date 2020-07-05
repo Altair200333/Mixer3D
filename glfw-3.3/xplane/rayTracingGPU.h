@@ -128,14 +128,30 @@ public:
 
         glBindBuffer(GL_TEXTURE_BUFFER, 0);
         glBindTexture(GL_TEXTURE_BUFFER, 0);
+		//----------
+        
+
+        shader.setInt("e_w", scene.environment->m_width);
+        shader.setInt("e_h", scene.environment->m_height);
         //clear the screen
         glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        
+		
+        glEnable(GL_BLEND);
         // render the data
-        glDrawArrays(GL_POINTS, 0, 1);
-    	
-    
+        const float chunk = 0.25f;
+		for(float x=0;x<=1; x+= chunk)
+		{
+            for (float y = 0; y <= 1; y += chunk)
+            {
+                shader.setFloat("startX", x);
+                shader.setFloat("endX", x+ chunk);
+                shader.setFloat("startY", y);
+                shader.setFloat("endY", y+ chunk);
+                glDrawArrays(GL_POINTS, 0, 1);
+                glFinish();
+            }
+		}
     }
     
     void renderWithTracing(Scene& scene, Bitmap& img)
