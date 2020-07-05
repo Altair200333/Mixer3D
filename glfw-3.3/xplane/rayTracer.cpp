@@ -130,26 +130,30 @@ glm::vec3 RayTracingRenderer::getDiffuse(Hit& hit)
 
         glm::vec3 dirToLight = lightPosition - hit.pos;
         glm::vec3 offset = hit.pos + dirToLight * 0.0001f;
+    	
+        float attenuation = 1;
+        bool openToLight = false;
         Hit lightHits = getHit(dirToLight, offset);
-        float attenuation = lightHits.hit ? lightHits.material->transparency : 1;
-        while (lightHits.hit && lightHits.material->transparency != 0)
-        {
-            offset = lightHits.pos + dirToLight * 0.0001f;
-            lightHits = getHit(dirToLight, offset);
-            if (lightHits.hit)
-                attenuation *= lightHits.material->transparency;
-        }
-
-        if (!lightHits.hit)
-        {
-            float slope = abs(glm::dot(hit.normal, glm::normalize(hit.pos - lightPosition)));
-
-            diffuse = attenuation * clampColor(multyplyByLight(hit.material->diffuseColor, lightColor) * 255.0f * slope * (light.light->intensity / glm::length2(dirToLight)));
-        }
+        if (glm::dot(lightHits.pos - lightPosition, dirToLight) > 0)
+            attenuation = 1;
         else
         {
-            diffuse = diffuse * 0.1f;
+            attenuation = lightHits.hit ? lightHits.material->transparency : 1;
+
+            while (lightHits.hit && lightHits.material->transparency != 0)
+            {
+                offset = lightHits.pos + dirToLight * 0.0001f;
+                lightHits = getHit(dirToLight, offset);
+            	if(glm::dot(lightHits.pos - lightPosition, dirToLight) > 0)
+                    break;
+                if (lightHits.hit)
+                    attenuation *= lightHits.material->transparency;
+            }
         }
+        float slope = abs(glm::dot(hit.normal, glm::normalize(hit.pos - lightPosition)));
+
+        diffuse = attenuation * clampColor(multyplyByLight(hit.material->diffuseColor, lightColor) * 255.0f * slope * (light.light->intensity / glm::length2(dirToLight)));
+        
         color += diffuse;
     }
     return clampColor(color);

@@ -102,7 +102,7 @@ public:
         shader.setInt("camera.width", width);
         shader.setInt("camera.height", height);
         
-        shader.setInt("polygonsCount", meshes.size());
+        shader.setInt("polygonsCount", polygons.size()/5);
         shader.setInt("reflects", scene.maxBounces);
 
         for (int i = 0; i < lights.size(); ++i)
@@ -243,6 +243,43 @@ protected:
         {
             glm::vec3 pos = obj->getComponent<Transform>()->position;
             auto mesh = obj->getComponent<Mesh>();
+            auto material = obj->getComponent<Material>();
+            for (int i = 0; i < mesh->vertexCount / 3; ++i)
+            {
+                PolygonMesh pol = mesh->getPolygon(i);
+                glm::vec3 color = material->diffuseColor;
+                float roughness = material->roughness;
+                float transparency = material->transparency;
+                float ior = material->ior;
+               
+                pol.vec1 += pos;
+                pol.vec2 += pos;
+                pol.vec3 += pos;
+                float maxd = -1;
+            	maxd = std::max<float>({ maxd, VectorMath::dist2(pol.vec1, pol.vec2), VectorMath::dist2(pol.vec1, pol.vec3), VectorMath::dist2(pol.vec2, pol.vec3) });
+                glm::vec4 v1 = { pol.vec1.x,pol.vec1.y ,pol.vec1.z ,pol.vec2.x };
+                glm::vec4 v2 = { pol.vec2.y,pol.vec2.z ,pol.vec3.x ,pol.vec3.y };
+                glm::vec4 v3 = { pol.vec3.z,pol.normal.x ,pol.normal.y ,pol.normal.z };
+                glm::vec4 v4 = { maxd,color.x ,color.y ,color.z };
+                glm::vec4 v5 = { roughness,transparency ,ior ,0 };
+            	
+                polygons.push_back(v1);
+                polygons.push_back(v2);
+                polygons.push_back(v3);
+                polygons.push_back(v4);
+                polygons.push_back(v5);
+                //meshes.push_back(om);
+            }
+        }
+        std::cout << "bake end\n";
+        Logger::log(std::to_string(meshes.size()));
+    }
+};
+/*
+ for (auto obj : scene.objects)
+        {
+            glm::vec3 pos = obj->getComponent<Transform>()->position;
+            auto mesh = obj->getComponent<Mesh>();
             for (int i = 0; i < mesh->vertexCount / 3; ++i)
             {
                 PolygonMesh pol = mesh->getPolygon(i);
@@ -276,7 +313,4 @@ protected:
             polygons.push_back(v4);
             polygons.push_back(v5);
     	}
-        std::cout << "bake end\n";
-        Logger::log(std::to_string(meshes.size()));
-    }
-};
+ */
