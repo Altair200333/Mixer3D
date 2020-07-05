@@ -191,7 +191,7 @@ void MixerGUI::drawSceneSettings()
 
 	}
 	ImGui::PopID();
-	const char* items[] = { "Ray Tracer", "Ray Marcher" };
+	const char* items[] = { "Ray Tracer", "Ray Tracer GPU" };
 	static int current_item = 1;
 
 	if (ImGui::BeginCombo("##combo", items[current_item])) // The second parameter is the label previewed before opening the combo.
