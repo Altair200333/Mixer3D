@@ -167,10 +167,20 @@ vec3 reflect(vec3 I, vec3 N)
 {
     return I - N * (dot(I, N) * 2.0f);
 }
-vec3 refract(vec3 I, vec3 N, float eta_t, float eta_i)
+vec3 refract(vec3 I, vec3 N, float eta_t)
 {
+    float eta_i = 1;
     float cosi = -max(-1.f, min(1.0f, dot(I, N)));
-    if (cosi < 0) return refract(I, -N, eta_i, eta_t);
+    if (cosi < 0) 
+    {
+        N = -N;
+        eta_t = eta_i;
+        float eta_i = 1;
+        float cosi = -max(-1.f, min(1.0f, dot(I, N)));
+        float eta = eta_i / eta_t;
+        float k = 1 - eta * eta * (1 - cosi * cosi);
+        return k < 0 ? reflect(I, N) : I * eta + N * (eta * cosi - sqrt(k));
+    }
     float eta = eta_i / eta_t;
     float k = 1 - eta * eta * (1 - cosi * cosi);
     return k < 0 ? reflect(I, N) : I * eta + N * (eta * cosi - sqrt(k));
@@ -200,6 +210,9 @@ vec3 getBackgroundColor(vec3 ray)
     //return texelFetch(background, 0).xyz;
     
 }
+float rand(vec2 co){
+    return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+}
 vec3 castRay(vec3 ray, vec3 src, int reflects)
 {
     vec3 color = vec3( 10, 10, 10 );
@@ -213,13 +226,18 @@ vec3 castRay(vec3 ray, vec3 src, int reflects)
         
         while(reflects>0)
         {
-            vec3 reflection = reflect(normalize(lastRay), lastHit.normal);
+            vec3 reflection;
+            float seed = rand(ray.xy);
+            reflection = reflect(normalize(lastRay), lastHit.normal);
+            
             vec3 offset = getOffset(lastHit, reflection);
 
             Hit hit = getHit(reflection, offset);
             if (hit.hit)
             {
+                
                 color += getDiffuse(hit) * (1-lastHit.mat.roughness);
+               
             }
             else
             {
