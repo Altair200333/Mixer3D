@@ -133,26 +133,29 @@ vec3 getDiffuse(Hit hit)
         vec3 dirToLight = lightPosition - hit.pos;
         vec3 offset = hit.pos + dirToLight * 0.0001f;
 
+        float attenuation = 1;
+        bool openToLight = false;
         Hit lightHits = getHit(dirToLight, offset);
-        float attenuation = lightHits.hit ? lightHits.mat.transparency : 1;
-        while (lightHits.hit && lightHits.mat.transparency != 0)
-        {
-            offset = lightHits.pos + dirToLight * 0.0001f;
-            lightHits = getHit(dirToLight, offset);
-            if (lightHits.hit)
-                attenuation *= lightHits.mat.transparency;
-        }
-
-        if (!lightHits.hit)
-        {
-            float slope = abs(dot(hit.normal, normalize(hit.pos - lightPosition)));
-
-            diffuse = attenuation * clampColor(multyplyByLight(hit.mat.color, lightColor) * slope * (lights[i].intensity / length2(dirToLight)));
-        }
+        if (dot(lightHits.pos - lightPosition, dirToLight) > 0)
+            attenuation = 1;
         else
         {
-            diffuse = diffuse * 0.1f;
+            attenuation = lightHits.hit ? lightHits.mat.transparency : 1;
+
+            while (lightHits.hit && lightHits.mat.transparency != 0)
+            {
+                offset = lightHits.pos + dirToLight * 0.0001f;
+                lightHits = getHit(dirToLight, offset);
+                if(dot(lightHits.pos - lightPosition, dirToLight) > 0)
+                    break;
+                if (lightHits.hit)
+                    attenuation *= lightHits.mat.transparency;
+            }
         }
+        float slope = abs(dot(hit.normal, normalize(hit.pos - lightPosition)));
+
+        diffuse = attenuation * clampColor(multyplyByLight(hit.mat.color, lightColor)  * slope * (lights[i].intensity / length2(dirToLight)));
+        
         color += diffuse;
     }
 
