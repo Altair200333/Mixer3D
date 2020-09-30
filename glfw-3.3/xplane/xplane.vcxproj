@@ -211,7 +211,6 @@
     <ClInclude Include="shader.h" />
     <ClInclude Include="transform.h" />
     <ClInclude Include="vectorMath.h" />
-    <ClInclude Include="voxelBasedTracer.h" />
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>

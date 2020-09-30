@@ -278,9 +278,6 @@
     <ClInclude Include="hit.h">
       <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
-    <ClInclude Include="voxelBasedTracer.h">
-      <Filter>Header Files\RenderEngine</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="mixer.rc">

@@ -2,7 +2,6 @@
 
 
 #include "rayTracingGPU.h"
-#include "voxelBasedTracer.h"
 #include "mixerGUI.h"
 
 
