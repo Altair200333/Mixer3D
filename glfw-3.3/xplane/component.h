@@ -6,7 +6,6 @@ class Object;
 class Component
 {
 public:
-	const static uint64_t componentID = 0;
 	Object* owner;
 	
 	Component(Object* _owner):owner(_owner){}
