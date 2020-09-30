@@ -1,6 +1,5 @@
-﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/tests/CMakeLists.txt
-  iconify.c
+﻿  iconify.c
   getopt.c
   glad_gl.c
   Generating Code...
-  iconify.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\tests\Debug\iconify.exe
+  iconify.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\tests\Debug\iconify.exe

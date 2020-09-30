@@ -1,4 +1,4 @@
-# Install script for directory: E:/WORK/Petroleum/vsProj/glfw-3.3/tests
+# Install script for directory: E:/WORK/CPP/vsProj/glfw-3.3/tests
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

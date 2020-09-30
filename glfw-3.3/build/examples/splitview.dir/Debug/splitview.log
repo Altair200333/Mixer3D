@@ -1,5 +1,4 @@
-﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/examples/CMakeLists.txt
-  splitview.c
+﻿  splitview.c
   glad_gl.c
   Generating Code...
-  splitview.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\examples\Debug\splitview.exe
+  splitview.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\examples\Debug\splitview.exe

@@ -1,0 +1,4 @@
+﻿  Checking Build System
+  CMake is re-running because E:/WORK/CPP/vsProj/glfw-3.3/build/CMakeFiles/generate.stamp dependency file is missing.
+CUSTOMBUILD : CMake error : The source directory "E:/WORK/CPP/vsProj/glfw-3.3" does not appear to contain CMakeLists.txt.
+  Specify --help for usage, or press the help button on the CMake GUI.

@@ -1,5 +1,4 @@
-﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/tests/CMakeLists.txt
-  timeout.c
+﻿  timeout.c
   glad_gl.c
   Generating Code...
-  timeout.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\tests\Debug\timeout.exe
+  timeout.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\tests\Debug\timeout.exe

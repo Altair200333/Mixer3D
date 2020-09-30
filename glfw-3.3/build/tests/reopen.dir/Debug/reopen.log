@@ -1,5 +1,4 @@
-﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/tests/CMakeLists.txt
-  reopen.c
+﻿  reopen.c
   glad_gl.c
   Generating Code...
-  reopen.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\tests\Debug\reopen.exe
+  reopen.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\tests\Debug\reopen.exe

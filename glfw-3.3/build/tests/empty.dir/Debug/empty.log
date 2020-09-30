@@ -1,6 +1,5 @@
-﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/tests/CMakeLists.txt
-  empty.c
+﻿  empty.c
   tinycthread.c
   glad_gl.c
   Generating Code...
-  empty.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\tests\Debug\empty.exe
+  empty.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\tests\Debug\empty.exe

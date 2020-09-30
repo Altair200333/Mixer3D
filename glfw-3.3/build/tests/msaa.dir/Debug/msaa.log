@@ -1,6 +1,5 @@
-﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/tests/CMakeLists.txt
-  msaa.c
+﻿  msaa.c
   getopt.c
   glad_gl.c
   Generating Code...
-  msaa.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\tests\Debug\msaa.exe
+  msaa.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\tests\Debug\msaa.exe

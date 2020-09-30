@@ -105,10 +105,10 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\2f78ca857ee11ebd6496817f59c2ee78\uninstall.rule">
+    <CustomBuild Include="E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\2f78ca857ee11ebd6496817f59c2ee78\uninstall.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-E:\Programms\Cmake\bin\cmake.exe -P E:/WORK/Petroleum/vsProj/glfw-3.3/build/cmake_uninstall.cmake
+E:\Programms\Cmake\bin\cmake.exe -P E:/WORK/CPP/vsProj/glfw-3.3/build/cmake_uninstall.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -117,12 +117,12 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\uninstall</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\uninstall</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-E:\Programms\Cmake\bin\cmake.exe -P E:/WORK/Petroleum/vsProj/glfw-3.3/build/cmake_uninstall.cmake
+E:\Programms\Cmake\bin\cmake.exe -P E:/WORK/CPP/vsProj/glfw-3.3/build/cmake_uninstall.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -131,12 +131,12 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\uninstall</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\uninstall</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-E:\Programms\Cmake\bin\cmake.exe -P E:/WORK/Petroleum/vsProj/glfw-3.3/build/cmake_uninstall.cmake
+E:\Programms\Cmake\bin\cmake.exe -P E:/WORK/CPP/vsProj/glfw-3.3/build/cmake_uninstall.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -145,12 +145,12 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\uninstall</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\uninstall</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-E:\Programms\Cmake\bin\cmake.exe -P E:/WORK/Petroleum/vsProj/glfw-3.3/build/cmake_uninstall.cmake
+E:\Programms\Cmake\bin\cmake.exe -P E:/WORK/CPP/vsProj/glfw-3.3/build/cmake_uninstall.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -159,16 +159,16 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\uninstall</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\uninstall</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WORK\Petroleum\vsProj\glfw-3.3\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/CMakeLists.txt</Message>
+    <CustomBuild Include="E:\WORK\CPP\vsProj\glfw-3.3\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/WORK/CPP/vsProj/glfw-3.3/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/Petroleum/vsProj/glfw-3.3 -BE:/WORK/Petroleum/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/Petroleum/vsProj/glfw-3.3/build/CMakeFiles/generate.stamp
+E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/CPP/vsProj/glfw-3.3 -BE:/WORK/CPP/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/CPP/vsProj/glfw-3.3/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -176,12 +176,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\Programms\Cmake\share\cmake-3.17\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeCInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakePackageConfigHelpers.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckCSourceCompiles.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckIncludeFile.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckLibraryExists.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindDoxygen.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindPackageHandleStandardArgs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindPackageMessage.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindThreads.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\GNUInstallDirs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\WriteBasicConfigVersionFile.cmake;E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeCCompiler.cmake;E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeRCCompiler.cmake;E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeSystem.cmake;E:\WORK\Petroleum\vsProj\glfw-3.3\cmake_uninstall.cmake.in;E:\WORK\Petroleum\vsProj\glfw-3.3\src\glfw3.pc.in;E:\WORK\Petroleum\vsProj\glfw-3.3\src\glfw3Config.cmake.in;E:\WORK\Petroleum\vsProj\glfw-3.3\src\glfw_config.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\Programms\Cmake\share\cmake-3.17\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeCInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakePackageConfigHelpers.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckCSourceCompiles.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckIncludeFile.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckLibraryExists.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindDoxygen.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindPackageHandleStandardArgs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindPackageMessage.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindThreads.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\GNUInstallDirs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\WriteBasicConfigVersionFile.cmake;E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeCCompiler.cmake;E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeRCCompiler.cmake;E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeSystem.cmake;E:\WORK\CPP\vsProj\glfw-3.3\cmake_uninstall.cmake.in;E:\WORK\CPP\vsProj\glfw-3.3\src\glfw3.pc.in;E:\WORK\CPP\vsProj\glfw-3.3\src\glfw3Config.cmake.in;E:\WORK\CPP\vsProj\glfw-3.3\src\glfw_config.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/WORK/CPP/vsProj/glfw-3.3/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/Petroleum/vsProj/glfw-3.3 -BE:/WORK/Petroleum/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/Petroleum/vsProj/glfw-3.3/build/CMakeFiles/generate.stamp
+E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/CPP/vsProj/glfw-3.3 -BE:/WORK/CPP/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/CPP/vsProj/glfw-3.3/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -189,12 +189,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\Programms\Cmake\share\cmake-3.17\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeCInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakePackageConfigHelpers.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckCSourceCompiles.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckIncludeFile.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckLibraryExists.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindDoxygen.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindPackageHandleStandardArgs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindPackageMessage.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindThreads.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\GNUInstallDirs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\WriteBasicConfigVersionFile.cmake;E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeCCompiler.cmake;E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeRCCompiler.cmake;E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeSystem.cmake;E:\WORK\Petroleum\vsProj\glfw-3.3\cmake_uninstall.cmake.in;E:\WORK\Petroleum\vsProj\glfw-3.3\src\glfw3.pc.in;E:\WORK\Petroleum\vsProj\glfw-3.3\src\glfw3Config.cmake.in;E:\WORK\Petroleum\vsProj\glfw-3.3\src\glfw_config.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\Programms\Cmake\share\cmake-3.17\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeCInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakePackageConfigHelpers.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckCSourceCompiles.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckIncludeFile.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckLibraryExists.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindDoxygen.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindPackageHandleStandardArgs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindPackageMessage.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindThreads.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\GNUInstallDirs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\WriteBasicConfigVersionFile.cmake;E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeCCompiler.cmake;E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeRCCompiler.cmake;E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeSystem.cmake;E:\WORK\CPP\vsProj\glfw-3.3\cmake_uninstall.cmake.in;E:\WORK\CPP\vsProj\glfw-3.3\src\glfw3.pc.in;E:\WORK\CPP\vsProj\glfw-3.3\src\glfw3Config.cmake.in;E:\WORK\CPP\vsProj\glfw-3.3\src\glfw_config.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/WORK/CPP/vsProj/glfw-3.3/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/Petroleum/vsProj/glfw-3.3 -BE:/WORK/Petroleum/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/Petroleum/vsProj/glfw-3.3/build/CMakeFiles/generate.stamp
+E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/CPP/vsProj/glfw-3.3 -BE:/WORK/CPP/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/CPP/vsProj/glfw-3.3/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -202,12 +202,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\Programms\Cmake\share\cmake-3.17\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeCInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakePackageConfigHelpers.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckCSourceCompiles.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckIncludeFile.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckLibraryExists.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindDoxygen.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindPackageHandleStandardArgs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindPackageMessage.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindThreads.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\GNUInstallDirs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\WriteBasicConfigVersionFile.cmake;E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeCCompiler.cmake;E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeRCCompiler.cmake;E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeSystem.cmake;E:\WORK\Petroleum\vsProj\glfw-3.3\cmake_uninstall.cmake.in;E:\WORK\Petroleum\vsProj\glfw-3.3\src\glfw3.pc.in;E:\WORK\Petroleum\vsProj\glfw-3.3\src\glfw3Config.cmake.in;E:\WORK\Petroleum\vsProj\glfw-3.3\src\glfw_config.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\Programms\Cmake\share\cmake-3.17\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeCInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakePackageConfigHelpers.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckCSourceCompiles.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckIncludeFile.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckLibraryExists.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindDoxygen.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindPackageHandleStandardArgs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindPackageMessage.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindThreads.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\GNUInstallDirs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\WriteBasicConfigVersionFile.cmake;E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeCCompiler.cmake;E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeRCCompiler.cmake;E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeSystem.cmake;E:\WORK\CPP\vsProj\glfw-3.3\cmake_uninstall.cmake.in;E:\WORK\CPP\vsProj\glfw-3.3\src\glfw3.pc.in;E:\WORK\CPP\vsProj\glfw-3.3\src\glfw3Config.cmake.in;E:\WORK\CPP\vsProj\glfw-3.3\src\glfw_config.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/WORK/CPP/vsProj/glfw-3.3/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/Petroleum/vsProj/glfw-3.3 -BE:/WORK/Petroleum/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/Petroleum/vsProj/glfw-3.3/build/CMakeFiles/generate.stamp
+E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/CPP/vsProj/glfw-3.3 -BE:/WORK/CPP/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/CPP/vsProj/glfw-3.3/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -215,16 +215,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\Programms\Cmake\share\cmake-3.17\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeCInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakePackageConfigHelpers.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckCSourceCompiles.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckIncludeFile.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckLibraryExists.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindDoxygen.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindPackageHandleStandardArgs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindPackageMessage.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindThreads.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\GNUInstallDirs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\WriteBasicConfigVersionFile.cmake;E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeCCompiler.cmake;E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeRCCompiler.cmake;E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeSystem.cmake;E:\WORK\Petroleum\vsProj\glfw-3.3\cmake_uninstall.cmake.in;E:\WORK\Petroleum\vsProj\glfw-3.3\src\glfw3.pc.in;E:\WORK\Petroleum\vsProj\glfw-3.3\src\glfw3Config.cmake.in;E:\WORK\Petroleum\vsProj\glfw-3.3\src\glfw_config.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\Programms\Cmake\share\cmake-3.17\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeCInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeCommonLanguageInclude.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeGenericSystem.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeInitializeConfigs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeLanguageInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakePackageConfigHelpers.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeRCInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInformation.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CMakeSystemSpecificInitialize.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckCSourceCompiles.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckIncludeFile.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\CheckLibraryExists.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Compiler\MSVC-C.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindDoxygen.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindPackageHandleStandardArgs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindPackageMessage.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\FindThreads.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\GNUInstallDirs.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC-C.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows-MSVC.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\Windows.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\Platform\WindowsPaths.cmake;E:\Programms\Cmake\share\cmake-3.17\Modules\WriteBasicConfigVersionFile.cmake;E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeCCompiler.cmake;E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeRCCompiler.cmake;E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\3.17.0\CMakeSystem.cmake;E:\WORK\CPP\vsProj\glfw-3.3\cmake_uninstall.cmake.in;E:\WORK\CPP\vsProj\glfw-3.3\src\glfw3.pc.in;E:\WORK\CPP\vsProj\glfw-3.3\src\glfw3Config.cmake.in;E:\WORK\CPP\vsProj\glfw-3.3\src\glfw_config.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="E:\WORK\Petroleum\vsProj\glfw-3.3\build\CMakeFiles\uninstall" />
+    <None Include="E:\WORK\CPP\vsProj\glfw-3.3\build\CMakeFiles\uninstall" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="E:\WORK\Petroleum\vsProj\glfw-3.3\build\ZERO_CHECK.vcxproj">
+    <ProjectReference Include="E:\WORK\CPP\vsProj\glfw-3.3\build\ZERO_CHECK.vcxproj">
       <Project>{E04792FE-2AC0-3863-A633-1BA6F7BDD36E}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>

@@ -1,6 +1,5 @@
-﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/tests/CMakeLists.txt
-  monitors.c
+﻿  monitors.c
   getopt.c
   glad_gl.c
   Generating Code...
-  monitors.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\tests\Debug\monitors.exe
+  monitors.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\tests\Debug\monitors.exe

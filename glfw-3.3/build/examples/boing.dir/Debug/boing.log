@@ -1,5 +1,4 @@
-﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/examples/CMakeLists.txt
-  boing.c
+﻿  boing.c
   glad_gl.c
   Generating Code...
-  boing.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\examples\Debug\boing.exe
+  boing.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\examples\Debug\boing.exe

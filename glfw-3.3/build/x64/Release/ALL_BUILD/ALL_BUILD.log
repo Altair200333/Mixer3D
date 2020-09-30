@@ -1,0 +1,35 @@
+﻿E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\ZERO_CHECK.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\examples\boing.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\clipboard.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\cursor.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\empty.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\events.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\gamma.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\examples\gears.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\src\glfw.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\glfwinfo.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\examples\heightmap.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\icon.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\iconify.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\inputlag.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\joysticks.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\monitors.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\msaa.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\examples\offscreen.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\opacity.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\examples\particles.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\reopen.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\examples\sharing.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\examples\simple.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\examples\splitview.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\tearing.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\threads.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\timeout.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\title.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\vulkan.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\examples\wave.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\tests\windows.vcxproj' does not exist.
+  Building Custom Rule E:/WORK/CPP/vsProj/glfw-3.3/CMakeLists.txt
+  CMake is re-running because E:/WORK/CPP/vsProj/glfw-3.3/build/CMakeFiles/generate.stamp dependency file is missing.
+CUSTOMBUILD : CMake error : The source directory "E:/WORK/CPP/vsProj/glfw-3.3" does not appear to contain CMakeLists.txt.
+  Specify --help for usage, or press the help button on the CMake GUI.

@@ -1,9 +1,9 @@
 
-if (NOT EXISTS "E:/WORK/Petroleum/vsProj/glfw-3.3/build/install_manifest.txt")
-  message(FATAL_ERROR "Cannot find install manifest: \"E:/WORK/Petroleum/vsProj/glfw-3.3/build/install_manifest.txt\"")
+if (NOT EXISTS "E:/WORK/CPP/vsProj/glfw-3.3/build/install_manifest.txt")
+  message(FATAL_ERROR "Cannot find install manifest: \"E:/WORK/CPP/vsProj/glfw-3.3/build/install_manifest.txt\"")
 endif()
 
-file(READ "E:/WORK/Petroleum/vsProj/glfw-3.3/build/install_manifest.txt" files)
+file(READ "E:/WORK/CPP/vsProj/glfw-3.3/build/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 
 foreach (file ${files})

@@ -1,5 +1,4 @@
-﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/tests/CMakeLists.txt
-  cursor.c
+﻿  cursor.c
   glad_gl.c
   Generating Code...
-  cursor.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\tests\Debug\cursor.exe
+  cursor.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\tests\Debug\cursor.exe

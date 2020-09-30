@@ -1,6 +1,5 @@
-﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/tests/CMakeLists.txt
-  events.c
+﻿  events.c
   getopt.c
   glad_gl.c
   Generating Code...
-  events.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\tests\Debug\events.exe
+  events.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\tests\Debug\events.exe

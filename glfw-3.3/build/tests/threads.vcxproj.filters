@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\tests\threads.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\tests\threads.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\deps\tinycthread.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\deps\tinycthread.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\deps\glad_gl.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\deps\glad_gl.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="E:\WORK\Petroleum\vsProj\glfw-3.3\deps\tinycthread.h">
+    <ClInclude Include="E:\WORK\CPP\vsProj\glfw-3.3\deps\tinycthread.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\WORK\Petroleum\vsProj\glfw-3.3\deps\glad\gl.h">
+    <ClInclude Include="E:\WORK\CPP\vsProj\glfw-3.3\deps\glad\gl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WORK\Petroleum\vsProj\glfw-3.3\tests\CMakeLists.txt" />
+    <CustomBuild Include="E:\WORK\CPP\vsProj\glfw-3.3\tests\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">

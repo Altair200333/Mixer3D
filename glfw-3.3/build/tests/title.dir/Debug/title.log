@@ -1,5 +1,4 @@
-﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/tests/CMakeLists.txt
-  title.c
+﻿  title.c
   glad_gl.c
   Generating Code...
-  title.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\tests\Debug\title.exe
+  title.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\tests\Debug\title.exe

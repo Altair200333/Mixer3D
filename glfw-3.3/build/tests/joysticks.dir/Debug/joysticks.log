@@ -1,5 +1,4 @@
-﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/tests/CMakeLists.txt
-  joysticks.c
+﻿  joysticks.c
   glad_gl.c
   Generating Code...
-  joysticks.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\tests\Debug\joysticks.exe
+  joysticks.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\tests\Debug\joysticks.exe

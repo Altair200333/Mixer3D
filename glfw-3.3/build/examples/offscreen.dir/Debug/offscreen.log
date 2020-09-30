@@ -1,5 +1,4 @@
-﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/examples/CMakeLists.txt
-  offscreen.c
+﻿  offscreen.c
   glad_gl.c
   Generating Code...
-  offscreen.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\examples\Debug\offscreen.exe
+  offscreen.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\examples\Debug\offscreen.exe

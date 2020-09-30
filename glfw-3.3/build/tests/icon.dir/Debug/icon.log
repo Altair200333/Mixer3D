@@ -1,5 +1,4 @@
-﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/tests/CMakeLists.txt
-  icon.c
+﻿  icon.c
   glad_gl.c
   Generating Code...
-  icon.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\tests\Debug\icon.exe
+  icon.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\tests\Debug\icon.exe

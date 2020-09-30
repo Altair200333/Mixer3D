@@ -1,5 +1,4 @@
-﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/src/CMakeLists.txt
-  context.c
+﻿  context.c
   init.c
   input.c
   monitor.c
@@ -15,4 +14,4 @@
   egl_context.c
   osmesa_context.c
   Generating Code...
-  glfw.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\src\Debug\glfw3.lib
+  glfw.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\src\Debug\glfw3.lib

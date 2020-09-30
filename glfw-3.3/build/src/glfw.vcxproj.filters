@@ -1,86 +1,86 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\context.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\src\context.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\init.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\src\init.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\input.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\src\input.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\monitor.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\src\monitor.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\vulkan.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\src\vulkan.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\window.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\src\window.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\win32_init.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\src\win32_init.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\win32_joystick.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\src\win32_joystick.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\win32_monitor.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\src\win32_monitor.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\win32_time.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\src\win32_time.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\win32_thread.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\src\win32_thread.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\win32_window.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\src\win32_window.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\wgl_context.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\src\wgl_context.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\egl_context.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\src\egl_context.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\osmesa_context.c">
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\src\osmesa_context.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\internal.h">
+    <ClInclude Include="E:\WORK\CPP\vsProj\glfw-3.3\src\internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\mappings.h">
+    <ClInclude Include="E:\WORK\CPP\vsProj\glfw-3.3\src\mappings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\WORK\Petroleum\vsProj\glfw-3.3\build\src\glfw_config.h">
+    <ClInclude Include="E:\WORK\CPP\vsProj\glfw-3.3\build\src\glfw_config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\WORK\Petroleum\vsProj\glfw-3.3\include\GLFW\glfw3.h">
+    <ClInclude Include="E:\WORK\CPP\vsProj\glfw-3.3\include\GLFW\glfw3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\WORK\Petroleum\vsProj\glfw-3.3\include\GLFW\glfw3native.h">
+    <ClInclude Include="E:\WORK\CPP\vsProj\glfw-3.3\include\GLFW\glfw3native.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\win32_platform.h">
+    <ClInclude Include="E:\WORK\CPP\vsProj\glfw-3.3\src\win32_platform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\win32_joystick.h">
+    <ClInclude Include="E:\WORK\CPP\vsProj\glfw-3.3\src\win32_joystick.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\wgl_context.h">
+    <ClInclude Include="E:\WORK\CPP\vsProj\glfw-3.3\src\wgl_context.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\egl_context.h">
+    <ClInclude Include="E:\WORK\CPP\vsProj\glfw-3.3\src\egl_context.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\osmesa_context.h">
+    <ClInclude Include="E:\WORK\CPP\vsProj\glfw-3.3\src\osmesa_context.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WORK\Petroleum\vsProj\glfw-3.3\src\CMakeLists.txt" />
+    <CustomBuild Include="E:\WORK\CPP\vsProj\glfw-3.3\src\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">

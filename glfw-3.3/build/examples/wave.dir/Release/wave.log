@@ -1,0 +1,6 @@
+﻿E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\ZERO_CHECK.vcxproj' does not exist.
+E:\Programms\VISUALSTUDIO\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1875,5): warning : The referenced project 'E:\WORK\CPP\vsProj\glfw-3.3\build\src\glfw.vcxproj' does not exist.
+  Building Custom Rule E:/WORK/CPP/vsProj/glfw-3.3/examples/CMakeLists.txt
+  CMake is re-running because E:/WORK/CPP/vsProj/glfw-3.3/build/examples/CMakeFiles/generate.stamp dependency file is missing.
+CUSTOMBUILD : CMake error : The source directory "E:/WORK/CPP/vsProj/glfw-3.3" does not appear to contain CMakeLists.txt.
+  Specify --help for usage, or press the help button on the CMake GUI.

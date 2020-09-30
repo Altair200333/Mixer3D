@@ -3,16 +3,16 @@
 
 #include "fileManager.h"
 
-Mesh* STLMeshLoader::load(std::string path)
+Mesh *STLMeshLoader::load(std::string path)
 {
 	if (!FileManager::fileExists(path))
 		return nullptr;
-	
+
 	auto mesh = new Mesh();
 	STLImport(mesh, path);
 	return mesh;
 }
-void STLMeshLoader::STLImport(Mesh* mesh, const std::string& fileName)
+void STLMeshLoader::STLImport(Mesh *mesh, const std::string &fileName)
 {
 	int vertexCount = 0;
 	std::vector<float> polygons;
@@ -21,26 +21,28 @@ void STLMeshLoader::STLImport(Mesh* mesh, const std::string& fileName)
 
 	std::ifstream ifs(fileName, std::ifstream::binary);
 
-	std::filebuf* pbuf = ifs.rdbuf();
+	std::filebuf *pbuf = ifs.rdbuf();
 
 	auto size = pbuf->pubseekoff(0, ifs.end);
 
 	pbuf->pubseekpos(0);
 
-	char* buffer = new char[(size_t)size];
+	char *buffer = new char[(size_t)size];
 
 	pbuf->sgetn(buffer, size);
 
-	char* bufptr = buffer;
+	char *bufptr = buffer;
 
 	bufptr += 80; // Skip past the header.
-	bufptr += 4; // Skip past the number of triangles.
+	bufptr += 4;  // Skip past the number of triangles.
 
 	glm::vec3 normal;
 	glm::vec3 v1, v2, v3;
 
 	while (bufptr < buffer + size)
 	{
+		std::vector<float> meshList;
+
 		normal = fromBuf(bufptr);
 		bufptr += 12;
 
@@ -83,20 +85,17 @@ void STLMeshLoader::STLImport(Mesh* mesh, const std::string& fileName)
 
 	mesh->vertexCount = vertexCount;
 }
-glm::vec3 STLMeshLoader::fromBuf(char* bufptr)
+glm::vec3 STLMeshLoader::fromBuf(char *bufptr)
 {
-	return { *(float*)(bufptr), *(float*)(bufptr + 4), *(float*)(bufptr + 8) };
+	return {*(float *)(bufptr), *(float *)(bufptr + 4), *(float *)(bufptr + 8)};
 }
 
-void STLMeshLoader::STLAddFace(glm::vec3& v1, glm::vec3& v2, glm::vec3& v3, glm::vec3& normal, std::vector<float>& polygons)
+void STLMeshLoader::STLAddFace(glm::vec3 &v1, glm::vec3 &v2, glm::vec3 &v3, glm::vec3 &normal, std::vector<float> &polygons)
 {
 	float a[] = {
 		v1.x, v1.y, v1.z, normal.x, normal.y, normal.z,
 		v2.x, v2.y, v2.z, normal.x, normal.y, normal.z,
-		v3.x, v3.y, v3.z, normal.x, normal.y, normal.z
-	};
+		v3.x, v3.y, v3.z, normal.x, normal.y, normal.z};
 
 	polygons.insert(polygons.end(), a, a + 18);
-
-
 }

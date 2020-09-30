@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WORK\Petroleum\vsProj\glfw-3.3\build\examples\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WORK\CPP\vsProj\glfw-3.3\build\examples\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">wave.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">wave</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WORK\Petroleum\vsProj\glfw-3.3\build\examples\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WORK\CPP\vsProj\glfw-3.3\build\examples\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">wave.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">wave</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WORK\Petroleum\vsProj\glfw-3.3\build\examples\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WORK\CPP\vsProj\glfw-3.3\build\examples\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">wave.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">wave</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WORK\Petroleum\vsProj\glfw-3.3\build\examples\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WORK\CPP\vsProj\glfw-3.3\build\examples\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">wave.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">wave</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\WORK\Petroleum\vsProj\glfw-3.3\deps;E:\WORK\Petroleum\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WORK\CPP\vsProj\glfw-3.3\deps;E:\WORK\CPP\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsC</CompileAs>
@@ -104,10 +104,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\WORK\Petroleum\vsProj\glfw-3.3\deps;E:\WORK\Petroleum\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WORK\CPP\vsProj\glfw-3.3\deps;E:\WORK\CPP\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\WORK\Petroleum\vsProj\glfw-3.3\deps;E:\WORK\Petroleum\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WORK\CPP\vsProj\glfw-3.3\deps;E:\WORK\CPP\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -121,8 +121,8 @@
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/WORK/Petroleum/vsProj/glfw-3.3/build/examples/Debug/wave.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/WORK/Petroleum/vsProj/glfw-3.3/build/examples/Debug/wave.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/WORK/CPP/vsProj/glfw-3.3/build/examples/Debug/wave.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/WORK/CPP/vsProj/glfw-3.3/build/examples/Debug/wave.pdb</ProgramDataBaseFile>
       <SubSystem>Windows</SubSystem>
     </Link>
     <ProjectReference>
@@ -131,7 +131,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\WORK\Petroleum\vsProj\glfw-3.3\deps;E:\WORK\Petroleum\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WORK\CPP\vsProj\glfw-3.3\deps;E:\WORK\CPP\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <ExceptionHandling>
@@ -149,10 +149,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\WORK\Petroleum\vsProj\glfw-3.3\deps;E:\WORK\Petroleum\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WORK\CPP\vsProj\glfw-3.3\deps;E:\WORK\CPP\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\WORK\Petroleum\vsProj\glfw-3.3\deps;E:\WORK\Petroleum\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WORK\CPP\vsProj\glfw-3.3\deps;E:\WORK\CPP\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -166,8 +166,8 @@
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/WORK/Petroleum/vsProj/glfw-3.3/build/examples/Release/wave.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/WORK/Petroleum/vsProj/glfw-3.3/build/examples/Release/wave.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/WORK/CPP/vsProj/glfw-3.3/build/examples/Release/wave.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/WORK/CPP/vsProj/glfw-3.3/build/examples/Release/wave.pdb</ProgramDataBaseFile>
       <SubSystem>Windows</SubSystem>
     </Link>
     <ProjectReference>
@@ -176,7 +176,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\WORK\Petroleum\vsProj\glfw-3.3\deps;E:\WORK\Petroleum\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WORK\CPP\vsProj\glfw-3.3\deps;E:\WORK\CPP\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <ExceptionHandling>
@@ -194,10 +194,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\WORK\Petroleum\vsProj\glfw-3.3\deps;E:\WORK\Petroleum\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WORK\CPP\vsProj\glfw-3.3\deps;E:\WORK\CPP\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\WORK\Petroleum\vsProj\glfw-3.3\deps;E:\WORK\Petroleum\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WORK\CPP\vsProj\glfw-3.3\deps;E:\WORK\CPP\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -211,8 +211,8 @@
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/WORK/Petroleum/vsProj/glfw-3.3/build/examples/MinSizeRel/wave.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/WORK/Petroleum/vsProj/glfw-3.3/build/examples/MinSizeRel/wave.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/WORK/CPP/vsProj/glfw-3.3/build/examples/MinSizeRel/wave.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/WORK/CPP/vsProj/glfw-3.3/build/examples/MinSizeRel/wave.pdb</ProgramDataBaseFile>
       <SubSystem>Windows</SubSystem>
     </Link>
     <ProjectReference>
@@ -221,7 +221,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\WORK\Petroleum\vsProj\glfw-3.3\deps;E:\WORK\Petroleum\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WORK\CPP\vsProj\glfw-3.3\deps;E:\WORK\CPP\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -238,10 +238,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\WORK\Petroleum\vsProj\glfw-3.3\deps;E:\WORK\Petroleum\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WORK\CPP\vsProj\glfw-3.3\deps;E:\WORK\CPP\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\WORK\Petroleum\vsProj\glfw-3.3\deps;E:\WORK\Petroleum\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\WORK\CPP\vsProj\glfw-3.3\deps;E:\WORK\CPP\vsProj\glfw-3.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -255,8 +255,8 @@
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/WORK/Petroleum/vsProj/glfw-3.3/build/examples/RelWithDebInfo/wave.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/WORK/Petroleum/vsProj/glfw-3.3/build/examples/RelWithDebInfo/wave.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/WORK/CPP/vsProj/glfw-3.3/build/examples/RelWithDebInfo/wave.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/WORK/CPP/vsProj/glfw-3.3/build/examples/RelWithDebInfo/wave.pdb</ProgramDataBaseFile>
       <SubSystem>Windows</SubSystem>
     </Link>
     <ProjectReference>
@@ -264,10 +264,10 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\WORK\Petroleum\vsProj\glfw-3.3\examples\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/examples/CMakeLists.txt</Message>
+    <CustomBuild Include="E:\WORK\CPP\vsProj\glfw-3.3\examples\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/WORK/CPP/vsProj/glfw-3.3/examples/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/Petroleum/vsProj/glfw-3.3 -BE:/WORK/Petroleum/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/Petroleum/vsProj/glfw-3.3/build/examples/CMakeFiles/generate.stamp
+E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/CPP/vsProj/glfw-3.3 -BE:/WORK/CPP/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/CPP/vsProj/glfw-3.3/build/examples/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -276,11 +276,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WORK\Petroleum\vsProj\glfw-3.3\build\examples\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\WORK\CPP\vsProj\glfw-3.3\build\examples\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/examples/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/WORK/CPP/vsProj/glfw-3.3/examples/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/Petroleum/vsProj/glfw-3.3 -BE:/WORK/Petroleum/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/Petroleum/vsProj/glfw-3.3/build/examples/CMakeFiles/generate.stamp
+E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/CPP/vsProj/glfw-3.3 -BE:/WORK/CPP/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/CPP/vsProj/glfw-3.3/build/examples/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -289,11 +289,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WORK\Petroleum\vsProj\glfw-3.3\build\examples\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\WORK\CPP\vsProj\glfw-3.3\build\examples\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/examples/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/WORK/CPP/vsProj/glfw-3.3/examples/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/Petroleum/vsProj/glfw-3.3 -BE:/WORK/Petroleum/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/Petroleum/vsProj/glfw-3.3/build/examples/CMakeFiles/generate.stamp
+E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/CPP/vsProj/glfw-3.3 -BE:/WORK/CPP/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/CPP/vsProj/glfw-3.3/build/examples/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -302,11 +302,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WORK\Petroleum\vsProj\glfw-3.3\build\examples\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\WORK\CPP\vsProj\glfw-3.3\build\examples\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/examples/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/WORK/CPP/vsProj/glfw-3.3/examples/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/Petroleum/vsProj/glfw-3.3 -BE:/WORK/Petroleum/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/Petroleum/vsProj/glfw-3.3/build/examples/CMakeFiles/generate.stamp
+E:\Programms\Cmake\bin\cmake.exe -SE:/WORK/CPP/vsProj/glfw-3.3 -BE:/WORK/CPP/vsProj/glfw-3.3/build --check-stamp-file E:/WORK/CPP/vsProj/glfw-3.3/build/examples/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -315,24 +315,24 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WORK\Petroleum\vsProj\glfw-3.3\build\examples\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\WORK\CPP\vsProj\glfw-3.3\build\examples\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\examples\wave.c" />
-    <ResourceCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\examples\glfw.rc" />
-    <ClInclude Include="E:\WORK\Petroleum\vsProj\glfw-3.3\deps\glad\gl.h" />
-    <ClCompile Include="E:\WORK\Petroleum\vsProj\glfw-3.3\deps\glad_gl.c" />
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\examples\wave.c" />
+    <ResourceCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\examples\glfw.rc" />
+    <ClInclude Include="E:\WORK\CPP\vsProj\glfw-3.3\deps\glad\gl.h" />
+    <ClCompile Include="E:\WORK\CPP\vsProj\glfw-3.3\deps\glad_gl.c" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="E:\WORK\Petroleum\vsProj\glfw-3.3\build\ZERO_CHECK.vcxproj">
+    <ProjectReference Include="E:\WORK\CPP\vsProj\glfw-3.3\build\ZERO_CHECK.vcxproj">
       <Project>{E04792FE-2AC0-3863-A633-1BA6F7BDD36E}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="E:\WORK\Petroleum\vsProj\glfw-3.3\build\src\glfw.vcxproj">
+    <ProjectReference Include="E:\WORK\CPP\vsProj\glfw-3.3\build\src\glfw.vcxproj">
       <Project>{9C75BA15-B906-3213-8F79-382B68C85BC0}</Project>
       <Name>glfw</Name>
     </ProjectReference>

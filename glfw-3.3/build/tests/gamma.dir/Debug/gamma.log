@@ -1,5 +1,4 @@
-﻿  Building Custom Rule E:/WORK/Petroleum/vsProj/glfw-3.3/tests/CMakeLists.txt
-  gamma.c
+﻿  gamma.c
   glad_gl.c
   Generating Code...
-  gamma.vcxproj -> E:\WORK\Petroleum\vsProj\glfw-3.3\build\tests\Debug\gamma.exe
+  gamma.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\tests\Debug\gamma.exe
