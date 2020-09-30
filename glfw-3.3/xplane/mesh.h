@@ -9,7 +9,6 @@
 class Mesh final: public Component
 {
 public:
-	const static uint64_t componentID = 2;
 	float* vertices;
 	size_t vertexCount;
 

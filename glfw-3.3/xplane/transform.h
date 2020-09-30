@@ -5,7 +5,6 @@
 class Transform final: public Component
 {
 public:
-	const static uint64_t componentID = 1;
 	Transform(Object* _owner) :Transform(_owner, {0,0,0}) {}
 	Transform(Object* _owner, glm::vec3 _position) :Component(_owner), position(_position) {}
 

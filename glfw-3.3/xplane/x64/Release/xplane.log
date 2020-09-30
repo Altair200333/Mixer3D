@@ -112,8 +112,8 @@ E:\WORK\CPP\vsProj\glfw-3.3\xplane\rayTracer.cpp(171,77): warning C4267: 'initia
 E:\WORK\CPP\vsProj\glfw-3.3\xplane\vectorMath.cpp(32,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  425 of 3997 functions (10.6%) were compiled, the rest were copied from previous compilation.
-    102 functions were new in current compilation
-    384 functions had inline decision re-evaluated but remain unchanged
+  0 of 3997 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   xplane.vcxproj -> E:\WORK\CPP\vsProj\glfw-3.3\build\x64\Release\mixer.exe

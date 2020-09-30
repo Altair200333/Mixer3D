@@ -5,9 +5,7 @@
 
 class Material final: public Component
 {
-public:
-	const static uint64_t componentID = 3;
-	
+public:	
 	glm::vec3 diffuseColor;
 
 	float roughness;

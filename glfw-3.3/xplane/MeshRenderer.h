@@ -15,8 +15,6 @@ public:
 	
     glm::mat4 model;
     unsigned int VBO, VAO;
-
-    const static uint64_t componentID = 6;
 	
     MeshRenderer(Window* _window, Object* _owner);
 	void render(Camera* camera) const;
