@@ -8,6 +8,6 @@
 - Entity component system
 
 ![image1](render.bmp)
-GPU result
+## GPU result
 ![image3](render1.jpg)
 ![image2](ui.bmp)
