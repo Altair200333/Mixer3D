@@ -1,4 +1,6 @@
 # Mixer3D
+> GLFW project structure has been generated automatically so [an actual code is here](glfw-3.3/xplane)
+
 3D engine on OpenGL with custom raytracer
 
 - scene configuration is loaded from conf.json file
